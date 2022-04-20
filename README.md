@@ -1,5 +1,8 @@
 # tyumburg
 
+## npm-пакеты
+* Пакеты устанавливаются с флагом `-E` (`--save-exact`): https://docs.npmjs.com/cli/v8/commands/npm-install#save-exact
+
 ## Политики по веткам
 * `main` - целевая ветка, в которую мерджится код в конце спринта из `sprint_*`-веток
   * **Требования**
