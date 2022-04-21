@@ -10,4 +10,4 @@
 * `sprint_*` - целевые ветки для каждого спринта. Отводятся от `main` в начале спринта
   * **Требования**
     * 1 аппрув
-* `task/t-X-*` - ветки, в которых выполяется работа. `t-X` соответствует номеру задачи в Trello: https://trello.com/b/6B73GE3O/practicum-game. Например, `task/t-3-prettier` - настройка Prettier. 
+* `task/tyum-X-*` - ветки, в которых выполяется работа. `tyum-X` соответствует номеру задачи в Trello: https://trello.com/b/6B73GE3O/practicum-game. Например, `task/tyum-3-prettier` - настройка Prettier. 
