@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/tyumburg-game/tyumburg#readme",
   "devDependencies": {
+    "@babel/core": "7.17.9",
+    "@babel/preset-env": "7.16.11",
+    "@babel/preset-react": "7.16.7",
     "css-loader": "6.7.1",
     "html-webpack-plugin": "5.5.0",
     "install": "0.13.0",
