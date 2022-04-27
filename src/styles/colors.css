@@ -1,0 +1,15 @@
+:root {
+  --purple-3: #8338EC;
+  --purple-4: #7209b7;
+  --pink-3: #FF006E;
+  --pink-4: #d81e5b;
+  --gray-1: #f5f5f5;
+  --gray-2: #d3d3d3;
+  --gray-3: #c4c4c4;
+  --gray-4: #999999;
+  --gray-5: #242424;
+  --color-accent: var(--purple-3);
+  --color-accent-darker: var(--purple-4);
+  --color-dangerous: var(--pink-3);
+  --color-dangerous-darker: var(--pink-4);
+}

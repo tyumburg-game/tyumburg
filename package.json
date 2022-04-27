@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --config ./webpack-configs/webpack.dev.js",
     "build": "webpack --config ./webpack-configs/webpack.prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "npx stylelint \"./src/**/*.css\""
   },
   "engines": {
     "node": ">=12.13.0"
@@ -26,6 +27,7 @@
     "@babel/core": "7.17.9",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
+    "@csstools/normalize.css": "12.0.0",
     "babel-loader": "8.2.5",
     "css-loader": "6.7.1",
     "html-webpack-plugin": "5.5.0",
@@ -36,6 +38,9 @@
     "postcss-loader": "6.2.1",
     "prettier": "2.6.2",
     "style-loader": "3.3.1",
+    "stylelint": "14.8.0",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-config-standard": "25.0.0",
     "ts-loader": "9.2.8",
     "tslib": "2.4.0",
     "typescript": "4.6.3",
