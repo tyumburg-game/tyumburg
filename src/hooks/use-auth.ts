@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 export function useAuth() {
     const [isAuth, setIsAuth] = useState<boolean>(true);
 
-    const checkAuth = async() => {
-        // TODO реализовать при добавлении авторизации
-        setIsAuth(true);
-    }
-
     useEffect(() => {
+            // TODO реализовать при добавлении авторизации
+        const checkAuth = async () => {
+            const res = await true;
+            checkAuth(res);
+        }
+        
         checkAuth();
     },[])
 
