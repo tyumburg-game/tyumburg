@@ -5,6 +5,8 @@ import { PATHS } from "./paths";
 
 export function PrivateOutlet() {
   const auth = useAuth();
+  console.log('private');
+
 
   return auth ? <Outlet /> : <Navigate to={PATHS.SIGN_IN} />;
 }
