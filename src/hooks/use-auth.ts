@@ -9,7 +9,7 @@ export function useAuth() {
             const res = await true;
             setIsAuth(res);
         }
-        
+
         checkAuth();
     },[])
 
