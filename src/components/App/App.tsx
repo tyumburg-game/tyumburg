@@ -5,7 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { PrivateRoute } from "Routes/PrivateRoute";
+import { PrivateOutlet } from "Routes/PrivateOutlet";
 import { ROUTES } from "Routes/routes";
 import "./App.css";
 
@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <Routes>
           {ROUTES.map((route) => {
-            const RouteOutlet = route.protected ? PrivateRoute : Outlet;
+            const RouteOutlet = route.protected ? PrivateOutlet : Outlet;
             return (
               <Route
                 key={route.path}
