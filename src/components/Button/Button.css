@@ -1,0 +1,62 @@
+:root {
+  --min-button-width: 72px;
+}
+
+.button {
+  cursor: pointer;
+  font-family: var(--font-button);
+  font-size: 14px;
+  line-height: 16px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid var(--color-accent);
+  white-space: nowrap;
+}
+
+.button_style_primary {
+  min-width: var(--min-button-width);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.button_style_primary:hover {
+  background-color: var(--color-accent-darker);
+  border-color: var(--color-accent-darker);
+}
+
+.button_style_primary.button_intention_dangerous {
+  background-color: var(--color-dangerous);
+  border-color: var(--color-dangerous);
+}
+
+.button_style_primary.button_intention_dangerous:hover {
+  background-color: var(--color-dangerous-darker);
+  border-color: var(--color-dangerous-darker);
+}
+
+.button_style_secondary {
+  min-width: var(--min-button-width);
+  background-color: #ffffff;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.button_style_secondary:hover {
+  color: var(--color-accent-darker);
+  border-color: var(--color-accent-darker);
+  background-color: var(--gray-2);
+}
+
+.button_style_secondary.button_intention_dangerous {
+  color: var(--color-dangerous);
+  border-color: var(--color-dangerous);
+}
+
+.button_style_secondary.button_intention_dangerous:hover {
+  color: var(--color-dangerous-darker);
+  border-color: var(--color-dangerous-darker);
+}
