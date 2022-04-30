@@ -17,17 +17,19 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "ts-loader"],
-      },
-      {
-        test: /\.css$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
+          "babel-loader",
           {
-            loader: "postcss-loader",
+            loader: "ts-loader",
+            options: {
+              configFile: "../tsconfig.json",
+            },
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
     ],
   },
