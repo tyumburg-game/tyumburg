@@ -16,6 +16,7 @@ class App extends Component {
         <Routes>
           {ROUTES.map((route) => {
             const RouteOutlet = route.protected ? PrivateOutlet : Outlet;
+            
             return (
               <Route
                 key={route.path}
