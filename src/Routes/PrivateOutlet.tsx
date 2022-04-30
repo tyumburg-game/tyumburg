@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { PATHS } from "./paths";
 
 export function PrivateOutlet() {
-    const auth = useAuth();
+  const auth = useAuth();
 
-    return auth ? <Outlet /> : <Navigate to={PATHS.SIGN_IN} />;
-  }
+  return auth ? <Outlet /> : <Navigate to={PATHS.SIGN_IN} />;
+}
