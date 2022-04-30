@@ -14,7 +14,6 @@ class App extends Component {
     return (
       <Router>
         <Routes>
-          <Route path="/" element={<h1 className="title">Tyumburg Game</h1>} />
           {ROUTES.map((route) => {
             const RouteOutlet = route.protected ? PrivateRoute : Outlet;
             return (
