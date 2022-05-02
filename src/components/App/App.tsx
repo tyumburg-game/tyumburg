@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import { Game } from "components/Game/Game";
+import { Component } from "react";
 import {
   BrowserRouter as Router,
   Outlet,
@@ -17,7 +18,7 @@ class App extends Component {
           {/* TODO заиметь Outlet на готовые компоненты */}
           <Route path={PATHS.MAIN} element={<Outlet />} />
           <Route path={PATHS.FORUM} element={<Outlet />} />
-          <Route path={PATHS.GAME} element={<Outlet />} />
+          <Route path={PATHS.GAME} element={<Game />} />
           <Route path={PATHS.LEADERBOARD} element={<Outlet />} />
           <Route path={PATHS.SIGN_IN} element={<Outlet />} />
           <Route path={PATHS.SIGN_UP} element={<Outlet />} />
