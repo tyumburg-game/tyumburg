@@ -78,10 +78,6 @@ export function getNextTetromino(
   tetrominoQueue: ITetrominoQueue,
   playfield: IPlayfield
 ): ITetrominoCoordinate {
-  if (tetrominoQueue.length === 0) {
-    tetrominoQueue = generateQueue();
-  }
-
   const name: ITetrominoName = tetrominoQueue.pop() as ITetrominoName;
   const matrix = TETROMINOS[name];
   const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2);

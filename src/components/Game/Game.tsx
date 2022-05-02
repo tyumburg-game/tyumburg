@@ -65,6 +65,9 @@ export function Game() {
         }
       }
       // получаем следующую фигуру
+      if (tetrominoQueue.length === 0) {
+        tetrominoQueue = generateQueue();
+      }
       tetromino = getNextTetromino(tetrominoQueue, playfield);
     }
 
