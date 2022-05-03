@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "ignoreFiles": ["dist/**"],
+  "rules": {
+    "selector-class-pattern": null,
+    "color-hex-length": "long",
+    "function-disallowed-list": ["/^rgb/"]
+  }
+}
