@@ -7,7 +7,8 @@
     "start": "webpack serve --config ./webpack-configs/webpack.dev.js",
     "build": "webpack --config ./webpack-configs/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stylelint": "npx stylelint \"./src/**/*.css\""
+    "stylelint": "npx stylelint \"./src/**/*.css\"",
+    "prettier:check": "prettier --check ."
   },
   "engines": {
     "node": ">=12.13.0"
