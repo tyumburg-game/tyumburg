@@ -2,22 +2,23 @@ import { MouseEvent, ReactNode } from "react";
 import block from "bem-cn";
 import "./Button.css";
 
-type ButtonMode = "primary" | "secondary" | "dangerous";
-
-const b = block("button");
-
-export default function Button(props: {
+type ButtonProps = {
   type?: "button" | "submit" | "reset";
-  mode?: ButtonMode;
+  mode?: "primary" | "secondary" | "dangerous";
   classNames?: string | string[];
   children: ReactNode;
   onClick?(event: MouseEvent<HTMLButtonElement>): void;
-}) {
+};
+
+const b = block("button");
+
+export default function Button(props: ButtonProps) {
   const {
     type = "button",
     mode = "secondary",
     classNames = [],
     onClick = () => {},
+    children,
   } = props;
   return (
     <button
@@ -25,7 +26,7 @@ export default function Button(props: {
       type={type}
       className={b({ mode }).mix(classNames)}
     >
-      {props.children}
+      {children}
     </button>
   );
 }
