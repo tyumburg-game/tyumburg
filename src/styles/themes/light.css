@@ -1,0 +1,47 @@
+/* Accent */
+:root {
+  --color-accent: var(--purple-3);
+  --color-accent-hover: var(--purple-4);
+  --color-accent-active: var(--purple-5);
+}
+
+/* Dangerous */
+:root {
+  --color-dangerous: var(--pink-3);
+  --color-dangerous-hover: var(--pink-4);
+  --color-dangerous-active: var(--pink-5);
+}
+
+/* Buttons */
+:root {
+  /* Primary */
+  --color-button-primary-initial-background: var(--color-accent);
+  --color-button-primary-initial-text: #ffffff;
+  --color-button-primary-initial-border: var(--color-accent);
+  --color-button-primary-hover-background: var(--color-accent-hover);
+  --color-button-primary-hover-text: #ffffff;
+  --color-button-primary-hover-border: var(--color-accent-hover);
+  --color-button-primary-active-background: var(--color-accent-active);
+  --color-button-primary-active-text: #ffffff;
+  --color-button-primary-active-border: var(--color-accent-active);
+  /* Secondary */
+  --color-button-secondary-initial-background: #ffffff;
+  --color-button-secondary-initial-text: var(--color-accent);
+  --color-button-secondary-initial-border: var(--color-accent);
+  --color-button-secondary-hover-background: var(--gray-2);
+  --color-button-secondary-hover-text: var(--color-accent-hover);
+  --color-button-secondary-hover-border: var(--color-accent-hover);
+  --color-button-secondary-active-background: var(--gray-3);
+  --color-button-secondary-active-text: var(--color-accent-active);
+  --color-button-secondary-active-border: var(--color-accent-active);
+  /* Dangerous */
+  --color-button-dangerous-initial-background: var(--color-dangerous);
+  --color-button-dangerous-initial-text: #ffffff;
+  --color-button-dangerous-initial-border: var(--color-dangerous);
+  --color-button-dangerous-hover-background: var(--color-dangerous-hover);
+  --color-button-dangerous-hover-text: #ffffff;
+  --color-button-dangerous-hover-border: var(--color-dangerous-hover);
+  --color-button-dangerous-active-background: var(--color-dangerous-active);
+  --color-button-dangerous-active-text: #ffffff;
+  --color-button-dangerous-active-border: var(--color-dangerous-active);
+}
