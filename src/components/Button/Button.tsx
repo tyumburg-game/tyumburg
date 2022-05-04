@@ -1,62 +1,31 @@
-import { FC, ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
+import block from "bem-cn";
 import "./Button.css";
 
-type ButtonStyle = "primary" | "secondary" | "dangerous";
-type ButtonIntention = "default" | "dangerous";
+type ButtonMode = "primary" | "secondary" | "dangerous";
 
-const Button: FC<{
+const b = block("button");
+
+export default function Button(props: {
   type?: "button" | "submit" | "reset";
-  intention?: ButtonIntention;
-  mode?: ButtonStyle;
-  parentClassName?: string | string[];
-  children?: ReactNode;
-}> = (props) => {
+  mode?: ButtonMode;
+  classNames?: string | string[];
+  children: ReactNode;
+  onClick?(event: MouseEvent<HTMLButtonElement>): void;
+}) {
+  const {
+    type = "button",
+    mode = "secondary",
+    classNames = [],
+    onClick = () => {},
+  } = props;
   return (
     <button
-      type={props.type ?? "button"}
-      className={getClassName(
-        props.parentClassName,
-        props.mode,
-        props.intention
-      )}
+      onClick={onClick}
+      type={type}
+      className={b({ mode }).mix(classNames)}
     >
       {props.children}
     </button>
   );
-};
-
-function getClassName(
-  parentClassName?: string | string[],
-  style?: ButtonStyle,
-  intention: ButtonIntention = "default"
-): string {
-  const parent = parentClassName
-    ? Array.isArray(parentClassName)
-      ? parentClassName
-      : [parentClassName]
-    : [];
-  const intentionClassName =
-    intention === "default"
-      ? "button_intention_default"
-      : "button_intention_dangerous";
-  return [
-    "button",
-    resolveClassNameByStyle(style),
-    intentionClassName,
-    ...parent,
-  ].join(" ");
 }
-
-function resolveClassNameByStyle(style?: ButtonStyle): string {
-  switch (style) {
-    case "secondary":
-      return "button_style_secondary";
-    case "dangerous":
-      return "button_style_dangerous";
-    case "primary":
-    default:
-      return "button_style_primary";
-  }
-}
-
-export default Button;

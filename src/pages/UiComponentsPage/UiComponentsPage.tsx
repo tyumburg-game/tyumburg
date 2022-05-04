@@ -7,19 +7,24 @@ const UiComponentsPage: FC = () => {
     <>
       <div className="buttons-grid">
         <div>
-          <Button mode={"primary"}>Primary</Button>
-        </div>
-        <div>
-          <Button mode={"primary"} intention={"dangerous"}>
-            Primary dangerous
+          <Button
+            mode="primary"
+            onClick={(event) => console.log("click", event)}
+          >
+            Primary
           </Button>
         </div>
         <div>
-          <Button mode={"secondary"}>Secondary</Button>
+          <Button mode="secondary" classNames="parent-class-name">
+            Secondary
+          </Button>
         </div>
         <div>
-          <Button mode={"secondary"} intention={"dangerous"}>
-            Secondary dangerous
+          <Button
+            mode="dangerous"
+            classNames={["parent-class-name-one", "parent-class-name-two"]}
+          >
+            Dangerous
           </Button>
         </div>
       </div>
