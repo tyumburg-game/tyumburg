@@ -1,6 +1,7 @@
-import { FC } from "react";
+import {FC} from "react";
 import Button from "../../components/Button/Button";
 import "./UiComponentsPage.css";
+import Input, {TypesInput} from "../../components/Input/Input";
 
 const UiComponentsPage: FC = () => {
   return (
@@ -31,6 +32,17 @@ const UiComponentsPage: FC = () => {
           >
             Dangerous
           </Button>
+        </div>
+        <div>
+          <Input
+            type={TypesInput.Text}
+            mode="secondary"
+            value=""
+            placeholder="Test placeholder"
+            onChange={(event) => { console.log("change Input", event.target.value) }}
+            onBlur={(event) => { console.log("blur Input", event) }}
+            onFocus={(event) => { console.log("focus Input", event) }}
+            />
         </div>
       </div>
     </>
