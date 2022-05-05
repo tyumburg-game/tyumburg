@@ -1,0 +1,4 @@
+.buttons-grid {
+  grid-gap: 16px;
+  display: flex;
+}
