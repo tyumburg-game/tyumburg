@@ -7,7 +7,8 @@
     "start": "webpack serve --config ./webpack-configs/webpack.dev.js",
     "build": "webpack --config ./webpack-configs/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stylelint": "npx stylelint \"./src/**/*.css\""
+    "stylelint": "npx stylelint \"./src/**/*.css\"",
+    "prettier:check": "prettier --check ."
   },
   "engines": {
     "node": ">=12.13.0"
@@ -53,6 +54,7 @@
   "dependencies": {
     "@types/react": "18.0.6",
     "@types/react-dom": "18.0.2",
+    "bem-cn": "3.0.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-router-dom": "6.3.0"

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import {
   BrowserRouter as Router,
   Outlet,
@@ -29,4 +29,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
