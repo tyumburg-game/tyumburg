@@ -7,7 +7,7 @@ type ButtonProps = {
   mode?: "primary" | "secondary" | "dangerous";
   classNames?: string | string[];
   children: ReactNode;
-  onClick?(event: MouseEvent<HTMLButtonElement>): void;
+  onClick(event: MouseEvent<HTMLButtonElement>): void;
 };
 
 const b = block("button");
@@ -17,8 +17,8 @@ export default function Button(props: ButtonProps) {
     type = "button",
     mode = "secondary",
     classNames = [],
-    onClick = () => {},
     children,
+    onClick,
   } = props;
   return (
     <button

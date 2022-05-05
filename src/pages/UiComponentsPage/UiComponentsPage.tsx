@@ -15,7 +15,11 @@ const UiComponentsPage: FC = () => {
           </Button>
         </div>
         <div>
-          <Button mode="secondary" classNames="parent-class-name">
+          <Button
+            mode="secondary"
+            classNames="parent-class-name"
+            onClick={(event) => console.log("click", event)}
+          >
             Secondary
           </Button>
         </div>
@@ -23,6 +27,7 @@ const UiComponentsPage: FC = () => {
           <Button
             mode="dangerous"
             classNames={["parent-class-name-one", "parent-class-name-two"]}
+            onClick={(event) => console.log("click", event)}
           >
             Dangerous
           </Button>
