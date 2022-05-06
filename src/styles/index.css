@@ -1,4 +1,5 @@
 @import "@csstools/normalize.css";
 @import "./main.css";
-@import "./colors.css";
+@import "./color-palette.css";
 @import "./fonts.css";
+@import "./themes/light.css";
