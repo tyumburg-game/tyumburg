@@ -3,7 +3,7 @@ import block from "bem-cn";
 import "./Input.css";
 
 type InputProps = {
-  value: string | number;
+  value: string;
   type?: "text" | "number";
   mode?: "default" | "error";
   id?: string;

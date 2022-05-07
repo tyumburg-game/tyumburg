@@ -48,6 +48,8 @@ const UiComponentsPage: FC = () => {
           mode="error"
           comment={<ValidationMessage>invalid</ValidationMessage>}
         />
+        <div>Type number</div>
+        <Input onChange={() => {}} value="3" label="Ages" type="number" />
       </div>
     </div>
   );
