@@ -29,13 +29,11 @@
   border-color: var(--color-input-default-initial-border);
 }
 
-
 .input__field_mode_default:hover {
   background-color: var(--color-input-default-hover-background);
   color: var(--color-input-default-hover-text);
   border-color: var(--color-input-default-hover-border);
 }
-
 
 .input__field_mode_default:focus {
   background-color: var(--color-input-default-active-background);
@@ -52,13 +50,11 @@
   padding-right: 40px;
 }
 
-
 .input__field_mode_error:hover {
   background-color: var(--color-input-error-hover-background);
   color: var(--color-input-error-hover-text);
   border-color: var(--color-input-error-hover-border);
 }
-
 
 .input__field_mode_error:focus {
   background-color: var(--color-input-error-active-background);

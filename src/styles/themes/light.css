@@ -24,6 +24,7 @@
   --color-button-primary-active-background: var(--color-accent-active);
   --color-button-primary-active-text: #ffffff;
   --color-button-primary-active-border: var(--color-accent-active);
+
   /* Secondary */
   --color-button-secondary-initial-background: #ffffff;
   --color-button-secondary-initial-text: var(--color-accent);
@@ -34,6 +35,7 @@
   --color-button-secondary-active-background: var(--gray-3);
   --color-button-secondary-active-text: var(--color-accent-active);
   --color-button-secondary-active-border: var(--color-accent-active);
+
   /* Dangerous */
   --color-button-dangerous-initial-background: var(--color-dangerous);
   --color-button-dangerous-initial-text: #ffffff;
@@ -58,6 +60,7 @@
   --color-input-default-active-background: var(--gray-1);
   --color-input-default-active-text: var(--gray-5);
   --color-input-default-active-border: var(--color-accent);
+
   /* Error */
   --color-input-error-initial-background: var(--gray-1);
   --color-input-error-initial-text: var(--gray-5);
