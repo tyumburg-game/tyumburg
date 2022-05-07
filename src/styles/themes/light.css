@@ -45,3 +45,37 @@
   --color-button-dangerous-active-text: #ffffff;
   --color-button-dangerous-active-border: var(--color-dangerous-active);
 }
+
+/* Inputs */
+:root {
+  /* Default */
+  --color-input-default-initial-background: var(--gray-1);
+  --color-input-default-initial-text: var(--gray-5);
+  --color-input-default-initial-border: var(--gray-5);
+  --color-input-default-hover-background: var(--gray-1);
+  --color-input-default-hover-text: var(--gray-5);
+  --color-input-default-hover-border: var(--color-accent-hover);
+  --color-input-default-active-background: var(--gray-1);
+  --color-input-default-active-text: var(--gray-5);
+  --color-input-default-active-border: var(--color-accent);
+  /* Error */
+  --color-input-error-initial-background: var(--gray-1);
+  --color-input-error-initial-text: var(--gray-5);
+  --color-input-error-initial-border: var(--color-dangerous);
+  --color-input-error-hover-background: var(--gray-1);
+  --color-input-error-hover-text: var(--gray-5);
+  --color-input-error-hover-border: var(--color-dangerous-hover);
+  --color-input-error-active-background: var(--gray-1);
+  --color-input-error-active-text: var(--gray-5);
+  --color-input-error-active-border: var(--color-accent);
+}
+
+/* Input label */
+:root {
+  --color-input-label-initial-text: var(--color-accent);
+}
+
+/* Validation Message */
+:root {
+  --color-validation-message-text: var(--color-dangerous);
+}
