@@ -2,9 +2,18 @@
   height: 32px;
   font-family: var(--font-button);
   font-size: 14px;
-  border: 1px solid #8338EC;
+  border: 2px solid #8338EC;
   border-radius: 3px;
+  background: #F2F2F2;
   color: #303c6c;
   padding: 0 6px;
   line-height: 32px;
+}
+
+.input_mode_error {
+  border-color: var(--color-dangerous);
+}
+
+.input_mode_error:after {
+  content: "test";
 }

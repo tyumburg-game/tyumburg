@@ -1,9 +1,17 @@
-import {FC} from "react";
+import {FC, useState} from "react";
 import Button from "../../components/Button/Button";
 import "./UiComponentsPage.css";
-import Input, {TypesInput} from "../../components/Input/Input";
+import Input, {TypesInput, Event} from "../../components/Input/Input";
 
 const UiComponentsPage: FC = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (event: Event) => {
+    console.log("change Input", event && event.target && event.target.value || "")
+    setInputValue(event.target.value)
+
+  }
+
   return (
     <>
       <div className="buttons-grid">
@@ -33,17 +41,18 @@ const UiComponentsPage: FC = () => {
             Dangerous
           </Button>
         </div>
-        <div>
-          <Input
-            type={TypesInput.Text}
-            mode="secondary"
-            value=""
-            placeholder="Test placeholder"
-            onChange={(event) => { console.log("change Input", event.target.value) }}
-            onBlur={(event) => { console.log("blur Input", event) }}
-            onFocus={(event) => { console.log("focus Input", event) }}
-            />
-        </div>
+      </div>
+      <br/>
+      <div>
+        <Input
+          type={TypesInput.Text}
+          mode="secondary"
+          value={inputValue}
+          placeholder="Test placeholder"
+          onChange={handleChange}
+          onBlur={(event) => { console.log("blur Input", event) }}
+          onFocus={(event) => { console.log("focus Input", event) }}
+        />
       </div>
     </>
   );
