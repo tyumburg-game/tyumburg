@@ -8,6 +8,7 @@ import {
 import { PATHS } from "Routes/paths";
 import { PrivateOutlet } from "Routes/PrivateOutlet";
 import "./App.css";
+import UiComponentsPage from "pages/UiComponentsPage/UiComponentsPage";
 
 class App extends Component {
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
       <Router>
         <Routes>
           {/* TODO заиметь Outlet на готовые компоненты */}
-          <Route path={PATHS.MAIN} element={<Outlet />} />
+          <Route path={PATHS.MAIN} element={<UiComponentsPage />} />
           <Route path={PATHS.FORUM} element={<Outlet />} />
           <Route path={PATHS.GAME} element={<Outlet />} />
           <Route path={PATHS.LEADERBOARD} element={<Outlet />} />

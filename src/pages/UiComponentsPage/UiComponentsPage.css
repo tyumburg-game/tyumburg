@@ -1,4 +1,16 @@
+.grid {
+  display: grid;
+  gap: 32px;
+}
+
 .buttons-grid {
-  grid-gap: 16px;
+  gap: 16px;
   display: flex;
+}
+
+.inputs-grid {
+  gap: 16px;
+  display: grid;
+  grid-template-columns: max-content 300px;
+  align-items: baseline;
 }

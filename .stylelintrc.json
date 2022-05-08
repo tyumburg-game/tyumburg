@@ -4,6 +4,7 @@
   "rules": {
     "selector-class-pattern": null,
     "color-hex-length": "long",
-    "function-disallowed-list": ["/^rgb/"]
+    "function-disallowed-list": ["/^rgb/"],
+    "no-duplicate-selectors": null
   }
 }
