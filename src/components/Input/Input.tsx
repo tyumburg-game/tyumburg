@@ -8,7 +8,7 @@ type InputProps = {
   type?: "text" | "number";
   mode?: "default" | "error";
   id?: string;
-  classNames?: string | string[];
+  className?: string;
   name?: string;
   comment?: ReactNode;
   onChange(event: ChangeEvent<HTMLInputElement>): void;
@@ -20,7 +20,7 @@ export default function Input(props: InputProps) {
   const {
     value,
     type = "text",
-    classNames = [],
+    className = "",
     mode = "default",
     id = useId(),
     label,
@@ -29,7 +29,7 @@ export default function Input(props: InputProps) {
     onChange,
   } = props;
   return (
-    <div className={b.mix(classNames)}>
+    <div className={b.mix(className)}>
       {label && (
         <label htmlFor={id} className={b("label")}>
           {label}

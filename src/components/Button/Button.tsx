@@ -5,7 +5,7 @@ import "./Button.css";
 type ButtonProps = {
   type?: "button" | "submit" | "reset";
   mode?: "primary" | "secondary" | "dangerous";
-  classNames?: string | string[];
+  className?: string;
   children: ReactNode;
   onClick(event: MouseEvent<HTMLButtonElement>): void;
 };
@@ -16,7 +16,7 @@ export default function Button(props: ButtonProps) {
   const {
     type = "button",
     mode = "secondary",
-    classNames = [],
+    className = "",
     children,
     onClick,
   } = props;
@@ -24,7 +24,7 @@ export default function Button(props: ButtonProps) {
     <button
       onClick={onClick}
       type={type}
-      className={b({ mode }).mix(classNames)}
+      className={b({ mode }).mix(className)}
     >
       {children}
     </button>
