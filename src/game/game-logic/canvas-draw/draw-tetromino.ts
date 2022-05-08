@@ -1,9 +1,9 @@
 import { GRID_SIZE, TETROMINOS_СOLORS } from "../contants";
-import { ITetrominoCoordinate } from "../game-models";
+import { TTetrominoCoordinate } from "../game-types";
 
 export function drawTetromino(
   ctx: CanvasRenderingContext2D,
-  tetromino: ITetrominoCoordinate
+  tetromino: TTetrominoCoordinate
 ) {
   ctx.fillStyle = TETROMINOS_СOLORS[tetromino.name];
 

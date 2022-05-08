@@ -1,11 +1,11 @@
-import { TETROMINOS } from "./contants";
+import { QUEUE_SIZE, TETROMINOS } from "./contants";
 import {
-  IPlayfield,
-  ITetrominoCoordinate,
-  ITetrominoMatrix,
-  ITetrominoName,
-  ITetrominoQueue,
-} from "./game-models";
+  TPlayfield,
+  TTetrominoCoordinate,
+  TTetrominoMatrix,
+  TTetrominoName,
+  TTetrominoQueue,
+} from "./game-types";
 
 export function getRandomInt(min: number, max: number): number {
   min = Math.ceil(min);
@@ -15,8 +15,8 @@ export function getRandomInt(min: number, max: number): number {
 }
 
 // Возвращает очередь из случайных фигур
-export function generateQueue(): Array<ITetrominoName> {
-  const tetramonoNames: Array<ITetrominoName> = [
+export function generateQueue(): Array<TTetrominoName> {
+  const tetraminoNames: Array<TTetrominoName> = [
     "I",
     "J",
     "L",
@@ -25,12 +25,12 @@ export function generateQueue(): Array<ITetrominoName> {
     "T",
     "Z",
   ];
-  const tetrominoQueue: Array<ITetrominoName> = [];
+  const tetrominoQueue: Array<TTetrominoName> = [];
 
   let count = 0;
-  while (count < tetramonoNames.length) {
-    const rand = getRandomInt(0, tetramonoNames.length - 1);
-    const randomName = tetramonoNames[rand][0] as ITetrominoName;
+  while (count <= QUEUE_SIZE) {
+    const rand = getRandomInt(0, tetraminoNames.length - 1);
+    const randomName = tetraminoNames[rand][0] as TTetrominoName;
     tetrominoQueue.push(randomName);
     count++;
   }
@@ -39,7 +39,7 @@ export function generateQueue(): Array<ITetrominoName> {
 }
 
 // Поворочивает фигуру
-export function rotateTetromino(matrix: ITetrominoMatrix): ITetrominoMatrix {
+export function rotateTetromino(matrix: TTetrominoMatrix): TTetrominoMatrix {
   const N = matrix.length - 1;
   const result = matrix.map((row, i) => row.map((_, j) => matrix[N - j][i]));
 
@@ -48,10 +48,10 @@ export function rotateTetromino(matrix: ITetrominoMatrix): ITetrominoMatrix {
 
 //Проверяет валидность положения фигуры.
 export function isValidMove(
-  matrix: ITetrominoMatrix,
+  matrix: TTetrominoMatrix,
   cellRow: number,
   cellCol: number,
-  playfield: IPlayfield
+  playfield: TPlayfield
 ) {
   // проверяем все строки и столбцы
   for (let row = 0; row < matrix.length; row++) {
@@ -75,10 +75,10 @@ export function isValidMove(
 
 // Возвращает слудующую фигуру из очереди.
 export function getNextTetromino(
-  tetrominoQueue: ITetrominoQueue,
-  playfield: IPlayfield
-): ITetrominoCoordinate {
-  const name: ITetrominoName = tetrominoQueue.pop() as ITetrominoName;
+  tetrominoQueue: TTetrominoQueue,
+  playfield: TPlayfield
+): TTetrominoCoordinate {
+  const name: TTetrominoName = tetrominoQueue.shift() as TTetrominoName;
   const matrix = TETROMINOS[name];
   const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2);
   const row = name === "I" ? -1 : -2;
@@ -92,8 +92,8 @@ export function getNextTetromino(
 }
 
 // Возвращает пустую матрицу поля.
-export function getPlayfiled(): IPlayfield {
-  const playfield: IPlayfield = [];
+export function getPlayfiled(): TPlayfield {
+  const playfield: TPlayfield = [];
   for (let row = -2; row < 20; row++) {
     playfield[row] = [];
 

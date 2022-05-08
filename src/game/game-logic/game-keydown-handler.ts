@@ -1,11 +1,11 @@
-import { IPlayfield, ITetrominoCoordinate } from "./game-models";
+import { TPlayfield, TTetrominoCoordinate } from "./game-types";
 import { isValidMove, rotateTetromino } from "./game-utils";
 
-export function keydownHendler(
+export function keydownHandler(
   e: KeyboardEvent,
   isGameOver: boolean,
-  tetromino: ITetrominoCoordinate,
-  playfield: IPlayfield
+  tetromino: TTetrominoCoordinate,
+  playfield: TPlayfield
 ) {
   if (isGameOver) return;
 
@@ -30,8 +30,6 @@ export function keydownHendler(
 
     if (!isValidMove(tetromino.matrix, row, tetromino.col, playfield)) {
       tetromino.row = row - 1;
-      // placeTetromino();
-      console.log(tetromino.row);
 
       return true;
     }
