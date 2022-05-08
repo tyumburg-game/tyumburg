@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Button from "../../components/Button/Button";
-import "./UiComponentsPage.css";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
+import "./UiComponentsPage.css";
 
 const UiComponentsPage: FC = () => {
   return (
