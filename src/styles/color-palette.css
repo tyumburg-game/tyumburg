@@ -1,5 +1,6 @@
 /* Palette */
 :root {
+  --purple-2: #ccadf7;
   --purple-3: #8338ec;
   --purple-4: #7209b7;
   --purple-5: #6808a6;
@@ -11,4 +12,7 @@
   --gray-3: #c4c4c4;
   --gray-4: #999999;
   --gray-5: #242424;
+  --gray-6: #dbdbdb;
+  --cream: #f7ede2;
+  --dark-blue: #303C6C;
 }

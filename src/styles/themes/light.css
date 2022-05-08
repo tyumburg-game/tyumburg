@@ -45,3 +45,14 @@
   --color-button-dangerous-active-text: #ffffff;
   --color-button-dangerous-active-border: var(--color-dangerous-active);
 }
+
+:root {
+  --color-text: var(--dark-blue);
+}
+
+/* Modal */
+:root {
+  --color-modal-background: var(--cream);
+  --color-modal-border: var(--purple-2);
+  --color-modal-shadow: var(--gray-6);
+}
