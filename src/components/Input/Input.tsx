@@ -4,12 +4,12 @@ import "./Input.css";
 
 type InputProps = {
   value: string;
+  label: string;
   type?: "text" | "number";
   mode?: "default" | "error";
   id?: string;
   classNames?: string | string[];
   name?: string;
-  label?: ReactNode;
   comment?: ReactNode;
   onChange(event: ChangeEvent<HTMLInputElement>): void;
 };

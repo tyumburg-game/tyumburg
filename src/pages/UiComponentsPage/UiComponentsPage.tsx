@@ -37,8 +37,6 @@ const UiComponentsPage: FC = () => {
       </div>
       <div className="inputs-grid">
         <div>Default input</div>
-        <Input onChange={() => {}} value="input" />
-        <div>Labeled input</div>
         <Input onChange={() => {}} value="input" label="First Name" />
         <div>Invalid input</div>
         <Input
