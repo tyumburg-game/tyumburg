@@ -30,11 +30,9 @@ export default function Input(props: InputProps) {
   } = props;
   return (
     <div className={b.mix(className)}>
-      {label && (
-        <label htmlFor={id} className={b("label")}>
-          {label}
-        </label>
-      )}
+      <label htmlFor={id} className={b("label")}>
+        {label}
+      </label>
       <div className={b("field-wrapper", { mode })}>
         <input
           value={value}
