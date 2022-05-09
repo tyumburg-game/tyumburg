@@ -1,0 +1,4 @@
+.validation-message {
+  font: var(--font-validation-message);
+  color: var(--color-validation-message-text);
+}

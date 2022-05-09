@@ -24,6 +24,7 @@
   --color-button-primary-active-background: var(--color-accent-active);
   --color-button-primary-active-text: #ffffff;
   --color-button-primary-active-border: var(--color-accent-active);
+
   /* Secondary */
   --color-button-secondary-initial-background: #ffffff;
   --color-button-secondary-initial-text: var(--color-accent);
@@ -34,6 +35,7 @@
   --color-button-secondary-active-background: var(--gray-3);
   --color-button-secondary-active-text: var(--color-accent-active);
   --color-button-secondary-active-border: var(--color-accent-active);
+
   /* Dangerous */
   --color-button-dangerous-initial-background: var(--color-dangerous);
   --color-button-dangerous-initial-text: #ffffff;
@@ -44,6 +46,41 @@
   --color-button-dangerous-active-background: var(--color-dangerous-active);
   --color-button-dangerous-active-text: #ffffff;
   --color-button-dangerous-active-border: var(--color-dangerous-active);
+}
+
+/* Inputs */
+:root {
+  /* Default */
+  --color-input-default-initial-background: var(--gray-1);
+  --color-input-default-initial-text: var(--gray-5);
+  --color-input-default-initial-border: var(--gray-5);
+  --color-input-default-hover-background: var(--gray-1);
+  --color-input-default-hover-text: var(--gray-5);
+  --color-input-default-hover-border: var(--color-accent-hover);
+  --color-input-default-active-background: var(--gray-1);
+  --color-input-default-active-text: var(--gray-5);
+  --color-input-default-active-border: var(--color-accent);
+
+  /* Error */
+  --color-input-error-initial-background: var(--gray-1);
+  --color-input-error-initial-text: var(--gray-5);
+  --color-input-error-initial-border: var(--color-dangerous);
+  --color-input-error-hover-background: var(--gray-1);
+  --color-input-error-hover-text: var(--gray-5);
+  --color-input-error-hover-border: var(--color-dangerous-hover);
+  --color-input-error-active-background: var(--gray-1);
+  --color-input-error-active-text: var(--gray-5);
+  --color-input-error-active-border: var(--color-accent);
+}
+
+/* Input label */
+:root {
+  --color-input-label-initial-text: var(--color-accent);
+}
+
+/* Validation Message */
+:root {
+  --color-validation-message-text: var(--color-dangerous);
 }
 
 :root {
