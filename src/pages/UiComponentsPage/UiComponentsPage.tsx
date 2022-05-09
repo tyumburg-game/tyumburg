@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
 import "./UiComponentsPage.css";
+import Modal from "components/Modal/Modal";
 
 const UiComponentsPage: FC = () => {
   return (
@@ -48,6 +49,19 @@ const UiComponentsPage: FC = () => {
         />
         <div>Type number</div>
         <Input onChange={() => {}} value="3" label="Ages" type="number" />
+      </div>
+      <div className="modals-grid">
+        <Modal>
+          <Modal.Header title="Modal Title"></Modal.Header>
+          <Modal.Content>Content</Modal.Content>
+          <Modal.Footer>Footer</Modal.Footer>
+        </Modal>
+        <div>Dialog</div>
+        <Modal type="dialog">
+          <Modal.Header title="Modal Title"></Modal.Header>
+          <Modal.Content>Content</Modal.Content>
+          <Modal.Footer>Footer</Modal.Footer>
+        </Modal>
       </div>
     </div>
   );

@@ -7,16 +7,17 @@ import "./Modal.css";
 
 type ModalProps = {
   children: ReactNode;
+  type?: "fixed" | "dialog";
   classNames?: string | string[];
 };
 
 const b = block("modal");
 
 export default function Modal(props: ModalProps) {
-  const { children, classNames } = props;
+  const { children, type = "fixed", classNames } = props;
 
   return (
-    <div className={b.mix(classNames)}>
+    <div className={b({ type }).mix(classNames)}>
       { children }
     </div>
   );
