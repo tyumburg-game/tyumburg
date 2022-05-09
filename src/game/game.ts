@@ -9,9 +9,10 @@ import {
   TTetrominoQueue,
 } from "./game-logic/game-types";
 import {
+  createTetromino,
   generateQueue,
   getNextTetromino,
-  getPlayfiled,
+  getPlayfield,
   isValidMove,
   rotateTetromino,
 } from "./game-logic/game-utils";
@@ -36,7 +37,7 @@ export class Game {
     this.canvas = canvasElement;
     this.ctx = canvasElement.getContext("2d") as CanvasRenderingContext2D;
     this.tetrominoQueue = generateQueue();
-    this.playfield = getPlayfiled();
+    this.playfield = getPlayfield();
     this.tetromino = getNextTetromino(this.tetrominoQueue, this.playfield);
     this.timer = new Date();
     this.speed = DEFAULT_SPEED;
@@ -66,7 +67,7 @@ export class Game {
 
   nextTetromino = () => {
     this.tetromino = getNextTetromino(this.tetrominoQueue, this.playfield);
-    this.tetrominoQueue.push(generateQueue()[0]);
+    this.tetrominoQueue.push(createTetromino());
   };
 
   clearRows = () => {
@@ -97,7 +98,7 @@ export class Game {
     drawPlayfield(this.ctx, this.canvas, this.playfield);
     // рисуем текущую фигуру
     if (this.tetromino) {
-      if (+new Date() - +this.timer > this.speed) {
+      if (Number(new Date()) - Number(this.timer) > this.speed) {
         this.tetromino.row++;
         this.timer = new Date();
 
@@ -163,6 +164,14 @@ export class Game {
     ) {
       this.tetromino.col = col;
     }
+  }
+
+  moveTetrominoLeft = () => {
+    this.moveTetromino();
+  }
+
+  moveTetrominoRight = () => {
+    this.moveTetromino(true);
   }
 
   public start() {

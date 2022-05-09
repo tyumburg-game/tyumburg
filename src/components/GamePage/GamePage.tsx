@@ -21,10 +21,10 @@ export function GamePage() {
         game.downTetromino();
       }
       if (e.key === "ArrowLeft") {
-        game.moveTetromino();
+        game.moveTetrominoLeft();
       }
       if (e.key === "ArrowRight") {
-        game.moveTetromino(true);
+        game.moveTetrominoRight();
       }
     }
 

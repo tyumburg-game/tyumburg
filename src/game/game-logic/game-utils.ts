@@ -14,8 +14,7 @@ export function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Возвращает очередь из случайных фигур
-export function generateQueue(): Array<TTetrominoName> {
+export function createTetromino() {
   const tetraminoNames: Array<TTetrominoName> = [
     "I",
     "J",
@@ -25,12 +24,20 @@ export function generateQueue(): Array<TTetrominoName> {
     "T",
     "Z",
   ];
+
+  const rand = getRandomInt(0, tetraminoNames.length - 1);
+  const randomName = tetraminoNames[rand][0] as TTetrominoName;
+
+  return randomName;
+}
+
+// Возвращает очередь из случайных фигур
+export function generateQueue(): Array<TTetrominoName> {
   const tetrominoQueue: Array<TTetrominoName> = [];
 
   let count = 0;
   while (count <= QUEUE_SIZE) {
-    const rand = getRandomInt(0, tetraminoNames.length - 1);
-    const randomName = tetraminoNames[rand][0] as TTetrominoName;
+    const randomName = createTetromino();
     tetrominoQueue.push(randomName);
     count++;
   }
@@ -92,7 +99,7 @@ export function getNextTetromino(
 }
 
 // Возвращает пустую матрицу поля.
-export function getPlayfiled(): TPlayfield {
+export function getPlayfield(): TPlayfield {
   const playfield: TPlayfield = [];
   for (let row = -2; row < 20; row++) {
     playfield[row] = [];
