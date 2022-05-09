@@ -8,7 +8,8 @@
     "build": "webpack --config ./webpack-configs/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "stylelint": "npx stylelint \"./src/**/*.css\"",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=12.13.0"
