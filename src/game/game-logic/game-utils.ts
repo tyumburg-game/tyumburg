@@ -73,7 +73,7 @@ export function isValidMove(
   return true;
 }
 
-// Возвращает слудующую фигуру из очереди.
+// Возвращает следующую фигуру из очереди.
 export function getNextTetromino(
   tetrominoQueue: TTetrominoQueue,
   playfield: TPlayfield
