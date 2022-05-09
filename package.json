@@ -8,6 +8,7 @@
     "build": "webpack --config ./webpack-configs/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "stylelint": "npx stylelint \"./src/**/*.css\"",
+    "eslint": "",
     "prettier:check": "prettier --check ."
   },
   "engines": {
