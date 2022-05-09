@@ -1,0 +1,79 @@
+.input__label {
+  display: block;
+  min-height: 24px;
+  padding: 4px 0;
+  color: var(--color-input-label-initial-text);
+  font: var(--font-input-label);
+}
+
+.input__field {
+  display: block;
+  height: 32px;
+  border-radius: 3px;
+  width: 100%;
+  padding: 4px 5px;
+  border: 2px solid var(--color-input-default-initial-border);
+  outline-offset: 1px;
+  font: var(--font-input);
+}
+
+.input__comment {
+  display: block;
+  min-height: 24px;
+  padding: 4px 0;
+}
+
+.input__field_mode_default {
+  background-color: var(--color-input-default-initial-background);
+  color: var(--color-input-default-initial-text);
+  border-color: var(--color-input-default-initial-border);
+}
+
+.input__field_mode_default:hover {
+  background-color: var(--color-input-default-hover-background);
+  color: var(--color-input-default-hover-text);
+  border-color: var(--color-input-default-hover-border);
+}
+
+.input__field_mode_default:focus {
+  background-color: var(--color-input-default-active-background);
+  color: var(--color-input-default-active-text);
+  border-color: var(--color-input-default-active-border);
+  outline-color: var(--color-input-default-active-border);
+}
+
+/* Error */
+.input__field_mode_error {
+  background-color: var(--color-input-error-initial-background);
+  color: var(--color-input-error-initial-text);
+  border-color: var(--color-input-error-initial-border);
+  padding-right: 40px;
+}
+
+.input__field_mode_error:hover {
+  background-color: var(--color-input-error-hover-background);
+  color: var(--color-input-error-hover-text);
+  border-color: var(--color-input-error-hover-border);
+}
+
+.input__field_mode_error:focus {
+  background-color: var(--color-input-error-active-background);
+  color: var(--color-input-error-active-text);
+  border-color: var(--color-input-error-active-border);
+  outline-color: var(--color-input-error-active-border);
+}
+
+.input__field-wrapper {
+  position: relative;
+}
+
+.input__field-wrapper_mode_error::after {
+  position: absolute;
+  content: "⚠️";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+}
