@@ -90,7 +90,14 @@
 
 /* Modal */
 :root {
-  --color-modal-background: var(--cream);
+  --color-modal-background: var(--grayish-orange);
   --color-modal-border: var(--purple-2);
-  --color-modal-shadow: var(--gray-6);
+  --color-modal-shadow: var(--gray-7);
+}
+
+/* Game */
+:root {
+  --color-game-playfield-background: var(--grayish-orange);
+  --color-game-inner-border: var(--color-accent);
+  --color-game-wrapper-border: var(--gray-2);
 }
