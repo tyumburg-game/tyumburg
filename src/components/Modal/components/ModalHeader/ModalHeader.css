@@ -1,0 +1,10 @@
+.modal-header {
+  padding: 32px 24px 36px 32px;
+}
+
+.modal-header__title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-text);
+}

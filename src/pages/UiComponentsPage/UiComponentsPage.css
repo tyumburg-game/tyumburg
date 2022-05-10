@@ -14,3 +14,10 @@
   grid-template-columns: max-content 300px;
   align-items: baseline;
 }
+
+.modals-grid {
+  gap: 16px;
+  display: grid;
+  grid-template-columns: max-content 500px;
+  align-items: baseline;
+}
