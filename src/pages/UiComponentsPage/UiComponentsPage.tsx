@@ -10,13 +10,13 @@ const UiComponentsPage: FC = () => {
     <div className="grid">
       <div className="modals-grid">
         <Modal>
-          <Modal.Header title="Modal Title"></Modal.Header>
+          <Modal.Header title="Modal Title" />
           <Modal.Content>Content</Modal.Content>
           <Modal.Footer>Footer</Modal.Footer>
         </Modal>
         <div>Dialog</div>
-        <Modal type="dialog">
-          <Modal.Header title="Modal Title"></Modal.Header>
+        <Modal fixed={false}>
+          <Modal.Header title="Modal Title" />
           <Modal.Content>
             <div className="inputs-grid">
               <div>Default input</div>

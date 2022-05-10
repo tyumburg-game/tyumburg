@@ -1,23 +1,23 @@
 import block from "bem-cn";
 import { ReactNode } from "react";
-import ModalContent from "./components/ModalContent";
-import ModalFooter from "./components/ModalFooter";
-import ModalHeader from "./components/ModalHeader";
+import ModalContent from "./components/ModalContent/ModalContent";
+import ModalFooter from "./components/ModalFooter/ModalFooter";
+import ModalHeader from "./components/ModalHeader/ModalHeader";
 import "./Modal.css";
 
 type ModalProps = {
   children: ReactNode;
-  type?: "fixed" | "dialog";
-  classNames?: string | string[];
+  fixed?: boolean;
+  className?: string;
 };
 
 const b = block("modal");
 
 export default function Modal(props: ModalProps) {
-  const { children, type = "fixed", classNames } = props;
+  const { children, fixed = true, className } = props;
 
   return (
-    <div className={b({ type }).mix(classNames)}>
+    <div className={b({ fixed }).mix(className)}>
       { children }
     </div>
   );
