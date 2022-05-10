@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "stylelint": "npx stylelint \"./src/**/*.css\"",
     "eslint": "",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=12.13.0"
@@ -35,6 +36,7 @@
     "html-webpack-plugin": "5.5.0",
     "husky": "8.0.0",
     "install": "0.13.0",
+    "lint-staged": "12.4.1",
     "mini-css-extract-plugin": "2.6.0",
     "npm": "8.7.0",
     "postcss": "8.4.12",
@@ -60,5 +62,9 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-router-dom": "6.3.0"
+  },
+  "lint-staged": {
+    "*.css": "npm run stylelint",
+    "*.{tsx,ts}": "npm run eslint"
   }
 }
