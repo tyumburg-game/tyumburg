@@ -2,3 +2,7 @@
   box-sizing: border-box;
   font: var(--font-default);
 }
+
+body {
+  background: url("../images/bg.png");
+}

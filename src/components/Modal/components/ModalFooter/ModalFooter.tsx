@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import "./ModalFooter.css";
 
 type ModalFooterProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export default function ModalFooter(props: ModalFooterProps) {

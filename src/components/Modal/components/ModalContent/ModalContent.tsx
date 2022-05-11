@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import "./ModalContent.css";
 
 type ModalContentProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export default function ModalContent(props: ModalContentProps) {
