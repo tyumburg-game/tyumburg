@@ -1,5 +1,5 @@
-import { ChangeEvent, ReactNode, useId } from "react";
 import block from "bem-cn";
+import { ChangeEvent, ReactNode, useId } from "react";
 import "./Input.css";
 
 type InputProps = {
@@ -44,7 +44,7 @@ export default function Input(props: InputProps) {
           className={b("field", { mode })}
         />
       </div>
-      {comment && <div className={b("comment")}>{comment}</div>}
+      {<div className={b("comment")}>{comment}</div>}
     </div>
   );
 }
