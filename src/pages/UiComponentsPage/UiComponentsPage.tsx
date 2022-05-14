@@ -4,7 +4,7 @@ import ValidationMessage from "components/Input/ValidationMessage/ValidationMess
 import "./UiComponentsPage.css";
 import Modal from "components/Modal/Modal";
 
-function UiComponentsPage() {
+export function UiComponentsPage() {
   return (
     <div className="grid">
       <div className="modals-grid">
@@ -67,5 +67,3 @@ function UiComponentsPage() {
     </div>
   );
 }
-
-export default UiComponentsPage;
