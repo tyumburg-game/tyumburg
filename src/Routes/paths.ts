@@ -6,5 +6,5 @@ export const PATHS = {
   FORUM: "/forum",
   LEADERBOARD: "/leaderbord",
   GAME: "/game",
-  MAIN: "/",
+  START: "/",
 };

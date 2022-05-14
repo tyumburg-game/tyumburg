@@ -1,9 +1,9 @@
 import Button from "components/Button/Button";
 import Modal from "components/Modal/Modal";
 import { FC, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { PATHS } from "Routes/paths";
-import "./Main.css";
+import "./Start.css";
+import { useLink } from "hooks/use-link";
 
 const Main: FC = () => {
   const [menuItems] = useState([
@@ -14,7 +14,7 @@ const Main: FC = () => {
     { label: "Компоненты", url: PATHS.UI },
   ]);
 
-  const navigate = useNavigate();
+  const navigate = useLink();
 
   return (
     <Modal>
@@ -26,7 +26,7 @@ const Main: FC = () => {
                 <Button
                   mode="secondary"
                   className="main-menu__btn"
-                  onClick={() => navigate(item.url)}
+                  onClick={navigate(item.url)}
                   key={item.url}
                 >
                   {item.label}

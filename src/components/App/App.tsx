@@ -10,7 +10,7 @@ import { PATHS } from "Routes/paths";
 import { PrivateOutlet } from "Routes/PrivateOutlet";
 import "./App.css";
 import UiComponentsPage from "pages/UiComponentsPage/UiComponentsPage";
-import Main from "pages/Main/Main";
+import Start from "pages/Start/Start";
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
       <Router>
         <Routes>
           {/* TODO заиметь Outlet на готовые компоненты */}
-          <Route path={PATHS.MAIN} element={<Main />} />
+          <Route path={PATHS.START} element={<Start />} />
           <Route path={PATHS.FORUM} element={<Outlet />} />
           <Route path={PATHS.GAME} element={<GamePage />} />
           <Route path={PATHS.LEADERBOARD} element={<Outlet />} />
