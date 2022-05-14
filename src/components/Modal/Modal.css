@@ -6,7 +6,7 @@
   min-width: var(--min-modal-width);
   background: var(--color-modal-background);
   border: 2px solid var(--color-modal-border);
-  box-shadow: 0px 0px 6px var(--color-modal-shadow);
+  box-shadow: 0 0 6px var(--color-modal-shadow);
   border-radius: 8px;
 }
 
