@@ -9,11 +9,11 @@ export function memoize(fn: Function) {
 
   const cache: Cache = {};
 
-  return function (...args: any[]) {
+  return (...args: any[]) => {
     const key = generateKey(args);
     let result = cache[key];
 
-    if (typeof result === 'undefined') {
+    if (result === undefined) {
       result = fn(...args);
 
       cache[key] = result;
