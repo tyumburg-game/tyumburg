@@ -1,12 +1,26 @@
-import { FC } from "react";
+import {FC, useState, useCallback, ChangeEvent} from "react";
 import Button from "../../components/Button/Button";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
 import "./UiComponentsPage.css";
 import Modal from "components/Modal/Modal";
+import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
 
 const UiComponentsPage: FC = () => {
+  const [text, setText] = useState<string>('');
+
+  const handleFirstName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value)
+
+    if (event.target.value === 'error') {
+      ErrorBoundary.getDerivedStateFromError(new Error('I crashed!'))
+    }
+
+    setText(event.target.value);
+  }, []);
+
   return (
+    <ErrorBoundary>
     <div className="grid">
       <div className="modals-grid">
         <Modal>
@@ -23,8 +37,8 @@ const UiComponentsPage: FC = () => {
               <Input onChange={() => {}} value="input" label="First Name" />
               <div>Invalid input</div>
               <Input
-                onChange={() => {}}
-                value="input"
+                onChange={handleFirstName}
+                value={text}
                 label="First Name"
                 mode="error"
                 comment={<ValidationMessage>invalid</ValidationMessage>}
@@ -66,6 +80,7 @@ const UiComponentsPage: FC = () => {
         </Modal>
       </div>
     </div>
+    </ErrorBoundary>
   );
 };
 
