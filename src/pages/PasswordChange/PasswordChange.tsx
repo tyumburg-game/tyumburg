@@ -16,11 +16,7 @@ const PasswordChange: FC = () => {
         <Input onChange={() => {}} value="" label="Повторите новый пароль" />
       </Modal.Content>
       <Modal.Footer className="action-buttons">
-        <Button
-          mode="secondary"
-          className="parent-class-name"
-          onClick={navigate("/")}
-        >
+        <Button mode="secondary" onClick={navigate("/")}>
           Отменить
         </Button>
         <Button mode="primary" onClick={(event) => console.log("click", event)}>
