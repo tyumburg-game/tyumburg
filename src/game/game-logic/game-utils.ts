@@ -1,4 +1,4 @@
-import { QUEUE_SIZE, TETROMINOS } from "./contants";
+import { QUEUE_SIZE, TETROMINOES } from "./contants";
 import {
   TPlayfield,
   TTetrominoCoordinate,
@@ -15,7 +15,7 @@ export function getRandomInt(min: number, max: number): number {
 }
 
 export function createTetromino() {
-  const tetraminoNames: Array<TTetrominoName> = [
+  const tetrominoNames: Array<TTetrominoName> = [
     "I",
     "J",
     "L",
@@ -25,8 +25,8 @@ export function createTetromino() {
     "Z",
   ];
 
-  const rand = getRandomInt(0, tetraminoNames.length - 1);
-  return tetraminoNames[rand][0] as TTetrominoName;
+  const rand = getRandomInt(0, tetrominoNames.length - 1);
+  return tetrominoNames[rand][0] as TTetrominoName;
 }
 
 // Возвращает очередь из случайных фигур
@@ -46,9 +46,7 @@ export function generateQueue(): Array<TTetrominoName> {
 // Поворочивает фигуру
 export function rotateTetromino(matrix: TTetrominoMatrix): TTetrominoMatrix {
   const N = matrix.length - 1;
-  const result = matrix.map((row, i) => row.map((_, j) => matrix[N - j][i]));
-
-  return result;
+  return matrix.map((row, i) => row.map((_, j) => matrix[N - j][i]));
 }
 
 // Проверяет валидность положения фигуры.
@@ -84,7 +82,7 @@ export function getNextTetromino(
   playfield: TPlayfield
 ): TTetrominoCoordinate {
   const name: TTetrominoName = tetrominoQueue.shift() as TTetrominoName;
-  const matrix = TETROMINOS[name];
+  const matrix = TETROMINOES[name];
   const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2);
   const row = name === "I" ? -1 : -2;
 

@@ -1,6 +1,6 @@
-import { TPLAYFIELD_SIZE, TTetromino } from "./game-types";
+import { PlayFieldSize, TTetromino } from "./game-types";
 
-export const TETROMINOS: TTetromino = {
+export const TETROMINOES: TTetromino = {
   I: [
     [0, 0, 0, 0],
     [1, 1, 1, 1],
@@ -38,7 +38,7 @@ export const TETROMINOS: TTetromino = {
   ],
 };
 
-export const TETROMINOS_СOLORS = {
+export const TETROMINOES_COLORS = {
   I: "#8338EC",
   O: "#F4976C",
   T: "#FBE8A6",
@@ -50,8 +50,8 @@ export const TETROMINOS_СOLORS = {
 
 export const GRID_SIZE = 32;
 export const DEFAULT_SPEED = 500;
-export const PLAYFIELD_SIZE: TPLAYFIELD_SIZE = {
-  COLS: 10,
-  ROWS: 20,
+export const PLAYFIELD_SIZE: PlayFieldSize = {
+  cols: 10,
+  rows: 20,
 };
 export const QUEUE_SIZE = 2;
