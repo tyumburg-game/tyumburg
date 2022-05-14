@@ -1,5 +1,5 @@
-import { Game } from "game/game";
 import { useEffect, useRef, useState } from "react";
+import { Game } from "game/game";
 import "./GamePage.css";
 
 export function GamePage() {

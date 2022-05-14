@@ -1,15 +1,15 @@
-import { GamePage } from "components/GamePage/GamePage";
 import {
   BrowserRouter as Router,
   Outlet,
   Route,
   Routes,
 } from "react-router-dom";
+import { GamePage } from "components/GamePage/GamePage";
 import { PATHS } from "Routes/paths";
 import { PrivateOutlet } from "Routes/PrivateOutlet";
-import "./App.css";
 import { UiComponentsPage } from "pages/UiComponentsPage/UiComponentsPage";
 import { StartPage } from "pages/StartPage/StartPage";
+import "./App.css";
 
 export function App() {
   return (

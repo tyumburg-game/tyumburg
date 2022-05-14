@@ -1,9 +1,9 @@
+import { useState } from "react";
 import Button from "components/Button/Button";
 import Modal from "components/Modal/Modal";
-import { useState } from "react";
 import { PATHS } from "Routes/paths";
-import "./StartPage.css";
 import { useLink } from "hooks/use-link";
+import "./StartPage.css";
 
 export function StartPage() {
   const [menuItems] = useState([
