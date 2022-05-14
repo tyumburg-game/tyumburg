@@ -5,7 +5,7 @@ import "./Input.css";
 type InputProps = {
   value: string;
   label: string;
-  type?: "text" | "number";
+  type?: "text" | "number" | "password";
   mode?: "default" | "error";
   id?: string;
   className?: string;
