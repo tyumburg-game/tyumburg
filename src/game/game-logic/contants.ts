@@ -1,4 +1,4 @@
-import { TTetromino, TPLAYFIELD_SIZE } from "./game-types";
+import { TPLAYFIELD_SIZE, TTetromino } from "./game-types";
 
 export const TETROMINOS: TTetromino = {
   I: [

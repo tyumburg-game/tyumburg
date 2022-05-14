@@ -8,10 +8,10 @@ import {
 } from "./game-types";
 
 export function getRandomInt(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+  const minValue = Math.ceil(min);
+  const maxValue = Math.floor(max);
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
 }
 
 export function createTetromino() {
@@ -26,9 +26,7 @@ export function createTetromino() {
   ];
 
   const rand = getRandomInt(0, tetraminoNames.length - 1);
-  const randomName = tetraminoNames[rand][0] as TTetrominoName;
-
-  return randomName;
+  return tetraminoNames[rand][0] as TTetrominoName;
 }
 
 // Возвращает очередь из случайных фигур
@@ -53,7 +51,7 @@ export function rotateTetromino(matrix: TTetrominoMatrix): TTetrominoMatrix {
   return result;
 }
 
-//Проверяет валидность положения фигуры.
+// Проверяет валидность положения фигуры.
 export function isValidMove(
   matrix: TTetrominoMatrix,
   cellRow: number,
@@ -91,10 +89,10 @@ export function getNextTetromino(
   const row = name === "I" ? -1 : -2;
 
   return {
-    name: name,
-    matrix: matrix,
-    row: row,
-    col: col,
+    name,
+    matrix,
+    row,
+    col,
   };
 }
 

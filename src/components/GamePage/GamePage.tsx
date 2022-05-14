@@ -37,7 +37,9 @@ export function GamePage() {
 
   return (
     <div className="game-page">
-      <div className="game-page__manage-block">Здесь будут кнопки управления</div>
+      <div className="game-page__manage-block">
+        Здесь будут кнопки управления
+      </div>
       <div className="game-page__canvas-wrapper">
         <canvas
           width="320"
@@ -46,7 +48,9 @@ export function GamePage() {
           ref={canvasElement}
         />
       </div>
-      <div className="game-page__statistic">{isGameOver ? "Game Over" : "Game"}</div>
+      <div className="game-page__statistic">
+        {isGameOver ? "Game Over" : "Game"}
+      </div>
     </div>
   );
 }
