@@ -1,16 +1,16 @@
+import block from "bem-cn";
 import { ReactNode } from "react";
 import "./ModalFooter.css";
 
 type ModalFooterProps = {
   children: ReactNode;
+  className?: string;
 };
 
-export default function ModalFooter(props: ModalFooterProps) {
-  const { children } = props;
+const b = block("modal-footer");
 
-  return (
-    <div className="modal-footer">
-      { children }
-    </div>
-  );
+export default function ModalFooter(props: ModalFooterProps) {
+  const { children, className } = props;
+
+  return <div className={b.mix(className)}>{children}</div>;
 }
