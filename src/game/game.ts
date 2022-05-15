@@ -1,4 +1,5 @@
 import { Dispatch } from "react";
+
 import { drawPlayfield } from "./game-logic/canvas-draw/draw-playfield";
 import { drawTetromino } from "./game-logic/canvas-draw/draw-tetromino";
 import { showGameOver } from "./game-logic/canvas-draw/show-game-over";
@@ -19,14 +20,23 @@ import {
 
 export class Game {
   ctx: CanvasRenderingContext2D;
+
   canvas: HTMLCanvasElement;
+
   rAF: number = 0;
+
   tetrominoQueue: TTetrominoQueue;
+
   playfield: TPlayfield;
+
   count: number = 0;
+
   tetromino: TTetrominoCoordinate;
+
   setIsGameOver: Dispatch<boolean>;
+
   timer: Date;
+
   speed: number;
 
   constructor(
@@ -96,6 +106,7 @@ export class Game {
   loop = () => {
     this.rAF = requestAnimationFrame(this.loop);
     drawPlayfield(this.ctx, this.canvas, this.playfield);
+
     // рисуем текущую фигуру
     if (this.tetromino) {
       if (Number(new Date()) - Number(this.timer) > this.speed) {
@@ -122,6 +133,7 @@ export class Game {
 
   rotateTetromino = () => {
     const matrix = rotateTetromino(this.tetromino.matrix);
+
     if (
       isValidMove(
         matrix,
@@ -136,6 +148,7 @@ export class Game {
 
   downTetromino() {
     const row = this.tetromino.row + 1;
+
     if (
       !isValidMove(
         this.tetromino.matrix,
@@ -146,8 +159,10 @@ export class Game {
     ) {
       this.tetromino.row = row - 1;
       this.placeTetromino();
+
       return;
     }
+
     this.tetromino.row = row;
   }
 
@@ -168,11 +183,11 @@ export class Game {
 
   moveTetrominoLeft = () => {
     this.moveTetromino();
-  }
+  };
 
   moveTetrominoRight = () => {
     this.moveTetromino(true);
-  }
+  };
 
   public start() {
     this.setIsGameOver(false);

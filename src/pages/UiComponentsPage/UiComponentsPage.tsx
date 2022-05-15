@@ -1,11 +1,10 @@
-import { FC } from "react";
-import Button from "../../components/Button/Button";
+import Button from "components/Button/Button";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
-import "./UiComponentsPage.css";
 import Modal from "components/Modal/Modal";
+import "./UiComponentsPage.css";
 
-const UiComponentsPage: FC = () => {
+export function UiComponentsPage() {
   return (
     <div className="grid">
       <div className="modals-grid">
@@ -67,6 +66,4 @@ const UiComponentsPage: FC = () => {
       </div>
     </div>
   );
-};
-
-export default UiComponentsPage;
+}

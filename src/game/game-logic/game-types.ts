@@ -10,7 +10,7 @@ export type TTetrominoCoordinate = {
   col: number;
 };
 export type TTetrominoQueue = Array<TTetrominoName>;
-export type TPLAYFIELD_SIZE = {
-  COLS: number;
-  ROWS: number;
+export type PlayFieldSize = {
+  cols: number;
+  rows: number;
 };

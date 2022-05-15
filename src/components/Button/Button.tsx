@@ -20,6 +20,7 @@ export default function Button(props: ButtonProps) {
     children,
     onClick,
   } = props;
+
   return (
     <button
       onClick={onClick}
