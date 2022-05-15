@@ -9,6 +9,7 @@ export function StartPage() {
   const [menuItems] = useState([
     { label: "Играть", url: PATHS.GAME },
     { label: "Профиль", url: PATHS.PROFILE },
+    { label: "Логин", url: PATHS.SIGN_IN },
     { label: "Таблица лидеров", url: PATHS.LEADERBOARD },
     { label: "Форум", url: PATHS.FORUM },
     { label: "Компоненты", url: PATHS.UI },
