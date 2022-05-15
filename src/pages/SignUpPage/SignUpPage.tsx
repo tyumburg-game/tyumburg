@@ -47,7 +47,7 @@ export function SignUpPage() {
           <Input
             onChange={(event) => setPhone(event.target.value)}
             value={phone}
-            label="Фамилия"
+            label="Телефон"
             type="tel"
           />
           <Input
