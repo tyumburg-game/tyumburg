@@ -2,4 +2,6 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
+  margin: 0 auto;
+  max-width: 768px;
 }
