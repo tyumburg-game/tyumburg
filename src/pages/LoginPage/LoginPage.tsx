@@ -4,10 +4,13 @@ import Button from "components/Button/Button";
 import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
 import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPageLayout";
 import Input from "components/Input/Input";
+import { PATHS } from "Routes/paths";
+import { useLink } from "hooks/use-link";
 
 export function LoginPage() {
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
+  const navigate = useLink();
 
   return (
     <CenterPageLayout>
@@ -28,7 +31,7 @@ export function LoginPage() {
         </Modal.Content>
         <Modal.Footer>
           <ButtonsGroup>
-            <Button onClick={() => {}} mode="secondary">
+            <Button onClick={navigate(PATHS.SIGN_UP)} mode="secondary">
               Нет аккаунта
             </Button>
             <Button mode="primary" onClick={() => {}}>
