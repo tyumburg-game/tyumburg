@@ -26,6 +26,7 @@ export function createTetromino() {
   ];
 
   const rand = getRandomInt(0, tetrominoNames.length - 1);
+
   return tetrominoNames[rand][0] as TTetrominoName;
 }
 
@@ -34,8 +35,10 @@ export function generateQueue(): Array<TTetrominoName> {
   const tetrominoQueue: Array<TTetrominoName> = [];
 
   let count = 0;
+
   while (count <= QUEUE_SIZE) {
     const randomName = createTetromino();
+
     tetrominoQueue.push(randomName);
     count++;
   }
@@ -46,6 +49,7 @@ export function generateQueue(): Array<TTetrominoName> {
 // Поворочивает фигуру
 export function rotateTetromino(matrix: TTetrominoMatrix): TTetrominoMatrix {
   const N = matrix.length - 1;
+
   return matrix.map((row, i) => row.map((_, j) => matrix[N - j][i]));
 }
 
@@ -97,6 +101,7 @@ export function getNextTetromino(
 // Возвращает пустую матрицу поля.
 export function getPlayfield(): TPlayfield {
   const playfield: TPlayfield = [];
+
   for (let row = -2; row < 20; row++) {
     playfield[row] = [];
 
@@ -104,5 +109,6 @@ export function getPlayfield(): TPlayfield {
       playfield[row][col] = 0;
     }
   }
+
   return playfield;
 }

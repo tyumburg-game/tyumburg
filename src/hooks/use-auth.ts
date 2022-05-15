@@ -7,6 +7,7 @@ export function useAuth() {
     // TODO реализовать при добавлении авторизации
     const checkAuth = async () => {
       const res = await true;
+
       setIsAuth(res);
     };
 
