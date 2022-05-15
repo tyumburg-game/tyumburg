@@ -28,6 +28,7 @@ export default function Input(props: InputProps) {
     name = useId(),
     onChange,
   } = props;
+
   return (
     <div className={b.mix(className)}>
       <label htmlFor={id} className={b("label")}>

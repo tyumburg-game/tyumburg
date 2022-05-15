@@ -106,6 +106,7 @@ export class Game {
   loop = () => {
     this.rAF = requestAnimationFrame(this.loop);
     drawPlayfield(this.ctx, this.canvas, this.playfield);
+
     // рисуем текущую фигуру
     if (this.tetromino) {
       if (Number(new Date()) - Number(this.timer) > this.speed) {
@@ -132,6 +133,7 @@ export class Game {
 
   rotateTetromino = () => {
     const matrix = rotateTetromino(this.tetromino.matrix);
+
     if (
       isValidMove(
         matrix,
@@ -146,6 +148,7 @@ export class Game {
 
   downTetromino() {
     const row = this.tetromino.row + 1;
+
     if (
       !isValidMove(
         this.tetromino.matrix,
@@ -156,8 +159,10 @@ export class Game {
     ) {
       this.tetromino.row = row - 1;
       this.placeTetromino();
+
       return;
     }
+
     this.tetromino.row = row;
   }
 

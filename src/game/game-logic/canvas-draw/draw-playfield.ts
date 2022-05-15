@@ -12,6 +12,7 @@ export function drawPlayfield(
     for (let col = 0; col < PLAYFIELD_SIZE.cols; col++) {
       if (playfield[row][col]) {
         const name = playfield[row][col] as TTetrominoName;
+
         ctx.fillStyle = TETROMINOES_COLORS[name];
 
         ctx.fillRect(
