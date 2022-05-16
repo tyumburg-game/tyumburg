@@ -10,12 +10,6 @@ const UiComponentsPage: FC = () => {
   const [text, setText] = useState<string>('');
 
   const handleFirstName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value)
-
-    if (event.target.value === 'error') {
-      ErrorBoundary.getDerivedStateFromError(new Error('I crashed!'))
-    }
-
     setText(event.target.value);
   }, []);
 
