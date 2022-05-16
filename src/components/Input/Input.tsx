@@ -1,11 +1,11 @@
-import { ChangeEvent, ReactNode, useId } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute, ReactNode, useId } from "react";
 import block from "bem-cn";
 import "./Input.css";
 
 type InputProps = {
   value: string;
   label: string;
-  type?: "text" | "number";
+  type?: HTMLInputTypeAttribute;
   mode?: "default" | "error";
   id?: string;
   className?: string;
@@ -20,7 +20,7 @@ export default function Input(props: InputProps) {
   const {
     value,
     type = "text",
-    className = "",
+    className,
     mode = "default",
     id = useId(),
     label,
@@ -28,6 +28,7 @@ export default function Input(props: InputProps) {
     name = useId(),
     onChange,
   } = props;
+
   return (
     <div className={b.mix(className)}>
       <label htmlFor={id} className={b("label")}>
@@ -43,7 +44,7 @@ export default function Input(props: InputProps) {
           className={b("field", { mode })}
         />
       </div>
-      {comment && <div className={b("comment")}>{comment}</div>}
+      <div className={b("comment")}>{comment ?? null}</div>
     </div>
   );
 }

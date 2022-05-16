@@ -1,12 +1,12 @@
-import {FC, useState, useCallback, ChangeEvent} from "react";
+import {useState, useCallback, ChangeEvent} from "react";
 import Button from "../../components/Button/Button";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
-import "./UiComponentsPage.css";
 import Modal from "components/Modal/Modal";
 import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
+import "./UiComponentsPage.css";
 
-const UiComponentsPage: FC = () => {
+export function UiComponentsPage () {
   const [text, setText] = useState<string>('');
 
   const handleFirstName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -76,6 +76,4 @@ const UiComponentsPage: FC = () => {
       </div>
     </ErrorBoundary>
   );
-};
-
-export default UiComponentsPage;
+}
