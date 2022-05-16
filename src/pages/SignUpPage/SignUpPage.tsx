@@ -1,52 +1,63 @@
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import Modal from "components/Modal/Modal";
 import Button from "components/Button/Button";
 import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
 import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPageLayout";
 import Input from "components/Input/Input";
 import { PATHS } from "Routes/paths";
-import { useLink } from "hooks/use-link";
+import CustomLink from "components/Link/Link";
 
-type SignUpInputName = 'password' | 'rePassword' | 'login' | 'phone' | 'firstName' | 'secondName' | 'email';
+type SignUpInputName =
+  | "password"
+  | "rePassword"
+  | "login"
+  | "phone"
+  | "firstName"
+  | "secondName"
+  | "email";
 type SignUpInputState = {
-  value: string,
-  isValid?: boolean
-}
+  value: string;
+  isValid?: boolean;
+};
 type SignUpInputs = Record<SignUpInputName, SignUpInputState>;
 
 export function SignUpPage() {
   const [inputs, setInputs] = useState<SignUpInputs>({
     password: {
-      value: ''
+      value: "",
     },
     rePassword: {
-      value: ''
+      value: "",
     },
     login: {
-      value: ''
+      value: "",
     },
     phone: {
-      value: ''
+      value: "",
     },
     firstName: {
-      value: ''
+      value: "",
     },
     secondName: {
-      value: ''
+      value: "",
     },
     email: {
-      value: ''
-    }
+      value: "",
+    },
   });
 
   function setInput(inputName: SignUpInputName, value: string) {
-    setInputs({...inputs, [inputName]: value})
+    setInputs({ ...inputs, [inputName]: value });
   }
-  const navigate = useLink();
+
+  const SignUpSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    console.log("Валидация и регистарция.");
+  };
 
   return (
     <CenterPageLayout>
-      <form action="#" className="sign-up-page__form">
+      <form action="#" className="sign-up-page__form" onSubmit={SignUpSubmit}>
         <Modal fixed={false}>
           <Modal.Header title="Регистарция" />
           <Modal.Content>
@@ -92,10 +103,10 @@ export function SignUpPage() {
           </Modal.Content>
           <Modal.Footer>
             <ButtonsGroup>
-              <Button onClick={navigate(PATHS.SIGN_IN)} mode="secondary">
+              <CustomLink to={PATHS.SIGN_IN} mode="secondary">
                 Уже есть аккаунт?
-              </Button>
-              <Button mode="primary" onClick={() => {}}>
+              </CustomLink>
+              <Button type="submit" mode="primary">
                 Зарегистрироваться
               </Button>
             </ButtonsGroup>

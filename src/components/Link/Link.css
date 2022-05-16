@@ -1,0 +1,71 @@
+:root {
+  --min-link-width: 72px;
+}
+
+.link {
+  cursor: pointer;
+  font: var(--font-link);
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid var(--color-link-primary-initial-border);
+  white-space: nowrap;
+  min-width: var(--min-link-width);
+  line-height: normal;
+}
+
+.link_mode_primary {
+  background-color: var(--color-link-primary-initial-background);
+  color: var(--color-link-primary-initial-text);
+  border-color: var(--color-link-primary-initial-border);
+}
+
+.link_mode_primary:hover {
+  background-color: var(--color-link-primary-hover-background);
+  color: var(--color-link-primary-hover-text);
+  border-color: var(--color-link-primary-hover-border);
+}
+
+.link_mode_primary:active {
+  background-color: var(--color-link-primary-active-background);
+  color: var(--color-link-primary-active-text);
+  border-color: var(--color-link-primary-active-border);
+}
+
+.link_mode_secondary {
+  background-color: var(--color-link-secondary-initial-background);
+  color: var(--color-link-secondary-initial-text);
+  border-color: var(--color-link-secondary-initial-border);
+}
+
+.link_mode_secondary:hover {
+  background-color: var(--color-link-secondary-hover-background);
+  color: var(--color-link-secondary-hover-text);
+  border-color: var(--color-link-secondary-hover-border);
+}
+
+.link_mode_secondary:active {
+  background-color: var(--color-link-secondary-active-background);
+  color: var(--color-link-secondary-active-text);
+  border-color: var(--color-link-secondary-active-border);
+}
+
+.link_mode_dangerous {
+  background-color: var(--color-link-dangerous-initial-background);
+  color: var(--color-link-dangerous-initial-text);
+  border-color: var(--color-link-dangerous-initial-border);
+}
+
+.link_mode_dangerous:hover {
+  background-color: var(--color-link-dangerous-hover-background);
+  color: var(--color-link-dangerous-hover-text);
+  border-color: var(--color-link-dangerous-hover-border);
+}
+
+.link_mode_dangerous:active {
+  background-color: var(--color-link-dangerous-active-background);
+  color: var(--color-link-dangerous-active-text);
+  border-color: var(--color-link-dangerous-active-border);
+}

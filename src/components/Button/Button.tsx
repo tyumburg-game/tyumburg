@@ -7,7 +7,7 @@ type ButtonProps = {
   mode?: "primary" | "secondary" | "dangerous";
   className?: string;
   children: ReactNode;
-  onClick(event: MouseEvent<HTMLButtonElement>): void;
+  onClick?(event: MouseEvent<HTMLButtonElement>): void;
 };
 
 const b = block("button");
