@@ -1,0 +1,14 @@
+.buttons-group {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  grid-gap: 16px;
+}
+
+.buttons-group_direction_horizontal {
+  flex-direction: row;
+}
+
+.buttons-group_direction_vertical {
+  flex-direction: column;
+}
