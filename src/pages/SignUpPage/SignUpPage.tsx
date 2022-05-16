@@ -20,60 +20,62 @@ export function SignUpPage() {
 
   return (
     <CenterPageLayout>
-      <Modal fixed={false}>
-        <Modal.Header title="Регистарция" />
-        <Modal.Content>
-          <Input
-            onChange={(event) => setEmail(event.target.value)}
-            value={email}
-            label="Почта"
-            type="email"
-          />
-          <Input
-            onChange={(event) => setLogin(event.target.value)}
-            value={login}
-            label="Логин"
-          />
-          <Input
-            onChange={(event) => setFirstName(event.target.value)}
-            value={firstName}
-            label="Имя"
-          />
-          <Input
-            onChange={(event) => setSecondName(event.target.value)}
-            value={secondName}
-            label="Фамилия"
-          />
-          <Input
-            onChange={(event) => setPhone(event.target.value)}
-            value={phone}
-            label="Телефон"
-            type="tel"
-          />
-          <Input
-            onChange={(event) => setPassword(event.target.value)}
-            type="password"
-            value={password}
-            label="Пароль"
-          />
-          <Input
-            onChange={(event) => setRePassword(event.target.value)}
-            type="password"
-            value={rePassword}
-            label="Повтор пароля"
-          />
-        </Modal.Content>
-        <Modal.Footer>
-          <ButtonsGroup>
-            <Button onClick={navigate(PATHS.SIGN_IN)} mode="secondary">
-              Уже есть аккаунт?
-            </Button>
-            <Button mode="primary" onClick={() => {}}>
-              Зарегистрироваться
-            </Button>
-          </ButtonsGroup>
-        </Modal.Footer>
-      </Modal>
+      <form action="#" className="sign-up-page__form">
+        <Modal fixed={false}>
+          <Modal.Header title="Регистарция" />
+          <Modal.Content>
+            <Input
+              onChange={(event) => setEmail(event.target.value)}
+              value={email}
+              label="Почта"
+              type="email"
+            />
+            <Input
+              onChange={(event) => setLogin(event.target.value)}
+              value={login}
+              label="Логин"
+            />
+            <Input
+              onChange={(event) => setFirstName(event.target.value)}
+              value={firstName}
+              label="Имя"
+            />
+            <Input
+              onChange={(event) => setSecondName(event.target.value)}
+              value={secondName}
+              label="Фамилия"
+            />
+            <Input
+              onChange={(event) => setPhone(event.target.value)}
+              value={phone}
+              label="Телефон"
+              type="tel"
+            />
+            <Input
+              onChange={(event) => setPassword(event.target.value)}
+              type="password"
+              value={password}
+              label="Пароль"
+            />
+            <Input
+              onChange={(event) => setRePassword(event.target.value)}
+              type="password"
+              value={rePassword}
+              label="Повтор пароля"
+            />
+          </Modal.Content>
+          <Modal.Footer>
+            <ButtonsGroup>
+              <Button onClick={navigate(PATHS.SIGN_IN)} mode="secondary">
+                Уже есть аккаунт?
+              </Button>
+              <Button mode="primary" onClick={() => {}}>
+                Зарегистрироваться
+              </Button>
+            </ButtonsGroup>
+          </Modal.Footer>
+        </Modal>
+      </form>
     </CenterPageLayout>
   );
 }
