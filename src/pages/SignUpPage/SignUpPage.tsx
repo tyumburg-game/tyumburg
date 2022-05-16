@@ -7,15 +7,41 @@ import Input from "components/Input/Input";
 import { PATHS } from "Routes/paths";
 import { useLink } from "hooks/use-link";
 
-export function SignUpPage() {
-  const [password, setPassword] = useState("");
-  const [rePassword, setRePassword] = useState("");
-  const [login, setLogin] = useState("");
-  const [phone, setPhone] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [secondName, setSecondName] = useState("");
+type SignUpInputName = 'password' | 'rePassword' | 'login' | 'phone' | 'firstName' | 'secondName' | 'email';
+type SignUpInputState = {
+  value: string,
+  isValid?: boolean
+}
+type SignUpInputs = Record<SignUpInputName, SignUpInputState>;
 
-  const [email, setEmail] = useState("");
+export function SignUpPage() {
+  const [inputs, setInputs] = useState<SignUpInputs>({
+    password: {
+      value: ''
+    },
+    rePassword: {
+      value: ''
+    },
+    login: {
+      value: ''
+    },
+    phone: {
+      value: ''
+    },
+    firstName: {
+      value: ''
+    },
+    secondName: {
+      value: ''
+    },
+    email: {
+      value: ''
+    }
+  });
+
+  function setInput(inputName: SignUpInputName, value: string) {
+    setInputs({...inputs, [inputName]: value})
+  }
   const navigate = useLink();
 
   return (
@@ -25,42 +51,42 @@ export function SignUpPage() {
           <Modal.Header title="Регистарция" />
           <Modal.Content>
             <Input
-              onChange={(event) => setEmail(event.target.value)}
-              value={email}
+              onChange={(event) => setInput("email", event.target.value)}
+              value={inputs.email.value}
               label="Почта"
               type="email"
             />
             <Input
-              onChange={(event) => setLogin(event.target.value)}
-              value={login}
+              onChange={(event) => setInput("login", event.target.value)}
+              value={inputs.login.value}
               label="Логин"
             />
             <Input
-              onChange={(event) => setFirstName(event.target.value)}
-              value={firstName}
+              onChange={(event) => setInput("firstName", event.target.value)}
+              value={inputs.firstName.value}
               label="Имя"
             />
             <Input
-              onChange={(event) => setSecondName(event.target.value)}
-              value={secondName}
+              onChange={(event) => setInput("secondName", event.target.value)}
+              value={inputs.secondName.value}
               label="Фамилия"
             />
             <Input
-              onChange={(event) => setPhone(event.target.value)}
-              value={phone}
+              onChange={(event) => setInput("phone", event.target.value)}
+              value={inputs.phone.value}
               label="Телефон"
               type="tel"
             />
             <Input
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setInput("password", event.target.value)}
               type="password"
-              value={password}
+              value={inputs.password.value}
               label="Пароль"
             />
             <Input
-              onChange={(event) => setRePassword(event.target.value)}
+              onChange={(event) => setInput("rePassword", event.target.value)}
               type="password"
-              value={rePassword}
+              value={inputs.rePassword.value}
               label="Повтор пароля"
             />
           </Modal.Content>
