@@ -1,11 +1,11 @@
+import { ChangeEvent, HTMLInputTypeAttribute, ReactNode, useId } from "react";
 import block from "bem-cn";
-import { ChangeEvent, ReactNode, useId } from "react";
 import "./Input.css";
 
 type InputProps = {
   value: string;
   label: string;
-  type?: "text" | "number" | "password";
+  type?: HTMLInputTypeAttribute;
   mode?: "default" | "error";
   id?: string;
   className?: string;

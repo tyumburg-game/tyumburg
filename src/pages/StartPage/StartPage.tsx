@@ -10,6 +10,7 @@ export function StartPage() {
     { label: "Играть", url: PATHS.GAME },
     { label: "Профиль", url: PATHS.PROFILE },
     { label: "Логин", url: PATHS.SIGN_IN },
+    { label: "Регистрация", url: PATHS.SIGN_UP },
     { label: "Таблица лидеров", url: PATHS.LEADERBOARD },
     { label: "Форум", url: PATHS.FORUM },
     { label: "Компоненты", url: PATHS.UI },

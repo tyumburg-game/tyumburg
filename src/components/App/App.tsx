@@ -10,6 +10,7 @@ import { PrivateOutlet } from "Routes/PrivateOutlet";
 import { UiComponentsPage } from "pages/UiComponentsPage/UiComponentsPage";
 import { StartPage } from "pages/StartPage/StartPage";
 import { LoginPage } from "pages/LoginPage/LoginPage";
+import { SignUpPage } from "pages/SignUpPage/SignUpPage";
 import { PasswordChangePage } from "pages/PasswordChangePage/PasswordChangePage";
 import "./App.css";
 
@@ -23,7 +24,7 @@ export function App() {
         <Route path={PATHS.GAME} element={<GamePage />} />
         <Route path={PATHS.LEADERBOARD} element={<Outlet />} />
         <Route path={PATHS.SIGN_IN} element={<LoginPage />} />
-        <Route path={PATHS.SIGN_UP} element={<Outlet />} />
+        <Route path={PATHS.SIGN_UP} element={<SignUpPage />} />
         <Route path={PATHS.PASSWORD_CHANGE} element={<PasswordChangePage />} />
         <Route path={PATHS.UI} element={<UiComponentsPage />} />
         <Route element={<PrivateOutlet />}>
