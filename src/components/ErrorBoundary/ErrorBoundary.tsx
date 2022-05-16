@@ -1,4 +1,5 @@
 import React, {ErrorInfo, ReactNode} from "react";
+import "./ErrorBoundary.css"
 
 type ErrorBoundaryProps = {
   children: ReactNode
@@ -34,7 +35,7 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
       return (
         <div>
           <h2>Something went wrong.</h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
+          <details className="errorBoundary">
             {error && error.toString()}
             <br />
             {errorInfo.componentStack}
