@@ -16,7 +16,7 @@ export default function Button(props: ButtonProps) {
   const {
     type = "button",
     mode = "secondary",
-    className = "",
+    className,
     children,
     onClick,
   } = props;

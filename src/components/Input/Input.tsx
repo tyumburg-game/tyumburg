@@ -20,7 +20,7 @@ export default function Input(props: InputProps) {
   const {
     value,
     type = "text",
-    className = "",
+    className,
     mode = "default",
     id = useId(),
     label,
