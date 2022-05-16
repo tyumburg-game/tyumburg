@@ -5,7 +5,7 @@ import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
 import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPageLayout";
 import Input from "components/Input/Input";
 import { PATHS } from "Routes/paths";
-import CustomLink from "components/Link/Link";
+import CustomLink from "components/CustomLink/CustomLink";
 
 type SignUpInputName =
   | "password"

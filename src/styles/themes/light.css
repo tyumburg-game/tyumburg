@@ -102,38 +102,38 @@
   --color-game-wrapper-border: var(--gray-2);
 }
 
-/* Links */
+/* CustomLinks */
 :root {
   /* Primary */
-  --color-link-primary-initial-background: var(--color-accent);
-  --color-link-primary-initial-text: #ffffff;
-  --color-link-primary-initial-border: var(--color-accent);
-  --color-link-primary-hover-background: var(--color-accent-hover);
-  --color-link-primary-hover-text: #ffffff;
-  --color-link-primary-hover-border: var(--color-accent-hover);
-  --color-link-primary-active-background: var(--color-accent-active);
-  --color-link-primary-active-text: #ffffff;
-  --color-link-primary-active-border: var(--color-accent-active);
+  --color-custom-link-primary-initial-background: var(--color-accent);
+  --color-custom-link-primary-initial-text: #ffffff;
+  --color-custom-link-primary-initial-border: var(--color-accent);
+  --color-custom-link-primary-hover-background: var(--color-accent-hover);
+  --color-custom-link-primary-hover-text: #ffffff;
+  --color-custom-link-primary-hover-border: var(--color-accent-hover);
+  --color-custom-link-primary-active-background: var(--color-accent-active);
+  --color-custom-link-primary-active-text: #ffffff;
+  --color-custom-link-primary-active-border: var(--color-accent-active);
 
   /* Secondary */
-  --color-link-secondary-initial-background: #ffffff;
-  --color-link-secondary-initial-text: var(--color-accent);
-  --color-link-secondary-initial-border: var(--color-accent);
-  --color-link-secondary-hover-background: var(--gray-2);
-  --color-link-secondary-hover-text: var(--color-accent-hover);
-  --color-link-secondary-hover-border: var(--color-accent-hover);
-  --color-link-secondary-active-background: var(--gray-3);
-  --color-link-secondary-active-text: var(--color-accent-active);
-  --color-link-secondary-active-border: var(--color-accent-active);
+  --color-custom-link-secondary-initial-background: #ffffff;
+  --color-custom-link-secondary-initial-text: var(--color-accent);
+  --color-custom-link-secondary-initial-border: var(--color-accent);
+  --color-custom-link-secondary-hover-background: var(--gray-2);
+  --color-custom-link-secondary-hover-text: var(--color-accent-hover);
+  --color-custom-link-secondary-hover-border: var(--color-accent-hover);
+  --color-custom-link-secondary-active-background: var(--gray-3);
+  --color-custom-link-secondary-active-text: var(--color-accent-active);
+  --color-custom-link-secondary-active-border: var(--color-accent-active);
 
   /* Dangerous */
-  --color-link-dangerous-initial-background: var(--color-dangerous);
-  --color-link-dangerous-initial-text: #ffffff;
-  --color-link-dangerous-initial-border: var(--color-dangerous);
-  --color-link-dangerous-hover-background: var(--color-dangerous-hover);
-  --color-link-dangerous-hover-text: #ffffff;
-  --color-link-dangerous-hover-border: var(--color-dangerous-hover);
-  --color-link-dangerous-active-background: var(--color-dangerous-active);
-  --color-link-dangerous-active-text: #ffffff;
-  --color-link-dangerous-active-border: var(--color-dangerous-active);
+  --color-custom-link-dangerous-initial-background: var(--color-dangerous);
+  --color-custom-link-dangerous-initial-text: #ffffff;
+  --color-custom-link-dangerous-initial-border: var(--color-dangerous);
+  --color-custom-link-dangerous-hover-background: var(--color-dangerous-hover);
+  --color-custom-link-dangerous-hover-text: #ffffff;
+  --color-custom-link-dangerous-hover-border: var(--color-dangerous-hover);
+  --color-custom-link-dangerous-active-background: var(--color-dangerous-active);
+  --color-custom-link-dangerous-active-text: #ffffff;
+  --color-custom-link-dangerous-active-border: var(--color-dangerous-active);
 }
