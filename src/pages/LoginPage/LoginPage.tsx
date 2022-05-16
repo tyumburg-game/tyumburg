@@ -14,32 +14,34 @@ export function LoginPage() {
 
   return (
     <CenterPageLayout>
-      <Modal fixed={false}>
-        <Modal.Header title="Вход" />
-        <Modal.Content>
-          <Input
-            onChange={(event) => setLogin(event.target.value)}
-            value={login}
-            label="Логин"
-          />
-          <Input
-            onChange={(event) => setPassword(event.target.value)}
-            type="password"
-            value={password}
-            label="Пароль"
-          />
-        </Modal.Content>
-        <Modal.Footer>
-          <ButtonsGroup>
-            <Button onClick={navigate(PATHS.SIGN_UP)} mode="secondary">
-              Нет аккаунта
-            </Button>
-            <Button mode="primary" onClick={() => {}}>
-              Войти
-            </Button>
-          </ButtonsGroup>
-        </Modal.Footer>
-      </Modal>
+      <form action="#" className="login-page__form">
+        <Modal fixed={false}>
+          <Modal.Header title="Вход" />
+          <Modal.Content>
+            <Input
+              onChange={(event) => setLogin(event.target.value)}
+              value={login}
+              label="Логин"
+            />
+            <Input
+              onChange={(event) => setPassword(event.target.value)}
+              type="password"
+              value={password}
+              label="Пароль"
+            />
+          </Modal.Content>
+          <Modal.Footer>
+            <ButtonsGroup>
+              <Button onClick={navigate(PATHS.SIGN_UP)} mode="secondary">
+                Нет аккаунта
+              </Button>
+              <Button mode="primary" onClick={() => {}}>
+                Войти
+              </Button>
+            </ButtonsGroup>
+          </Modal.Footer>
+        </Modal>
+      </form>
     </CenterPageLayout>
   );
 }
