@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from "react";
+import { ChangeEvent, FormEventHandler, useState } from "react";
 import Modal from "components/Modal/Modal";
 import Button from "components/Button/Button";
 import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
@@ -46,8 +46,8 @@ export function SignUpPage() {
     },
   });
 
-  function setInput(inputName: SignUpInputName, value: string) {
-    setInputs({ ...inputs, [inputName]: value });
+  function setInput(e: ChangeEvent<HTMLInputElement>) {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
   }
 
   const SignUpSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -62,43 +62,50 @@ export function SignUpPage() {
           <Modal.Header title="Регистарция" />
           <Modal.Content>
             <Input
-              onChange={(event) => setInput("email", event.target.value)}
+              onChange={setInput}
               value={inputs.email.value}
               label="Почта"
               type="email"
+              name="email"
             />
             <Input
-              onChange={(event) => setInput("login", event.target.value)}
+              onChange={setInput}
               value={inputs.login.value}
               label="Логин"
+              name="login"
             />
             <Input
-              onChange={(event) => setInput("firstName", event.target.value)}
+              onChange={setInput}
               value={inputs.firstName.value}
               label="Имя"
+              name="firstName"
             />
             <Input
-              onChange={(event) => setInput("secondName", event.target.value)}
+              onChange={setInput}
               value={inputs.secondName.value}
               label="Фамилия"
+              name="secondName"
             />
             <Input
-              onChange={(event) => setInput("phone", event.target.value)}
+              onChange={setInput}
               value={inputs.phone.value}
               label="Телефон"
               type="tel"
+              name="phone"
             />
             <Input
-              onChange={(event) => setInput("password", event.target.value)}
+              onChange={setInput}
               type="password"
               value={inputs.password.value}
               label="Пароль"
+              name="password"
             />
             <Input
-              onChange={(event) => setInput("rePassword", event.target.value)}
+              onChange={setInput}
               type="password"
               value={inputs.rePassword.value}
               label="Повтор пароля"
+              name="rePassword"
             />
           </Modal.Content>
           <Modal.Footer>

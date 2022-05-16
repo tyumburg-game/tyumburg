@@ -35,6 +35,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
     "react/button-has-type": "off",
+    "react/jsx-no-bind": "off",
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
