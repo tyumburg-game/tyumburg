@@ -1,30 +1,33 @@
-import React, {ErrorInfo, ReactNode} from "react";
-import "./ErrorBoundary.css"
+import React, { ErrorInfo, ReactNode } from "react";
+import "./ErrorBoundary.css";
 
 type ErrorBoundaryProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 type ErrorBoundaryState = {
-  error: Error | null,
-  errorInfo: ErrorInfo | null
-}
+  error: Error | null;
+  errorInfo: ErrorInfo | null;
+};
 
-export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export default class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
 
     this.state = {
       error: null,
-      errorInfo: null
+      errorInfo: null,
     };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     this.setState({
-      error: error,
-      errorInfo: errorInfo
-    })
+      error,
+      errorInfo,
+    });
   }
 
   render() {
