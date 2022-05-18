@@ -60,7 +60,7 @@ export function ProfilePage() {
               onChange={setInput}
               value={inputs.email.value}
               label="Почта"
-              disabled={true}
+              disabled
               type="email"
               name="email"
             />
@@ -68,35 +68,35 @@ export function ProfilePage() {
               onChange={setInput}
               value={inputs.login.value}
               label="Логин"
-              disabled={true}
+              disabled
               name="login"
             />
             <Input
               onChange={setInput}
               value={inputs.firstName.value}
               label="Имя"
-              disabled={true}
+              disabled
               name="firstName"
             />
             <Input
               onChange={setInput}
               value={inputs.secondName.value}
               label="Фамилия"
-              disabled={true}
+              disabled
               name="secondName"
             />
             <Input
               onChange={setInput}
               value={inputs.displayName.value}
               label="Имя в чате"
-              disabled={true}
+              disabled
               name="display_name"
             />
             <Input
               onChange={setInput}
               value={inputs.phone.value}
               label="Телефон"
-              disabled={true}
+              disabled
               type="tel"
               name="phone"
             />

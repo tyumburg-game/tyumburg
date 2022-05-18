@@ -1,9 +1,9 @@
 import {useState, useCallback, ChangeEvent} from "react";
-import Button from "../../components/Button/Button";
+import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
 import Modal from "components/Modal/Modal";
-import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
+import Button from "../../components/Button/Button";
 import "./UiComponentsPage.css";
 
 export function UiComponentsPage () {
