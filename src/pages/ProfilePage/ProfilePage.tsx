@@ -45,14 +45,14 @@ export function ProfilePage() {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   }
 
-  const ProfileSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     console.log("Валидация и редактирование профиля.");
   };
 
   return (
     <CenterPageLayout>
-      <form action="#" className="sign-up-page__form" onSubmit={ProfileSubmit}>
+      <form action="#" className="sign-up-page__form" onSubmit={handleSubmit}>
         <Modal fixed={false}>
           <Modal.Header title="Редактировать аккаунт" />
           <Modal.Content>
