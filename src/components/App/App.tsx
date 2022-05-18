@@ -12,6 +12,8 @@ import { StartPage } from "pages/StartPage/StartPage";
 import { LoginPage } from "pages/LoginPage/LoginPage";
 import { SignUpPage } from "pages/SignUpPage/SignUpPage";
 import { PasswordChangePage } from "pages/PasswordChangePage/PasswordChangePage";
+import { EditProfilePage } from 'pages/EditProfilePage/EditProfilePage';
+import { ProfilePage } from 'pages/ProfilePage/ProfilePage';
 import "./App.css";
 
 export function App() {
@@ -28,7 +30,8 @@ export function App() {
         <Route path={PATHS.PASSWORD_CHANGE} element={<PasswordChangePage />} />
         <Route path={PATHS.UI} element={<UiComponentsPage />} />
         <Route element={<PrivateOutlet />}>
-          <Route path={PATHS.PROFILE} element={<Outlet />} />
+          <Route path={PATHS.PROFILE} element={<ProfilePage />} />
+          <Route path={PATHS.EDIT_PROFILE} element={<EditProfilePage />} />
         </Route>
       </Routes>
     </Router>

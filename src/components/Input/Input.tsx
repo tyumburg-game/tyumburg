@@ -6,6 +6,7 @@ type InputProps = {
   value: string;
   label: string;
   type?: HTMLInputTypeAttribute;
+  disabled?: boolean;
   mode?: "default" | "error";
   id?: string;
   className?: string;
@@ -20,6 +21,7 @@ export default function Input(props: InputProps) {
   const {
     value,
     type = "text",
+    disabled = false,
     className,
     mode = "default",
     id = useId(),
@@ -39,6 +41,7 @@ export default function Input(props: InputProps) {
           value={value}
           id={id}
           onChange={onChange}
+          disabled={disabled}
           type={type}
           name={name}
           className={b("field", { mode })}
