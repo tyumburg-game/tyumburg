@@ -1,0 +1,139 @@
+/* Accent */
+:root {
+  --color-accent: var(--purple-3);
+  --color-accent-hover: var(--purple-4);
+  --color-accent-active: var(--purple-5);
+}
+
+/* Dangerous */
+:root {
+  --color-dangerous: var(--pink-3);
+  --color-dangerous-hover: var(--pink-4);
+  --color-dangerous-active: var(--pink-5);
+}
+
+/* Buttons */
+:root {
+  /* Primary */
+  --color-button-primary-initial-background: var(--color-accent);
+  --color-button-primary-initial-text: #ffffff;
+  --color-button-primary-initial-border: var(--color-accent);
+  --color-button-primary-hover-background: var(--color-accent-hover);
+  --color-button-primary-hover-text: #ffffff;
+  --color-button-primary-hover-border: var(--color-accent-hover);
+  --color-button-primary-active-background: var(--color-accent-active);
+  --color-button-primary-active-text: #ffffff;
+  --color-button-primary-active-border: var(--color-accent-active);
+
+  /* Secondary */
+  --color-button-secondary-initial-background: #ffffff;
+  --color-button-secondary-initial-text: var(--color-accent);
+  --color-button-secondary-initial-border: var(--color-accent);
+  --color-button-secondary-hover-background: var(--gray-2);
+  --color-button-secondary-hover-text: var(--color-accent-hover);
+  --color-button-secondary-hover-border: var(--color-accent-hover);
+  --color-button-secondary-active-background: var(--gray-3);
+  --color-button-secondary-active-text: var(--color-accent-active);
+  --color-button-secondary-active-border: var(--color-accent-active);
+
+  /* Dangerous */
+  --color-button-dangerous-initial-background: var(--color-dangerous);
+  --color-button-dangerous-initial-text: #ffffff;
+  --color-button-dangerous-initial-border: var(--color-dangerous);
+  --color-button-dangerous-hover-background: var(--color-dangerous-hover);
+  --color-button-dangerous-hover-text: #ffffff;
+  --color-button-dangerous-hover-border: var(--color-dangerous-hover);
+  --color-button-dangerous-active-background: var(--color-dangerous-active);
+  --color-button-dangerous-active-text: #ffffff;
+  --color-button-dangerous-active-border: var(--color-dangerous-active);
+}
+
+/* Inputs */
+:root {
+  /* Default */
+  --color-input-default-initial-background: var(--gray-1);
+  --color-input-default-initial-text: var(--gray-5);
+  --color-input-default-initial-border: var(--gray-5);
+  --color-input-default-hover-background: var(--gray-1);
+  --color-input-default-hover-text: var(--gray-5);
+  --color-input-default-hover-border: var(--color-accent-hover);
+  --color-input-default-active-background: var(--gray-1);
+  --color-input-default-active-text: var(--gray-5);
+  --color-input-default-active-border: var(--color-accent);
+
+  /* Error */
+  --color-input-error-initial-background: var(--gray-1);
+  --color-input-error-initial-text: var(--gray-5);
+  --color-input-error-initial-border: var(--color-dangerous);
+  --color-input-error-hover-background: var(--gray-1);
+  --color-input-error-hover-text: var(--gray-5);
+  --color-input-error-hover-border: var(--color-dangerous-hover);
+  --color-input-error-active-background: var(--gray-1);
+  --color-input-error-active-text: var(--gray-5);
+  --color-input-error-active-border: var(--color-accent);
+}
+
+/* Input label */
+:root {
+  --color-input-label-initial-text: var(--color-accent);
+}
+
+/* Validation Message */
+:root {
+  --color-validation-message-text: var(--color-dangerous);
+}
+
+/* Text */
+:root {
+  --color-text: var(--dark-blue);
+}
+
+/* Modal */
+:root {
+  --color-modal-background: var(--grayish-orange);
+  --color-modal-border: var(--purple-2);
+  --color-modal-shadow: var(--gray-7);
+}
+
+/* Game */
+:root {
+  --color-game-playfield-background: var(--grayish-orange);
+  --color-game-inner-border: var(--color-accent);
+  --color-game-wrapper-border: var(--gray-2);
+}
+
+/* CustomLinks */
+:root {
+  /* Primary */
+  --color-custom-link-primary-initial-background: var(--color-accent);
+  --color-custom-link-primary-initial-text: #ffffff;
+  --color-custom-link-primary-initial-border: var(--color-accent);
+  --color-custom-link-primary-hover-background: var(--color-accent-hover);
+  --color-custom-link-primary-hover-text: #ffffff;
+  --color-custom-link-primary-hover-border: var(--color-accent-hover);
+  --color-custom-link-primary-active-background: var(--color-accent-active);
+  --color-custom-link-primary-active-text: #ffffff;
+  --color-custom-link-primary-active-border: var(--color-accent-active);
+
+  /* Secondary */
+  --color-custom-link-secondary-initial-background: #ffffff;
+  --color-custom-link-secondary-initial-text: var(--color-accent);
+  --color-custom-link-secondary-initial-border: var(--color-accent);
+  --color-custom-link-secondary-hover-background: var(--gray-2);
+  --color-custom-link-secondary-hover-text: var(--color-accent-hover);
+  --color-custom-link-secondary-hover-border: var(--color-accent-hover);
+  --color-custom-link-secondary-active-background: var(--gray-3);
+  --color-custom-link-secondary-active-text: var(--color-accent-active);
+  --color-custom-link-secondary-active-border: var(--color-accent-active);
+
+  /* Dangerous */
+  --color-custom-link-dangerous-initial-background: var(--color-dangerous);
+  --color-custom-link-dangerous-initial-text: #ffffff;
+  --color-custom-link-dangerous-initial-border: var(--color-dangerous);
+  --color-custom-link-dangerous-hover-background: var(--color-dangerous-hover);
+  --color-custom-link-dangerous-hover-text: #ffffff;
+  --color-custom-link-dangerous-hover-border: var(--color-dangerous-hover);
+  --color-custom-link-dangerous-active-background: var(--color-dangerous-active);
+  --color-custom-link-dangerous-active-text: #ffffff;
+  --color-custom-link-dangerous-active-border: var(--color-dangerous-active);
+}

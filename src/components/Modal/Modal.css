@@ -1,0 +1,18 @@
+:root {
+  --min-modal-width: 380px;
+}
+
+.modal {
+  min-width: var(--min-modal-width);
+  background: var(--color-modal-background);
+  border: 2px solid var(--color-modal-border);
+  box-shadow: 0 0 6px var(--color-modal-shadow);
+  border-radius: 8px;
+}
+
+.modal_fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

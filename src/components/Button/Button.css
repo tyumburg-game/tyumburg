@@ -1,0 +1,70 @@
+:root {
+  --min-button-width: 72px;
+}
+
+.button {
+  cursor: pointer;
+  font: var(--font-button);
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid var(--color-button-primary-initial-border);
+  white-space: nowrap;
+  min-width: var(--min-button-width);
+}
+
+.button_mode_primary {
+  background-color: var(--color-button-primary-initial-background);
+  color: var(--color-button-primary-initial-text);
+  border-color: var(--color-button-primary-initial-border);
+}
+
+.button_mode_primary:hover {
+  background-color: var(--color-button-primary-hover-background);
+  color: var(--color-button-primary-hover-text);
+  border-color: var(--color-button-primary-hover-border);
+}
+
+.button_mode_primary:active {
+  background-color: var(--color-button-primary-active-background);
+  color: var(--color-button-primary-active-text);
+  border-color: var(--color-button-primary-active-border);
+}
+
+.button_mode_secondary {
+  background-color: var(--color-button-secondary-initial-background);
+  color: var(--color-button-secondary-initial-text);
+  border-color: var(--color-button-secondary-initial-border);
+}
+
+.button_mode_secondary:hover {
+  background-color: var(--color-button-secondary-hover-background);
+  color: var(--color-button-secondary-hover-text);
+  border-color: var(--color-button-secondary-hover-border);
+}
+
+.button_mode_secondary:active {
+  background-color: var(--color-button-secondary-active-background);
+  color: var(--color-button-secondary-active-text);
+  border-color: var(--color-button-secondary-active-border);
+}
+
+.button_mode_dangerous {
+  background-color: var(--color-button-dangerous-initial-background);
+  color: var(--color-button-dangerous-initial-text);
+  border-color: var(--color-button-dangerous-initial-border);
+}
+
+.button_mode_dangerous:hover {
+  background-color: var(--color-button-dangerous-hover-background);
+  color: var(--color-button-dangerous-hover-text);
+  border-color: var(--color-button-dangerous-hover-border);
+}
+
+.button_mode_dangerous:active {
+  background-color: var(--color-button-dangerous-active-background);
+  color: var(--color-button-dangerous-active-text);
+  border-color: var(--color-button-dangerous-active-border);
+}
