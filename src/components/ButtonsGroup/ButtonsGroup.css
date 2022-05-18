@@ -12,3 +12,7 @@
 .buttons-group_direction_vertical {
   flex-direction: column;
 }
+
+.buttons-group_align-right {
+  align-items: end;
+}
