@@ -5,15 +5,15 @@ export enum METHODS {
   DELETE = "DELETE",
 }
 
-export type TOptions = {
+export type Options = {
   timeout?: number;
   method: METHODS;
   data?: any;
-  query?: TRequestQuery;
+  query?: RequestQuery;
   headers?: Record<string, string>;
 };
 
-export type TRequestQuery = Record<string, string | number>;
+export type RequestQuery = Record<string, string | number>;
 
-export type TOptionsWithoutMethod = Omit<TOptions, "method">;
-export type TGetRequestOptions = Omit<TOptionsWithoutMethod, "data">;
+export type OptionsWithoutMethod = Omit<Options, "method">;
+export type GetRequestOptions = Omit<OptionsWithoutMethod, "data">;

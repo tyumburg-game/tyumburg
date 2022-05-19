@@ -1,10 +1,10 @@
 import { env } from "constants/env";
 import { getQueryString } from "utils/getQueryString";
 import {
-  TGetRequestOptions,
+  GetRequestOptions,
   METHODS,
-  TOptions,
-  TOptionsWithoutMethod,
+  Options,
+  OptionsWithoutMethod,
 } from "./http-transport-types";
 
 export class HTTPTransport {
@@ -17,7 +17,7 @@ export class HTTPTransport {
     this.baseUrl = baseUrl;
   }
 
-  get<T>(url: string, options: TGetRequestOptions = {}): Promise<T> {
+  get<T>(url: string, options: GetRequestOptions = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.GET },
@@ -25,7 +25,7 @@ export class HTTPTransport {
     );
   }
 
-  post<T>(url: string, options: TOptionsWithoutMethod = {}): Promise<T> {
+  post<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.POST },
@@ -33,7 +33,7 @@ export class HTTPTransport {
     );
   }
 
-  put<T>(url: string, options: TOptionsWithoutMethod = {}): Promise<T> {
+  put<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.PUT },
@@ -41,7 +41,7 @@ export class HTTPTransport {
     );
   }
 
-  delete<T>(url: string, options: TOptionsWithoutMethod = {}): Promise<T> {
+  delete<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.DELETE },
@@ -49,7 +49,7 @@ export class HTTPTransport {
     );
   }
 
-  request<T>(url: string, options: TOptions, timeout = 5000): Promise<T> {
+  request<T>(url: string, options: Options, timeout = 5000): Promise<T> {
     const {
       method,
       query = {},

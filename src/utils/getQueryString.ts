@@ -1,6 +1,6 @@
-import { TRequestQuery } from "http/http-transport-types";
+import { RequestQuery } from "http/http-transport-types";
 
-export function getQueryString(data: TRequestQuery) {
+export function getQueryString(data: RequestQuery) {
   const result: string[] = [];
 
   if (data && Object.keys(data).length) {
