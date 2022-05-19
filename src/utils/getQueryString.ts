@@ -1,7 +1,9 @@
-export function getQueryString(data: any) {
+import { TRequestQuery } from "http/http-transport-types";
+
+export function getQueryString(data: TRequestQuery) {
   const result: string[] = [];
 
-  if (data) {
+  if (data && Object.keys(data).length) {
     result.push("?");
 
     Object.keys(data).forEach((key) => {

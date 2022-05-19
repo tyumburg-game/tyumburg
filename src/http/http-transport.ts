@@ -1,23 +1,11 @@
 import { env } from "constants/env";
 import { getQueryString } from "utils/getQueryString";
-
-enum METHODS {
-  GET = "GET",
-  PUT = "PUT",
-  POST = "POST",
-  DELETE = "DELETE",
-}
-
-interface Options {
-  timeout?: number;
-  method: METHODS;
-  data?: any;
-  query?: any;
-  headers?: any;
-}
-
-type OptionsWithoutMethod = Omit<Options, "method">;
-type GetRequestOptions = Omit<OptionsWithoutMethod, "data">;
+import {
+  TGetRequestOptions,
+  METHODS,
+  TOptions,
+  TOptionsWithoutMethod,
+} from "./http-transport-types";
 
 export class HTTPTransport {
   public path: string;
@@ -29,7 +17,7 @@ export class HTTPTransport {
     this.baseUrl = baseUrl;
   }
 
-  get<T>(url: string, options: GetRequestOptions = {}): Promise<T> {
+  get<T>(url: string, options: TGetRequestOptions = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.GET },
@@ -37,7 +25,7 @@ export class HTTPTransport {
     );
   }
 
-  post<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
+  post<T>(url: string, options: TOptionsWithoutMethod = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.POST },
@@ -45,7 +33,7 @@ export class HTTPTransport {
     );
   }
 
-  put<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
+  put<T>(url: string, options: TOptionsWithoutMethod = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.PUT },
@@ -53,7 +41,7 @@ export class HTTPTransport {
     );
   }
 
-  delete<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
+  delete<T>(url: string, options: TOptionsWithoutMethod = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.DELETE },
@@ -61,11 +49,11 @@ export class HTTPTransport {
     );
   }
 
-  request<T>(url: string, options: Options, timeout = 5000): Promise<T> {
+  request<T>(url: string, options: TOptions, timeout = 5000): Promise<T> {
     const {
       method,
-      query,
-      data,
+      query = {},
+      data = {},
       headers = {
         "content-type": "application/json;charset=UTF-8",
       },
