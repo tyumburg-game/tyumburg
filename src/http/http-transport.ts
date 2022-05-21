@@ -1,7 +1,7 @@
 import { env } from "constants/env";
 import { getQueryString } from "utils/getQueryString";
 import {
-  GetRequestOptions,
+  OptionsWithoutMethodAndData,
   METHODS,
   Options,
   OptionsWithoutMethod,
@@ -17,7 +17,7 @@ export class HTTPTransport {
     this.baseUrl = baseUrl;
   }
 
-  get<T>(url: string, options: GetRequestOptions = {}): Promise<T> {
+  get<T>(url: string, options: OptionsWithoutMethodAndData = {}): Promise<T> {
     return this.request(
       url,
       { ...options, method: METHODS.GET },

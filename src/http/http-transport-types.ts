@@ -5,6 +5,8 @@ export enum METHODS {
   DELETE = "DELETE",
 }
 
+export type RequestQuery = Record<string, string | number>;
+
 export type Options = {
   timeout?: number;
   method: METHODS;
@@ -13,7 +15,5 @@ export type Options = {
   headers?: Record<string, string>;
 };
 
-export type RequestQuery = Record<string, string | number>;
-
 export type OptionsWithoutMethod = Omit<Options, "method">;
-export type GetRequestOptions = Omit<OptionsWithoutMethod, "data">;
+export type OptionsWithoutMethodAndData = Omit<OptionsWithoutMethod, "data">;
