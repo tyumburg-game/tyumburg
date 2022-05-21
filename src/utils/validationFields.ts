@@ -11,11 +11,11 @@ export const validationSchema = Yup.object().shape({
     .required("Имя обязательное поле"),
 
   secondName: Yup.string()
-    .min(2, "Too Short!")
+    .min(2, "Слишком короткая фамилия!")
     .max(50, "Слишком длинная фамилия!")
     .required("Фамилия обязательное поле"),
 
-  email: Yup.string().email().required("Email is required"),
+  email: Yup.string().email().required("Email обязательное поле"),
 
   password: Yup.string()
     .required("Пароль обязательное поле")
