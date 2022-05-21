@@ -2,28 +2,28 @@ import * as Yup from 'yup';
 
 export const validationSchema = Yup.object().shape({
   login: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Login is required"),
+    .min(2, "Слишком короткий логин!")
+    .max(50, "Слишком длинный логин!")
+    .required("Логин обязательное поле"),
   firstName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Firstname is required"),
+    .min(2, "Слишком короткое имя!")
+    .max(50, "Слишком длинное имя!")
+    .required("Имя обязательное поле"),
 
   secondName: Yup.string()
     .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Lastname is required"),
+    .max(50, "Слишком длинная фамилия!")
+    .required("Фамилия обязательное поле"),
 
   email: Yup.string().email().required("Email is required"),
 
   password: Yup.string()
-    .required("Password is required")
-    .min(4, "Password is too short - should be 4 chars minimum"),
+    .required("Пароль обязательное поле")
+    .min(4, "Пароль слишком короткий - должен быть больше 4 символов"),
 
   rePassword: Yup.string()
-    .required('Confirm Password is required')
-    .oneOf([Yup.ref('password'), null], "Passwords don't match"),
+    .required('Повторить пароль обязательно')
+    .oneOf([Yup.ref('password'), null], "Пароли не совпадают"),
 
   phone: Yup.string()
     .required("Телефон вводить обязательно")

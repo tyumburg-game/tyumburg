@@ -2,6 +2,7 @@ import { HTMLInputTypeAttribute, ReactNode, useId } from "react";
 import block from "bem-cn";
 import {Field, FormikProps, FormikValues, ErrorMessage} from "formik";
 import "../Input/Input.css";
+import "../Input/ValidationMessage/ValidationMessage.css"
 
 type InputProps = {
   label: string;
@@ -28,7 +29,7 @@ export default function FormikField(props: InputProps) {
     formik
   } = props;
 
-  const { errors, touched } = formik;
+  const { errors } = formik;
 
   const mode: Mode = errors && errors[name] ? "error" : "default"
 
@@ -43,12 +44,11 @@ export default function FormikField(props: InputProps) {
       <Field type={type}
              name={name}
              id={id}
-             className={errors.email && touched.email ?
-               b("field", { mode }) : b("field", { mode })}
+             className={b("field", { mode })}
       />
     </div>
     <div className={b("comment")}>
-      <ErrorMessage name={name}>{msg => <div>{msg}</div>}</ErrorMessage>
+      <ErrorMessage name={name}>{msg => <div className="validation-message">{msg}</div>}</ErrorMessage>
     </div>
   </div>
   );
