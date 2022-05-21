@@ -12,6 +12,12 @@
   --color-dangerous-active: var(--pink-5);
 }
 
+:root {
+  --color-disabled: var(--gray-3);
+  --color-disabled-hover: var(--gray-4);
+  --color-disabled-active: var(--gray-5);
+}
+
 /* Buttons */
 :root {
   /* Primary */
@@ -35,6 +41,17 @@
   --color-button-secondary-active-background: var(--gray-3);
   --color-button-secondary-active-text: var(--color-accent-active);
   --color-button-secondary-active-border: var(--color-accent-active);
+
+  /* Disabled */
+  --color-button-disabled-initial-background: var(--color-disabled);
+  --color-button-disabled-initial-text: #ffffff;
+  --color-button-disabled-initial-border: var(--color-accent);
+  --color-button-disabled-hover-background: var(--color-disabled);
+  --color-button-disabled-hover-text: #ffffff;
+  --color-button-disabled-hover-border: var(--color-accent-hover);
+  --color-button-disabled-active-background: var(--color-disabled);
+  --color-button-disabled-active-text: #ffffff;
+  --color-button-disabled-active-border: var(--color-accent-active);
 
   /* Dangerous */
   --color-button-dangerous-initial-background: var(--color-dangerous);

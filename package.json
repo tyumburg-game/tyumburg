@@ -72,9 +72,11 @@
     "@types/react": "18.0.6",
     "@types/react-dom": "18.0.2",
     "bem-cn": "3.0.1",
+    "formik": "2.2.9",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-router-dom": "6.3.0"
+    "react-router-dom": "6.3.0",
+    "yup": "0.32.11"
   },
   "lint-staged": {
     "*.css": "npm run stylelint",

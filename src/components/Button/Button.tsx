@@ -4,8 +4,9 @@ import "./Button.css";
 
 type ButtonProps = {
   type?: "button" | "submit" | "reset";
-  mode?: "primary" | "secondary" | "dangerous";
+  mode?: "primary" | "secondary" | "dangerous" | "disabled";
   className?: string;
+  disabled?: boolean;
   children: ReactNode;
   onClick?(event: MouseEvent<HTMLButtonElement>): void;
 };
@@ -16,6 +17,7 @@ export default function Button(props: ButtonProps) {
   const {
     type = "button",
     mode = "secondary",
+    disabled = false,
     className,
     children,
     onClick,
@@ -25,6 +27,7 @@ export default function Button(props: ButtonProps) {
     <button
       onClick={onClick}
       type={type}
+      disabled={disabled}
       className={b({ mode }).mix(className)}
     >
       {children}
