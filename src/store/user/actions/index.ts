@@ -1,5 +1,5 @@
+import { BaseAction } from "store/types";
 import { User } from "types/user";
-import { BaseActionType } from ".";
 
 export enum Actions {
   PENDING = "PENDING",
@@ -8,19 +8,19 @@ export enum Actions {
   SET_USER_ITEM = "SET_USER_ITEM",
 }
 
-export interface ItemActionType extends BaseActionType<Actions> {
+export interface ItemAction extends BaseAction<Actions> {
   item: User;
 }
 
-export function loadSuccess(): BaseActionType<Actions> {
+export function loadSuccess(): BaseAction<Actions> {
   return { type: Actions.SUCCESS };
 }
-export function loadFailed(): BaseActionType<Actions> {
+export function loadFailed(): BaseAction<Actions> {
   return { type: Actions.PENDING };
 }
-export function loadPending(): BaseActionType<Actions> {
+export function loadPending(): BaseAction<Actions> {
   return { type: Actions.PENDING };
 }
-export function setUser(user: User): ItemActionType {
+export function setUser(user: User): ItemAction {
   return { type: Actions.SET_USER_ITEM, item: user };
 }

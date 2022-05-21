@@ -1,4 +1,4 @@
-import { Actions, ItemActionType } from "store/actions/user";
+import { Actions, ItemAction } from "store/user/actions";
 import { User } from "types/user";
 import { Nullable } from "types/util";
 
@@ -16,7 +16,7 @@ const defaultState: UserState = {
 
 export function userReducer(
   state: UserState = defaultState,
-  { type, item }: ItemActionType = {} as ItemActionType
+  { type, item }: ItemAction = {} as ItemAction
 ): UserState {
   switch (type) {
     case Actions.PENDING:
