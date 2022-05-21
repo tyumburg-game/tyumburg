@@ -1,0 +1,29 @@
+.leaderboard-wrapper {
+  width: 480px;
+}
+
+.leaderboard-wrapper table {
+  width: 100%;
+}
+
+.leaderboard-wrapper table th {
+  text-align: left;
+  color: #303C6C;
+  font-weight: bold;
+}
+
+.leaderboard-wrapper table th:last-child {
+  text-align: right;
+}
+
+.leaderboard-wrapper table td {
+  color: #303C6C
+}
+
+.leaderboard-wrapper table td:last-child {
+  text-align: right;
+}
+
+.buttons-group_align-right {
+  text-align: right;
+}
