@@ -2,26 +2,23 @@
   width: 480px;
 }
 
-.leaderboard-wrapper table {
+.leaderboard-table {
   width: 100%;
 }
 
-.leaderboard-wrapper table th {
+.leaderboard-table th {
   text-align: left;
-  color: #303C6C;
+  color: var(--color-text);
   font-weight: bold;
 }
 
-.leaderboard-wrapper table th:last-child {
+.leaderboard-table th:last-child,
+.leaderboard-table td:last-child {
   text-align: right;
 }
 
-.leaderboard-wrapper table td {
-  color: #303C6C
-}
-
-.leaderboard-wrapper table td:last-child {
-  text-align: right;
+.leaderboard-table td {
+  color: var(--color-text);
 }
 
 .buttons-group_align-right {

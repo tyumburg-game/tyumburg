@@ -12,10 +12,10 @@ import { StartPage } from "pages/StartPage/StartPage";
 import { LoginPage } from "pages/LoginPage/LoginPage";
 import { SignUpPage } from "pages/SignUpPage/SignUpPage";
 import { PasswordChangePage } from "pages/PasswordChangePage/PasswordChangePage";
-import { EditProfilePage } from 'pages/EditProfilePage/EditProfilePage';
-import { ProfilePage } from 'pages/ProfilePage/ProfilePage';
+import { EditProfilePage } from "pages/EditProfilePage/EditProfilePage";
+import { ProfilePage } from "pages/ProfilePage/ProfilePage";
 import "./App.css";
-import {LeaderboardPage} from 'pages/LeaderboardPage/LeaderBoardPage';
+import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 
 export function App() {
   return (
