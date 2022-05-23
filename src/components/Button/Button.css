@@ -69,7 +69,6 @@
   border-color: var(--color-button-disabled-active-border);
 }
 
-
 .button_mode_dangerous {
   background-color: var(--color-button-dangerous-initial-background);
   color: var(--color-button-dangerous-initial-text);

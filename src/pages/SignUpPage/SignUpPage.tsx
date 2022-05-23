@@ -5,8 +5,8 @@ import {
   FormikProps,
   FormikValues,
 } from "formik";
-import { validationSchema } from 'utils/validationFields';
-import FormikField from "components/FormikField/FormikField";
+import { signUpSchema } from "utils/validationFields";
+import FormikField from "components/Input/FormikField";
 import Modal from "components/Modal/Modal";
 import Button from "components/Button/Button";
 import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
@@ -29,57 +29,57 @@ export function SignUpPage() {
     <CenterPageLayout>
       <Formik
         initialValues={inputs}
-        validationSchema={validationSchema}
+        validationSchema={signUpSchema}
         onSubmit={(values) => {
           console.log("values", values);
         }}
       >
-        {(formik: FormikProps<FormikValues> ) =>
+        {(formik: FormikProps<FormikValues>) =>
           <Form className="sign-up-page__form">
             <Modal fixed={false}>
-              <Modal.Header title="Регистарция" />
+              <Modal.Header title="Регистарция"/>
               <Modal.Content>
                 <FormikField
                   type="email"
                   label="E-mail"
                   name="email"
-                  formik={formik}
+                  error={!!formik.errors.email}
                 />
                 <FormikField
                   type="text"
                   label="Логин"
                   name="login"
-                  formik={formik}
+                  error={!!formik.errors.login}
                 />
                 <FormikField
                   type="text"
                   label="Имя"
                   name="firstName"
-                  formik={formik}
+                  error={!!formik.errors.firstName}
                 />
                 <FormikField
                   type="text"
                   label="Фамилия"
                   name="secondName"
-                  formik={formik}
+                  error={!!formik.errors.secondName}
                 />
                 <FormikField
                   type="tel"
                   label="Телефон"
                   name="phone"
-                  formik={formik}
+                  error={!!formik.errors.phone}
                 />
                 <FormikField
                   type="password"
                   label="Пароль"
                   name="password"
-                  formik={formik}
+                  error={!!formik.errors.password}
                 />
                 <FormikField
                   type="password"
                   label="Повтор пароля"
                   name="rePassword"
-                  formik={formik}
+                  error={!!formik.errors.rePassword}
                 />
               </Modal.Content>
               <Modal.Footer>

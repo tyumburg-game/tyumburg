@@ -4,7 +4,7 @@ import "./Button.css";
 
 type ButtonProps = {
   type?: "button" | "submit" | "reset";
-  mode?: "primary" | "secondary" | "dangerous" | "disabled";
+  mode?: "primary" | "secondary" | "dangerous";
   className?: string;
   disabled?: boolean;
   children: ReactNode;

@@ -1,8 +1,8 @@
-import { HTMLInputTypeAttribute, ReactNode, useId } from "react";
+import { HTMLInputTypeAttribute, useId } from "react";
 import block from "bem-cn";
-import {Field, FormikProps, FormikValues, ErrorMessage} from "formik";
-import "../Input/Input.css";
-import "../Input/ValidationMessage/ValidationMessage.css"
+import {Field, ErrorMessage} from "formik";
+import "./Input.css";
+import "./ValidationMessage/ValidationMessage.css"
 
 type InputProps = {
   label: string;
@@ -10,8 +10,7 @@ type InputProps = {
   id?: string;
   className?: string;
   name: string;
-  comment?: ReactNode;
-  formik: FormikProps<FormikValues>;
+  error?: boolean
 };
 
 type Mode = "default" | "error";
@@ -24,16 +23,10 @@ export default function FormikField(props: InputProps) {
     className,
     id = useId(),
     label,
-    comment,
-    name,
-    formik
+    error = false,
+    name
   } = props;
-
-  const { errors } = formik;
-
-  const mode: Mode = errors && errors[name] ? "error" : "default"
-
-    console.log(errors && errors[name], "label", label, "comment ->", comment);
+  const mode: Mode = error ? "error" : "default"
 
   return (
     <div className={b.mix(className)}>

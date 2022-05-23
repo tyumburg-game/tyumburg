@@ -1,10 +1,11 @@
 import * as Yup from 'yup';
 
-export const validationSchema = Yup.object().shape({
+export const signUpSchema = Yup.object().shape({
   login: Yup.string()
     .min(2, "Слишком короткий логин!")
     .max(50, "Слишком длинный логин!")
     .required("Логин обязательное поле"),
+
   firstName: Yup.string()
     .min(2, "Слишком короткое имя!")
     .max(50, "Слишком длинное имя!")
