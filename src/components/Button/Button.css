@@ -51,24 +51,6 @@
   border-color: var(--color-button-secondary-active-border);
 }
 
-.button_mode_disabled {
-  background-color: var(--color-button-disabled-initial-background);
-  color: var(--color-button-disabled-initial-text);
-  border-color: var(--color-button-disabled-initial-border);
-}
-
-.button_mode_disabled:hover {
-  background-color: var(--color-button-disabled-hover-background);
-  color: var(--color-button-disabled-hover-text);
-  border-color: var(--color-button-disabled-hover-border);
-}
-
-.button_mode_disabled:active {
-  background-color: var(--color-button-disabled-active-background);
-  color: var(--color-button-disabled-active-text);
-  border-color: var(--color-button-disabled-active-border);
-}
-
 .button_mode_dangerous {
   background-color: var(--color-button-dangerous-initial-background);
   color: var(--color-button-dangerous-initial-text);
@@ -85,4 +67,22 @@
   background-color: var(--color-button-dangerous-active-background);
   color: var(--color-button-dangerous-active-text);
   border-color: var(--color-button-dangerous-active-border);
+}
+
+.button_disabled {
+  background-color: var(--color-button-disabled-initial-background);
+  color: var(--color-button-disabled-initial-text);
+  border-color: var(--color-button-disabled-initial-border);
+}
+
+.button_disabled:hover {
+  background-color: var(--color-button-disabled-hover-background);
+  color: var(--color-button-disabled-hover-text);
+  border-color: var(--color-button-disabled-hover-border);
+}
+
+.button_disabled:active {
+  background-color: var(--color-button-disabled-active-background);
+  color: var(--color-button-disabled-active-text);
+  border-color: var(--color-button-disabled-active-border);
 }

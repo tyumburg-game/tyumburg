@@ -16,7 +16,9 @@ export const signUpSchema = Yup.object().shape({
     .max(50, "Слишком длинная фамилия!")
     .required("Фамилия обязательное поле"),
 
-  email: Yup.string().email().required("Email обязательное поле"),
+  email: Yup.string()
+    .email("Введите верный адрес электронной почты")
+    .required("Email обязательное поле"),
 
   password: Yup.string()
     .required("Пароль обязательное поле")
