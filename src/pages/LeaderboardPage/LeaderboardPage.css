@@ -1,0 +1,26 @@
+.leaderboard-wrapper {
+  width: 480px;
+}
+
+.leaderboard-table {
+  width: 100%;
+}
+
+.leaderboard-table th {
+  text-align: left;
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.leaderboard-table th:last-child,
+.leaderboard-table td:last-child {
+  text-align: right;
+}
+
+.leaderboard-table td {
+  color: var(--color-text);
+}
+
+.buttons-group_align-right {
+  text-align: right;
+}
