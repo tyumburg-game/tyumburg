@@ -8,7 +8,6 @@ export enum METHODS {
 export type RequestQuery = Record<string, string | number>;
 
 export type Options = {
-  timeout?: number;
   method: METHODS;
   data?: any;
   query?: RequestQuery;

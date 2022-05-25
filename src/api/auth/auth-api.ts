@@ -1,8 +1,8 @@
 import { BaseAPI } from "../base-api";
 import {
-  SignInRequest,
-  SignUpRequest,
-  SignUpResponse,
+  SignInRequestData,
+  SignUpRequestData,
+  SignUpResponseData,
   User,
 } from "./auth-api.types";
 
@@ -11,13 +11,13 @@ class AuthAPI extends BaseAPI {
     super("/auth");
   }
 
-  signUp(data: SignUpRequest) {
-    return this.instance.post<SignUpResponse>("/signup", {
+  signUp(data: SignUpRequestData) {
+    return this.instance.post<SignUpResponseData>("/signup", {
       data,
     });
   }
 
-  signIn(data: SignInRequest) {
+  signIn(data: SignInRequestData) {
     return this.instance.post<void>("/signin", {
       data,
     });

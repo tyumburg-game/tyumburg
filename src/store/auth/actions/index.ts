@@ -1,6 +1,10 @@
 import { ThunkAction } from "redux-thunk";
 import { authApi } from "api/auth/auth-api";
-import { SignInRequest, SignUpRequest, User } from "api/auth/auth-api.types";
+import {
+  SignInRequestData,
+  SignUpRequestData,
+  User,
+} from "api/auth/auth-api.types";
 import { BaseAction } from "store/types";
 import { Nullable } from "types/util";
 
@@ -29,7 +33,7 @@ function getUser(): ThunkAction<void, {}, {}, BaseAction<Actions>> {
 }
 
 function signIn(
-  data: SignInRequest
+  data: SignInRequestData
 ): ThunkAction<void, {}, {}, BaseAction<Actions>> {
   return async (dispatch) => {
     try {
@@ -42,7 +46,7 @@ function signIn(
 }
 
 function signUp(
-  data: SignUpRequest
+  data: SignUpRequestData
 ): ThunkAction<void, {}, {}, BaseAction<Actions>> {
   return async (dispatch) => {
     try {

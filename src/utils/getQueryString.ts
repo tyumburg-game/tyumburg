@@ -1,6 +1,6 @@
 import { RequestQuery } from "http/http-transport-types";
 
-export function getQueryString(data: RequestQuery) {
+export function getQueryString(data: RequestQuery = {}) {
   const result: string[] = [];
 
   if (data && Object.keys(data).length) {

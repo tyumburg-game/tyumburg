@@ -1,3 +1,4 @@
+import axios from "axios";
 import { env } from "constants/env";
 import { getQueryString } from "utils/getQueryString";
 import {
@@ -6,6 +7,8 @@ import {
   Options,
   OptionsWithoutMethod,
 } from "./http-transport-types";
+
+axios.defaults.withCredentials = true;
 
 export class HTTPTransport {
   public path: string;
@@ -18,63 +21,37 @@ export class HTTPTransport {
   }
 
   get<T>(url: string, options: OptionsWithoutMethodAndData = {}): Promise<T> {
-    return this.request(
-      url,
-      { ...options, method: METHODS.GET },
-      options.timeout
-    );
+    return this.request(url, { ...options, method: METHODS.GET });
   }
 
   post<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
-    return this.request(
-      url,
-      { ...options, method: METHODS.POST },
-      options.timeout
-    );
+    return this.request(url, { ...options, method: METHODS.POST });
   }
 
   put<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
-    return this.request(
-      url,
-      { ...options, method: METHODS.PUT },
-      options.timeout
-    );
+    return this.request(url, { ...options, method: METHODS.PUT });
   }
 
   delete<T>(url: string, options: OptionsWithoutMethod = {}): Promise<T> {
-    return this.request(
-      url,
-      { ...options, method: METHODS.DELETE },
-      options.timeout
-    );
+    return this.request(url, { ...options, method: METHODS.DELETE });
   }
 
-  request<T>(url: string, options: Options, timeout = 5000): Promise<T> {
-    const {
+  request<T>(url: string, options: Options): Promise<T> {
+    const { method, query, data, headers } = options;
+
+    return axios({
+      url: `${this.baseUrl}${this.path}${url}${getQueryString(query)}`,
+      data,
       method,
-      query = {},
-      data = {},
-      headers = {
-        "content-type": "application/json;charset=UTF-8",
-      },
-    } = options;
+      headers,
+    })
+      .then((response) => response.data)
+      .catch(({ response }) => {
+        const {
+          data: { reason },
+        } = response;
 
-    return new Promise((resolve, reject) => {
-      fetch(`${this.baseUrl}${this.path}${url}${getQueryString(query)}`, {
-        headers,
-        body:
-          headers["content-type"] === "application/json;charset=UTF-8"
-            ? JSON.stringify(data)
-            : data,
-        method,
-      })
-        .then((response) => response.json())
-        .then((response) => resolve(response))
-        .catch((error) => reject(error.reason));
-
-      setTimeout(() => {
-        reject();
-      }, timeout);
-    });
+        throw new Error(reason);
+      });
   }
 }
