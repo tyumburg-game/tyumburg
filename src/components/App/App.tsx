@@ -12,9 +12,10 @@ import { StartPage } from "pages/StartPage/StartPage";
 import { LoginPage } from "pages/LoginPage/LoginPage";
 import { SignUpPage } from "pages/SignUpPage/SignUpPage";
 import { PasswordChangePage } from "pages/PasswordChangePage/PasswordChangePage";
-import { EditProfilePage } from 'pages/EditProfilePage/EditProfilePage';
-import { ProfilePage } from 'pages/ProfilePage/ProfilePage';
+import { EditProfilePage } from "pages/EditProfilePage/EditProfilePage";
+import { ProfilePage } from "pages/ProfilePage/ProfilePage";
 import "./App.css";
+import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 
 export function App() {
   return (
@@ -24,7 +25,7 @@ export function App() {
         <Route path={PATHS.START} element={<StartPage />} />
         <Route path={PATHS.FORUM} element={<Outlet />} />
         <Route path={PATHS.GAME} element={<GamePage />} />
-        <Route path={PATHS.LEADERBOARD} element={<Outlet />} />
+        <Route path={PATHS.LEADERBOARD} element={<LeaderboardPage />} />
         <Route path={PATHS.SIGN_IN} element={<LoginPage />} />
         <Route path={PATHS.SIGN_UP} element={<SignUpPage />} />
         <Route path={PATHS.PASSWORD_CHANGE} element={<PasswordChangePage />} />
