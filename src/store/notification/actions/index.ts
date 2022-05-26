@@ -1,6 +1,6 @@
 import { BaseAction } from "store/types";
 
-export enum Actions {
+export const enum Actions {
   SET_NOTIFICATION = "SET_NOTIFICATION",
   CLEAR_NOTIFICATION = "CLEAR_NOTIFICATION",
 }
