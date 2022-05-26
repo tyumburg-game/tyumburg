@@ -1,6 +1,5 @@
 import axios from "axios";
 import { env } from "constants/env";
-import { getQueryString } from "utils/getQueryString";
 import {
   OptionsWithoutMethodAndData,
   METHODS,
@@ -40,10 +39,11 @@ export class HTTPTransport {
     const { method, query, data, headers } = options;
 
     return axios({
-      url: `${this.baseUrl}${this.path}${url}${getQueryString(query)}`,
+      url: `${this.baseUrl}${this.path}${url}`,
       data,
       method,
       headers,
+      params: query,
     })
       .then((response) => response.data)
       .catch(({ response }) => {
