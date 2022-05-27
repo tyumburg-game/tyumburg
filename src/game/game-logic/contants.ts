@@ -50,6 +50,8 @@ export const TETROMINOES_COLORS = {
 
 export const GRID_SIZE = 32;
 export const DEFAULT_SPEED = 500;
+export const SPEED_STEP = 50;
+export const LEVEL_SCORE = 30;
 export const PLAYFIELD_SIZE: PlayFieldSize = {
   cols: 10,
   rows: 20,
