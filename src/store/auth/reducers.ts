@@ -1,6 +1,6 @@
 import { User } from "api/auth/auth-api.types";
 import { Nullable } from "types/util";
-import { Actions, AuthAction } from "../actions";
+import { Actions, AuthAction } from "./actions";
 
 type AuthState = {
   user: Nullable<User>;
