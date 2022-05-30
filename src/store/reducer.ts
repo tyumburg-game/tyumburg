@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
+import { authReducer } from "./auth/reducers";
 import { notificationReducer } from "./notification/reducer";
-import { userReducer } from "./user/reducers";
 
 export const rootReducer = combineReducers({
-  user: userReducer,
+  auth: authReducer,
   notification: notificationReducer,
 });
