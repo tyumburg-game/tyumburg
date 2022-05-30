@@ -1,4 +1,4 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 export const signUpSchema = Yup.object().shape({
   login: Yup.string()
@@ -6,12 +6,12 @@ export const signUpSchema = Yup.object().shape({
     .max(50, "Слишком длинный логин!")
     .required("Логин обязательное поле"),
 
-  firstName: Yup.string()
+  first_name: Yup.string()
     .min(2, "Слишком короткое имя!")
     .max(50, "Слишком длинное имя!")
     .required("Имя обязательное поле"),
 
-  secondName: Yup.string()
+  second_name: Yup.string()
     .min(2, "Слишком короткая фамилия!")
     .max(50, "Слишком длинная фамилия!")
     .required("Фамилия обязательное поле"),
@@ -24,14 +24,16 @@ export const signUpSchema = Yup.object().shape({
     .required("Пароль обязательное поле")
     .min(4, "Пароль слишком короткий - должен быть больше 4 символов"),
 
-  rePassword: Yup.string()
-    .required('Повторить пароль обязательно')
-    .oneOf([Yup.ref('password'), null], "Пароли не совпадают"),
+  re_password: Yup.string()
+    .required("Повторить пароль обязательно")
+    .oneOf([Yup.ref("password"), null], "Пароли не совпадают"),
 
   phone: Yup.string()
     .required("Телефон вводить обязательно")
-    .matches(
-      /^((\+7|7|8)+([0-9]){10})$/,
-      "Введите корректный телефон"
-    ),
+    .matches(/^((\+7|7|8)+([0-9]){10})$/, "Введите корректный телефон"),
+});
+
+export const signInSchema = Yup.object().shape({
+  login: Yup.string().required("Логин обязательное поле"),
+  password: Yup.string().required("Пароль обязательное поле"),
 });
