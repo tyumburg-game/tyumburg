@@ -1,34 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import block from "bem-cn";
 import Modal from "components/Modal/Modal";
 import "./Notification.css";
-import { Nullable } from "types/util";
+import { useTypedSelector } from "hooks/useTypedSelector";
+import { useActions } from "hooks/use-actions";
+import { notificationActions } from "store/notification/actions";
 
-type NotificationProps = {
-  message: string;
-};
+const b = block("notification");
+const TIMEOUT = 3000;
 
-export default function Notification(props: NotificationProps) {
-  const { message } = props;
-  const [notificationTimeout, setNotificationTimeout] =
-    useState<Nullable<NodeJS.Timeout>>(null);
+export default function Notification() {
+  const { messages } = useTypedSelector((state) => state.notification);
+
+  const { clearNotification } = useActions(notificationActions);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      console.log("there will be clear notification action");
-    }, 3000);
-
-    setNotificationTimeout(timeout);
+    const timer = setTimeout(() => {
+      clearNotification();
+    }, TIMEOUT);
 
     return () => {
-      if (notificationTimeout) {
-        clearTimeout(notificationTimeout);
-      }
+      clearTimeout(timer);
     };
-  }, [message]);
+  }, [messages]);
 
   return (
-    <Modal className="notification">
-      <Modal.Header title={message} />
+    <Modal className={b({ active: messages.length > 0 })}>
+      <Modal.Header title="">
+        {messages.map((message) => (
+          <div className="notification__message" key={message}>
+            {message}
+          </div>
+        ))}
+      </Modal.Header>
     </Modal>
   );
 }

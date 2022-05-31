@@ -1,11 +1,11 @@
-import { Actions, NotificationAction } from "../actions";
+import { Actions, NotificationAction } from "./actions";
 
 type NotificationState = {
-  message: string;
+  messages: string[];
 };
 
 const defaultState: NotificationState = {
-  message: "",
+  messages: [],
 };
 
 export function notificationReducer(
@@ -16,7 +16,12 @@ export function notificationReducer(
     case Actions.SET_NOTIFICATION:
       return {
         ...state,
-        message,
+        messages: state.messages.concat(message),
+      };
+    case Actions.CLEAR_NOTIFICATION:
+      return {
+        ...state,
+        messages: [],
       };
     default:
       return state;

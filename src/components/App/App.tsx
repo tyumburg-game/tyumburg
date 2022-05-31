@@ -4,7 +4,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { useTypedSelector } from "hooks/useTypedSelector";
 import { GamePage } from "components/GamePage/GamePage";
 import { PATHS } from "Routes/paths";
 import { PrivateOutlet } from "Routes/PrivateOutlet";
@@ -20,8 +19,6 @@ import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 import Notification from "components/Notification/Notification";
 
 export function App() {
-  const { message } = useTypedSelector((state) => state.notification);
-
   return (
     <>
       <Router>
@@ -44,7 +41,7 @@ export function App() {
           </Route>
         </Routes>
       </Router>
-      {message && <Notification message={message} />}
+      <Notification />
     </>
   );
 }

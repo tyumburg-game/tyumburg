@@ -12,6 +12,12 @@ export interface NotificationAction extends BaseAction<Actions> {
 export function clearNotification(): BaseAction<Actions> {
   return { type: Actions.CLEAR_NOTIFICATION };
 }
+
 export function setNotification(message: string): NotificationAction {
   return { type: Actions.SET_NOTIFICATION, message };
 }
+
+export const notificationActions = {
+  clearNotification,
+  setNotification,
+};

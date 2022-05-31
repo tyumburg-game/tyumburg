@@ -10,6 +10,7 @@ import InputField from "components/InputField/InputField";
 import { signInSchema } from "utils/validationFields";
 import { useActions } from "hooks/use-actions";
 import { SignInRequestData } from "api/auth/auth-api.types";
+import { authActions } from "store/auth/actions";
 
 export function LoginPage() {
   const [inputs] = useState<SignInRequestData>({
@@ -17,7 +18,7 @@ export function LoginPage() {
     password: "",
   });
 
-  const { signIn } = useActions();
+  const { signIn } = useActions(authActions);
 
   const onSubmit = useCallback(
     (values: SignInRequestData) => {
