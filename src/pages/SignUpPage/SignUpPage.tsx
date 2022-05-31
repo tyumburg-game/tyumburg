@@ -13,13 +13,13 @@ import { useActions } from "hooks/use-actions";
 
 export function SignUpPage() {
   const [inputs] = useState<SignUpRequestData>({
-    password: "",
-    re_password: "",
-    login: "",
-    phone: "",
-    first_name: "",
-    second_name: "",
-    email: "",
+    password: "dsfsdfdfssdf@afsdf.asd",
+    re_password: "dsfsdfdfssdf@afsdf.asd",
+    login: "dsfsdfdfssdf",
+    phone: "+79888765432",
+    first_name: "FGHJKLL",
+    second_name: "FGHJKLL",
+    email: "dsfsdfdfssdf@afsdf.asd",
   });
 
   const { signUp } = useActions();
