@@ -4,5 +4,5 @@ import { notificationReducer } from "./notification/reducer";
 
 export const rootReducer = combineReducers({
   auth: authReducer,
-  notification: notificationReducer,
+  notifications: notificationReducer,
 });

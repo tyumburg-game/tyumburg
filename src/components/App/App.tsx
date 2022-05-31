@@ -16,7 +16,7 @@ import { EditProfilePage } from "pages/EditProfilePage/EditProfilePage";
 import { ProfilePage } from "pages/ProfilePage/ProfilePage";
 import "./App.css";
 import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
-import Notification from "components/Notification/Notification";
+import { NotificationList } from "components/NotificationList/NotificationList";
 
 export function App() {
   return (
@@ -41,7 +41,7 @@ export function App() {
           </Route>
         </Routes>
       </Router>
-      <Notification />
+      <NotificationList />
     </>
   );
 }

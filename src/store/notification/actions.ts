@@ -1,4 +1,5 @@
 import { BaseAction } from "store/types";
+import { CustomNotification } from "./types";
 
 export const enum Actions {
   SET_NOTIFICATION = "SET_NOTIFICATION",
@@ -6,15 +7,19 @@ export const enum Actions {
 }
 
 export interface NotificationAction extends BaseAction<Actions> {
-  message: string;
+  notification: CustomNotification;
 }
 
-export function clearNotification(): BaseAction<Actions> {
-  return { type: Actions.CLEAR_NOTIFICATION };
+export function clearNotification(
+  notification: CustomNotification
+): NotificationAction {
+  return { type: Actions.CLEAR_NOTIFICATION, notification };
 }
 
-export function setNotification(message: string): NotificationAction {
-  return { type: Actions.SET_NOTIFICATION, message };
+export function setNotification(
+  notification: CustomNotification
+): NotificationAction {
+  return { type: Actions.SET_NOTIFICATION, notification };
 }
 
 export const notificationActions = {

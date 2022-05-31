@@ -1,27 +1,28 @@
 import { Actions, NotificationAction } from "./actions";
+import { CustomNotification } from "./types";
 
 type NotificationState = {
-  messages: string[];
+  items: CustomNotification[];
 };
 
 const defaultState: NotificationState = {
-  messages: [],
+  items: [],
 };
 
 export function notificationReducer(
   state: NotificationState = defaultState,
-  { type, message }: NotificationAction = {} as NotificationAction
+  { type, notification }: NotificationAction = {} as NotificationAction
 ): NotificationState {
   switch (type) {
     case Actions.SET_NOTIFICATION:
       return {
         ...state,
-        messages: state.messages.concat(message),
+        items: state.items.concat(notification),
       };
     case Actions.CLEAR_NOTIFICATION:
       return {
         ...state,
-        messages: [],
+        items: state.items.filter((item) => item !== notification),
       };
     default:
       return state;
