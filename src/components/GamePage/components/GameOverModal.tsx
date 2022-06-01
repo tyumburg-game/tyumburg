@@ -13,22 +13,24 @@ type GameOverModalProps = {
 export function GameOverModal(props: GameOverModalProps) {
   const { score, isOpen, handleNewGame } = props;
 
-  return isOpen ? (
-    <Modal className="game-page__modal">
-      <Modal.Header title="Игра окончена!" />
-      <Modal.Content>
-        <p className="game-page__modal-text">Ваш счёт: {score}</p>
-      </Modal.Content>
-      <Modal.Footer>
-        <ButtonsGroup>
-          <Button mode="primary" onClick={handleNewGame}>
-            Заново
-          </Button>
-          <CustomLink to={PATHS.START} mode="secondary">
-            На главную
-          </CustomLink>
-        </ButtonsGroup>
-      </Modal.Footer>
-    </Modal>
-  ) : null;
-}
+  return <>
+          {isOpen &&
+          <Modal className="game-page__modal">
+            <Modal.Header title="Игра окончена!" />
+            <Modal.Content>
+              <p className="game-page__modal-text">Ваш счёт: {score}</p>
+            </Modal.Content>
+            <Modal.Footer>
+              <ButtonsGroup>
+                <Button mode="primary" onClick={handleNewGame}>
+                  Заново
+                </Button>
+                <CustomLink to={PATHS.START} mode="secondary">
+                  На главную
+                </CustomLink>
+              </ButtonsGroup>
+            </Modal.Footer>
+          </Modal>}
+        </>
+
+};
