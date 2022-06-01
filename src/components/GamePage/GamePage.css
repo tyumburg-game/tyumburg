@@ -1,7 +1,7 @@
 .game-page {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
-  text-align: center;
+  padding-top: 30px;
 }
 
 .game-page__canvas {
@@ -14,4 +14,39 @@
   border: 2px solid var(--color-game-wrapper-border);
   border-radius: 10px;
   background: var(--color-game-playfield-background);
+  margin: 0 30px;
+}
+
+.game-page__manage-block {
+  display: grid;
+  grid-template-columns: min-content;
+  height: min-content;
+  justify-self: end;
+  row-gap: 15px;
+}
+
+.game-page__statistic {
+  display: grid;
+  grid-template-columns: max-content;
+  height: min-content;
+  row-gap: 15px;
+}
+
+.game-page__statistic-item {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-game-statistics-text);
+}
+
+.game-page__modal-text {
+  color: var(--color-game-modal-text);
+  margin: 0 0 15px;
+}
+
+.game-page__modal-text:last-child {
+  margin: 0;
+}
+
+.game-page__modal {
+  width: 388px;
 }

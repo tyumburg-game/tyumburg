@@ -117,6 +117,8 @@
   --color-game-playfield-background: var(--grayish-orange);
   --color-game-inner-border: var(--color-accent);
   --color-game-wrapper-border: var(--gray-2);
+  --color-game-statistics-text: var(--purple-4);
+  --color-game-modal-text: var(--dark-blue);
 }
 
 /* CustomLinks */
