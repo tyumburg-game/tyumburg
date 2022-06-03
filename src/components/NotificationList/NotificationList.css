@@ -1,0 +1,9 @@
+.notification-block {
+  top: 0;
+  transition: transform .2s ease;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+.notification-block_active {
+  transform: translateX(-50%) translateY(20px);
+}

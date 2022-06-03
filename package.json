@@ -74,6 +74,7 @@
   "dependencies": {
     "@types/react": "18.0.6",
     "@types/react-dom": "18.0.2",
+    "@types/uuid": "8.3.4",
     "axios": "0.27.2",
     "bem-cn": "3.0.1",
     "formik": "2.2.9",
@@ -83,6 +84,7 @@
     "react-router-dom": "6.3.0",
     "redux": "4.2.0",
     "redux-thunk": "2.4.1",
+    "uuid": "8.3.2",
     "yup": "0.32.11"
   },
   "lint-staged": {
