@@ -12,15 +12,14 @@ const NOTIFICATION_DEFAULT_TIMEOUT = 3000;
 
 export function NotificationItem(props: NotificationProps) {
   const {
-    item,
-    item: { message, timeout = NOTIFICATION_DEFAULT_TIMEOUT },
+    item: { id, message, timeout = NOTIFICATION_DEFAULT_TIMEOUT },
   } = props;
 
   const { clearNotification } = useActions(notificationActions);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      clearNotification(item);
+      clearNotification(id);
     }, timeout);
 
     return () => {

@@ -13,7 +13,7 @@ export function NotificationList() {
     <Modal className={b({ active: items.length > 0 })}>
       <Modal.Header title="">
         {items.map((notification) => (
-          <NotificationItem item={notification} key={notification.message} />
+          <NotificationItem item={notification} key={notification.id} />
         ))}
       </Modal.Header>
     </Modal>
