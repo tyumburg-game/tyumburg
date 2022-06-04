@@ -1,9 +1,9 @@
-import { AuthState } from "store/auth/types";
+import { store } from "./index";
 
 export interface BaseAction<T> {
   type: T;
 }
 
-export interface RootState {
-  auth: AuthState;
-}
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

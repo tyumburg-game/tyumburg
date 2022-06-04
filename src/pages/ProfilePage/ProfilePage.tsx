@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { FormEventHandler, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { FormEventHandler, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { noop } from "lodash";
 import Modal from "components/Modal/Modal";
@@ -10,10 +8,12 @@ import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPage
 import Input from "components/Input/Input";
 import { PATHS } from "Routes/paths";
 import CustomLink from "components/CustomLink/CustomLink";
-import { selectUser, selectUserLoading } from "store/auth/selectors";
-import { authActions } from "store/auth/actions";
 import { User } from "api/auth/auth-api.types";
 import { Nullable } from "types/util";
+import { useAppSelector } from "hooks/use-app-selector";
+import { useAppDispatch } from "hooks/use-app-dispatch";
+import { fetchUser, selectUser } from "store/user";
+import { RootState } from "store/types";
 
 type ProfileInputName =
   | "display_name"
@@ -40,22 +40,73 @@ function setUserFields(user: Nullable<User>): ProfileInputs {
   };
 }
 
+function FormFields(props: { inputs: ProfileInputs }) {
+  const { inputs } = props;
+
+  return (
+    <>
+      <Input
+        onChange={noop}
+        value={inputs.email}
+        label="Почта"
+        disabled
+        type="email"
+        name="email"
+      />
+      <Input
+        onChange={noop}
+        value={inputs.login}
+        label="Логин"
+        disabled
+        name="login"
+      />
+      <Input
+        onChange={noop}
+        value={inputs.first_name}
+        label="Имя"
+        disabled
+        name="firstName"
+      />
+      <Input
+        onChange={noop}
+        value={inputs.second_name}
+        label="Фамилия"
+        disabled
+        name="secondName"
+      />
+      <Input
+        onChange={noop}
+        value={inputs.display_name}
+        label="Имя в чате"
+        disabled
+        name="display_name"
+      />
+      <Input
+        onChange={noop}
+        value={inputs.phone}
+        label="Телефон"
+        disabled
+        type="tel"
+        name="phone"
+      />
+    </>
+  );
+}
+
 export function ProfilePage() {
-  const user = useSelector(selectUser);
-  const isLoading = useSelector(selectUserLoading);
+  const user = useAppSelector(selectUser);
+  const userLoadingStatus = useAppSelector(
+    (state: RootState) => state.user.status
+  );
+  const error = useAppSelector((state: RootState) => state.user.error);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const dispatch = useDispatch<any>();
-  const [inputs, setInputs] = useState<ProfileInputs>(setUserFields(user));
 
   useEffect(() => {
-    dispatch(authActions.getUser());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (user !== null) {
-      setInputs(setUserFields(user));
+    if (userLoadingStatus === "idle") {
+      dispatch(fetchUser());
     }
-  }, [user]);
+  }, [userLoadingStatus, dispatch]);
 
   const handleLogoutClick: VoidFunction = () => {
     navigate(PATHS.SIGN_IN);
@@ -66,64 +117,22 @@ export function ProfilePage() {
     console.log("Валидация и редактирование профиля.");
   };
 
+  let content;
+
+  if (userLoadingStatus === "loading") {
+    content = "Loading...";
+  } else if (userLoadingStatus === "succeeded") {
+    content = <FormFields inputs={setUserFields(user.user)} />;
+  } else if (userLoadingStatus === "failed") {
+    content = <div>{error}</div>;
+  }
+
   return (
     <CenterPageLayout>
       <form action="#" className="sign-up-page__form" onSubmit={handleSubmit}>
         <Modal fixed={false}>
           <Modal.Header title="Редактировать аккаунт" />
-          {isLoading && (
-            <Modal.Content>
-              <div>Loading</div>
-            </Modal.Content>
-          )}
-          {!isLoading && (
-            <Modal.Content>
-              <Input
-                onChange={noop}
-                value={inputs.email}
-                label="Почта"
-                disabled
-                type="email"
-                name="email"
-              />
-              <Input
-                onChange={noop}
-                value={inputs.login}
-                label="Логин"
-                disabled
-                name="login"
-              />
-              <Input
-                onChange={noop}
-                value={inputs.first_name}
-                label="Имя"
-                disabled
-                name="firstName"
-              />
-              <Input
-                onChange={noop}
-                value={inputs.second_name}
-                label="Фамилия"
-                disabled
-                name="secondName"
-              />
-              <Input
-                onChange={noop}
-                value={inputs.display_name}
-                label="Имя в чате"
-                disabled
-                name="display_name"
-              />
-              <Input
-                onChange={noop}
-                value={inputs.phone}
-                label="Телефон"
-                disabled
-                type="tel"
-                name="phone"
-              />
-            </Modal.Content>
-          )}
+          <Modal.Content>{content}</Modal.Content>
           <Modal.Footer>
             <ButtonsGroup
               direction="vertical"
