@@ -1,8 +1,8 @@
 import { store } from "./index";
 
 export interface BaseAction<T> {
-  type: T;
-  payload?: any;
+  type: string;
+  payload?: T;
 }
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
