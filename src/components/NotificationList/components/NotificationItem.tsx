@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useActions } from "hooks/use-actions";
+import { useActions } from "react-redux-actions-hook";
 import { notificationsActions } from "store/notifications";
 import { CustomNotification } from "store/notifications/types";
 import "./NotificationItem.css";
