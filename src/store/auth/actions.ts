@@ -52,7 +52,7 @@ function signUp(
     try {
       await authApi.signUp(data);
       dispatch(getUser());
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
     }
   };

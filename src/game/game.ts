@@ -2,8 +2,7 @@ import { Dispatch } from "react";
 
 import { drawPlayfield } from "./game-logic/canvas-draw/draw-playfield";
 import { drawTetromino } from "./game-logic/canvas-draw/draw-tetromino";
-import { showGameOver } from "./game-logic/canvas-draw/show-game-over";
-import { DEFAULT_SPEED } from "./game-logic/contants";
+import { DEFAULT_SPEED, LEVEL_SCORE, SPEED_STEP } from "./game-logic/contants";
 import {
   TPlayfield,
   TTetrominoCoordinate,
@@ -35,15 +34,29 @@ export class Game {
 
   setIsGameOver: Dispatch<boolean>;
 
+  setLevel: Dispatch<number>;
+
+  setScore: Dispatch<number>;
+
   timer: Date;
 
   speed: number;
 
+  score: number = 0;
+
+  level: number = 1;
+
+  isPause: boolean = false;
+
   constructor(
     canvasElement: HTMLCanvasElement,
-    setIsGameOver: Dispatch<boolean>
+    setIsGameOver: Dispatch<boolean>,
+    setLevel: Dispatch<number>,
+    setScore: Dispatch<number>
   ) {
     this.setIsGameOver = setIsGameOver;
+    this.setLevel = setLevel;
+    this.setScore = setScore;
     this.canvas = canvasElement;
     this.ctx = canvasElement.getContext("2d") as CanvasRenderingContext2D;
     this.tetrominoQueue = generateQueue();
@@ -90,26 +103,45 @@ export class Game {
             this.playfield[r][c] = this.playfield[r - 1][c];
           }
         }
+
+        this.scoreUp();
       } else {
         row--;
       }
     }
   };
 
+  scoreUp = () => {
+    this.score += 10;
+    this.setScore(this.score);
+    this.levelCalc();
+  };
+
+  levelCalc = () => {
+    this.level = Math.floor(this.score / LEVEL_SCORE) + 1;
+    this.setLevel(this.level);
+  };
+
   gameOver = () => {
     this.setIsGameOver(true);
     cancelAnimationFrame(this.rAF);
-    showGameOver(this.ctx, this.canvas);
+    this.setIsGameOver(true);
   };
 
   // основной цикл игры
   loop = () => {
     this.rAF = requestAnimationFrame(this.loop);
+
+    if (this.isPause) return;
+
     drawPlayfield(this.ctx, this.canvas, this.playfield);
 
     // рисуем текущую фигуру
     if (this.tetromino) {
-      if (Number(new Date()) - Number(this.timer) > this.speed) {
+      if (
+        Number(new Date()) - Number(this.timer) >
+        this.speed - (SPEED_STEP * this.level - 1)
+      ) {
         this.tetromino.row++;
         this.timer = new Date();
 
@@ -190,7 +222,16 @@ export class Game {
   };
 
   public start() {
+    this.isPause = false;
     this.setIsGameOver(false);
     this.rAF = requestAnimationFrame(this.loop);
+  }
+
+  public switchPause() {
+    this.isPause = !this.isPause;
+  }
+
+  public stopGame() {
+    this.gameOver();
   }
 }

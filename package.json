@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "stylelint": "npx stylelint \"./src/**/*.css\"",
     "eslint": "eslint ./src --ext .ts,.tsx",
+    "eslint:fix": "eslint ./src --fix --ext .ts,.tsx",
     "prettier:check": "prettier --check .",
     "prepare": "husky install",
     "docker:build": "docker build -t tyumburg ."
@@ -73,6 +74,7 @@
     "@reduxjs/toolkit": "1.8.2",
     "@types/react": "18.0.6",
     "@types/react-dom": "18.0.2",
+    "@types/uuid": "8.3.4",
     "axios": "0.27.2",
     "bem-cn": "3.0.1",
     "formik": "2.2.9",
@@ -83,10 +85,11 @@
     "react-router-dom": "6.3.0",
     "redux": "4.2.0",
     "redux-thunk": "2.4.1",
+    "uuid": "8.3.2",
     "yup": "0.32.11"
   },
   "lint-staged": {
-    "*.css": "npm run stylelint",
+    "*.css": "stylelint",
     "*.{tsx,ts}": "npm run eslint"
   }
 }

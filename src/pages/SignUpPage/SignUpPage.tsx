@@ -10,6 +10,7 @@ import { PATHS } from "Routes/paths";
 import CustomLink from "components/CustomLink/CustomLink";
 import { SignUpRequestData } from "api/auth/auth-api.types";
 import { useActions } from "hooks/use-actions";
+import { authActions } from "store/auth/actions";
 
 export function SignUpPage() {
   const [inputs] = useState<SignUpRequestData>({
@@ -22,7 +23,7 @@ export function SignUpPage() {
     email: "",
   });
 
-  const { signUp } = useActions();
+  const { signUp } = useActions(authActions);
 
   const onSubmit = useCallback(
     (values: SignUpRequestData) => {

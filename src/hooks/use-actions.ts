@@ -1,14 +1,15 @@
+import { useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { authActions } from "store/auth/actions";
 
-export function useActions() {
+export function useActions(actions: any, deps = []) {
   const dispatch = useDispatch();
 
-  return bindActionCreators(
-    {
-      ...authActions,
-    },
-    dispatch
-  );
+  return useMemo(() => {
+    if (Array.isArray(actions)) {
+      return actions.map((action) => bindActionCreators(action, dispatch));
+    }
+
+    return bindActionCreators(actions, dispatch);
+  }, [dispatch, ...deps]);
 }
