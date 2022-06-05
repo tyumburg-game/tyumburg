@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useActions } from "hooks/use-actions";
-import { notificationActions } from "store/notification/actions";
-import { CustomNotification } from "store/notification/types";
+import { notificationsActions } from "store/notifications";
+import { CustomNotification } from "store/notifications/types";
 import "./NotificationItem.css";
 
 type NotificationProps = {
@@ -15,11 +15,11 @@ export function NotificationItem(props: NotificationProps) {
     item: { id, message, timeout = NOTIFICATION_DEFAULT_TIMEOUT },
   } = props;
 
-  const { clearNotification } = useActions(notificationActions);
+  const { clearNotifications } = useActions(notificationsActions);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      clearNotification(id);
+      clearNotifications(id);
     }, timeout);
 
     return () => {
