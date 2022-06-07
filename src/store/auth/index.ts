@@ -1,12 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Nullable } from "types/util";
-import { SignInRequestData, User } from "api/auth/auth-api.types";
+import {
+  SignInRequestData,
+  SignUpRequestData,
+  User,
+} from "api/auth/auth-api.types";
 import { authApi } from "api/auth/auth-api";
 import { fetchUser } from "store/user";
-
-export type AuthState = {
-  user: Nullable<User>;
-};
+import { AuthState } from "store/auth/types";
 
 const initialState: AuthState = {
   user: null,
@@ -31,6 +32,19 @@ export const signIn = createAsyncThunk(
     try {
       await authApi.signIn(data);
       dispatch(fetchUser());
+    } catch (error: unknown) {
+      console.error(error);
+
+      return rejectWithValue((error as Error).message);
+    }
+  }
+);
+
+export const register = createAsyncThunk(
+  "auth/register",
+  async (data: SignUpRequestData, { rejectWithValue }) => {
+    try {
+      await authApi.signUp(data);
     } catch (error: unknown) {
       console.error(error);
 
