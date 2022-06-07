@@ -44,7 +44,7 @@ export default function Input(props: InputProps) {
           disabled={disabled}
           type={type}
           name={name}
-          className={b("field", { mode })}
+          className={b("field", { mode, disabled })}
         />
       </div>
       <div className={b("comment")}>{comment ?? null}</div>

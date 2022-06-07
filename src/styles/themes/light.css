@@ -88,6 +88,11 @@
   --color-input-error-active-background: var(--gray-1);
   --color-input-error-active-text: var(--gray-5);
   --color-input-error-active-border: var(--color-accent);
+
+  /* Disabled */
+  --color-input-disabled-initial-background: var(--gray-1);
+  --color-input-disabled-initial-text: var(--gray-5);
+  --color-input-disabled-initial-border: var(--gray-1);
 }
 
 /* Input label */

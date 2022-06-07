@@ -5,22 +5,13 @@ import {
   SignUpRequestData,
   User,
 } from "api/auth/auth-api.types";
-import { BaseAction } from "store/types";
 import { Nullable } from "types/util";
+import { setUser } from "store/auth";
+import type { BaseAction } from "store/types";
 
-export enum Actions {
-  SET_USER_ITEM = "SET_USER_ITEM",
-}
+type AuthAction = BaseAction<Nullable<User>>;
 
-export interface AuthAction extends BaseAction<Actions> {
-  user: Nullable<User>;
-}
-
-function setUser(user: Nullable<User>): AuthAction {
-  return { type: Actions.SET_USER_ITEM, user };
-}
-
-function getUser(): ThunkAction<void, {}, {}, BaseAction<Actions>> {
+function getUser(): ThunkAction<void, {}, {}, AuthAction> {
   return async (dispatch) => {
     try {
       const user = await authApi.getUser();
@@ -34,7 +25,7 @@ function getUser(): ThunkAction<void, {}, {}, BaseAction<Actions>> {
 
 function signIn(
   data: SignInRequestData
-): ThunkAction<void, {}, {}, BaseAction<Actions>> {
+): ThunkAction<void, {}, {}, AuthAction> {
   return async (dispatch) => {
     try {
       await authApi.signIn(data);
@@ -47,7 +38,7 @@ function signIn(
 
 function signUp(
   data: SignUpRequestData
-): ThunkAction<void, {}, {}, BaseAction<Actions>> {
+): ThunkAction<void, {}, {}, AuthAction> {
   return async (dispatch) => {
     try {
       await authApi.signUp(data);
@@ -58,7 +49,7 @@ function signUp(
   };
 }
 
-function logout(): ThunkAction<void, {}, {}, BaseAction<Actions>> {
+function logout(): ThunkAction<void, {}, {}, AuthAction> {
   return async (dispatch) => {
     try {
       await authApi.logout();

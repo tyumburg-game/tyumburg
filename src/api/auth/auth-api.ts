@@ -24,7 +24,7 @@ class AuthAPI extends BaseAPI {
   }
 
   getUser() {
-    return this.instance.get<User>("/user");
+    return this.instance.get<User>("/user", {});
   }
 
   logout() {

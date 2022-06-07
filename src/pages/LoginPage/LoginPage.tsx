@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { Form, Formik } from "formik";
+import { useActions } from "react-redux-actions-hook";
 import Modal from "components/Modal/Modal";
 import Button from "components/Button/Button";
 import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
@@ -8,7 +9,6 @@ import { PATHS } from "Routes/paths";
 import CustomLink from "components/CustomLink/CustomLink";
 import InputField from "components/InputField/InputField";
 import { signInSchema } from "utils/validationFields";
-import { useActions } from "hooks/use-actions";
 import { SignInRequestData } from "api/auth/auth-api.types";
 import { authActions } from "store/auth/actions";
 

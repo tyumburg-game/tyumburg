@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { Formik, Form } from "formik";
+import { useActions } from "react-redux-actions-hook";
 import { signUpSchema } from "utils/validationFields";
 import InputField from "components/InputField/InputField";
 import Modal from "components/Modal/Modal";
@@ -9,7 +10,6 @@ import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPage
 import { PATHS } from "Routes/paths";
 import CustomLink from "components/CustomLink/CustomLink";
 import { SignUpRequestData } from "api/auth/auth-api.types";
-import { useActions } from "hooks/use-actions";
 import { authActions } from "store/auth/actions";
 
 export function SignUpPage() {
