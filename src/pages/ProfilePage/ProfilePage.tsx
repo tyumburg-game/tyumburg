@@ -24,10 +24,8 @@ export function ProfilePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userLoadingStatus === "idle") {
-      dispatch(fetchUser());
-    }
-  }, [userLoadingStatus, dispatch]);
+    dispatch(fetchUser());
+  }, [dispatch]);
 
   const handleLogoutClick: VoidFunction = () => {
     dispatch(logout());
