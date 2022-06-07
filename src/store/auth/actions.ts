@@ -49,21 +49,9 @@ function signUp(
   };
 }
 
-function logout(): ThunkAction<void, {}, {}, AuthAction> {
-  return async (dispatch) => {
-    try {
-      await authApi.logout();
-      dispatch(setUser(null));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
 export const authActions = {
   signIn,
   signUp,
-  logout,
   setUser,
   getUser,
 };
