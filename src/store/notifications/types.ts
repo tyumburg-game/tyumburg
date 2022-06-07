@@ -3,3 +3,5 @@ export type CustomNotification = {
   message: string;
   timeout?: number;
 };
+
+export type NewCustomNotification = Omit<CustomNotification, "id">;

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-import { CustomNotification } from "./types";
+import { CustomNotification, NewCustomNotification } from "./types";
 
 type NotificationsState = {
   items: CustomNotification[];
@@ -14,10 +14,7 @@ export const notificationsSlice = createSlice({
   name: "notifications",
   initialState,
   reducers: {
-    setNotification: (
-      state,
-      action: PayloadAction<Omit<CustomNotification, "id">>
-    ) => ({
+    setNotification: (state, action: PayloadAction<NewCustomNotification>) => ({
       ...state,
       items: state.items.concat({ ...action.payload, id: uuidv4() }),
     }),
