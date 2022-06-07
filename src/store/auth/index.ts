@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Nullable } from "types/util";
-import { User } from "api/auth/auth-api.types";
+import { SignInRequestData, User } from "api/auth/auth-api.types";
 import { authApi } from "api/auth/auth-api";
+import { fetchUser } from "store/user";
 
 export type AuthState = {
   user: Nullable<User>;
@@ -17,9 +18,23 @@ export const logout = createAsyncThunk(
     try {
       await authApi.logout();
     } catch (error) {
-      console.log(error);
+      console.error(error);
 
       return rejectWithValue("Unable to logout");
+    }
+  }
+);
+
+export const signIn = createAsyncThunk(
+  "auth/signIn",
+  async (data: SignInRequestData, { dispatch, rejectWithValue }) => {
+    try {
+      await authApi.signIn(data);
+      dispatch(fetchUser());
+    } catch (error: unknown) {
+      console.error(error);
+
+      return rejectWithValue((error as Error).message);
     }
   }
 );

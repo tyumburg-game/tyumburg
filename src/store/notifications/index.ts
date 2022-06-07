@@ -14,7 +14,10 @@ export const notificationsSlice = createSlice({
   name: "notifications",
   initialState,
   reducers: {
-    setNotification: (state, action: PayloadAction<CustomNotification>) => ({
+    setNotification: (
+      state,
+      action: PayloadAction<Omit<CustomNotification, "id">>
+    ) => ({
       ...state,
       items: state.items.concat({ ...action.payload, id: uuidv4() }),
     }),

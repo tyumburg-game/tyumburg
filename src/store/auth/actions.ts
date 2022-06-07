@@ -1,10 +1,6 @@
 import { ThunkAction } from "redux-thunk";
 import { authApi } from "api/auth/auth-api";
-import {
-  SignInRequestData,
-  SignUpRequestData,
-  User,
-} from "api/auth/auth-api.types";
+import { SignUpRequestData, User } from "api/auth/auth-api.types";
 import { Nullable } from "types/util";
 import { setUser } from "store/auth";
 import type { BaseAction } from "store/types";
@@ -17,19 +13,6 @@ function getUser(): ThunkAction<void, {}, {}, AuthAction> {
       const user = await authApi.getUser();
 
       dispatch(setUser(user));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
-function signIn(
-  data: SignInRequestData
-): ThunkAction<void, {}, {}, AuthAction> {
-  return async (dispatch) => {
-    try {
-      await authApi.signIn(data);
-      dispatch(getUser());
     } catch (error) {
       console.log(error);
     }
@@ -50,8 +33,6 @@ function signUp(
 }
 
 export const authActions = {
-  signIn,
   signUp,
-  setUser,
   getUser,
 };
