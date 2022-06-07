@@ -12,6 +12,7 @@ import { fetchUser, selectUser } from "store/user";
 import { RootState } from "store/types";
 import { FormFields } from "pages/ProfilePage/FormFields";
 import { getUserFields } from "pages/ProfilePage/helpers/get-user-fields";
+import { logout } from "store/auth";
 
 export function ProfilePage() {
   const user = useAppSelector(selectUser);
@@ -29,6 +30,7 @@ export function ProfilePage() {
   }, [userLoadingStatus, dispatch]);
 
   const handleLogoutClick: VoidFunction = () => {
+    dispatch(logout());
     navigate(PATHS.SIGN_IN);
   };
 
