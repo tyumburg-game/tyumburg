@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
+import { selectUser } from "store/user";
+import { useAppSelector } from "hooks/use-app-selector";
 
 export function useAuth() {
   const [isAuth, setIsAuth] = useState<boolean>(true);
+  const user = useAppSelector(selectUser);
 
   useEffect(() => {
-    // TODO реализовать при добавлении авторизации
-    const checkAuth = async () => {
-      const res = await true;
-
-      setIsAuth(res);
-    };
-
-    checkAuth();
-  }, []);
+    setIsAuth(user.user !== null);
+  }, [user]);
 
   return isAuth;
 }
