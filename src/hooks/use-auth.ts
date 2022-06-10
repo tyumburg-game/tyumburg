@@ -1,14 +1,29 @@
 import { useEffect, useState } from "react";
-import { selectUser } from "store/user";
-import { useAppSelector } from "hooks/use-app-selector";
+import { authApi } from "api/auth/auth-api";
+
+export type AuthState = "loading" | "auth" | "external";
 
 export function useAuth() {
-  const [isAuth, setIsAuth] = useState<boolean>(true);
-  const user = useAppSelector(selectUser);
+  const [authState, setAuthState] = useState<AuthState>("loading");
 
   useEffect(() => {
-    setIsAuth(user.user !== null);
-  }, [user]);
+    async function checkAuth() {
+      try {
+        setAuthState("loading");
+        const user = await authApi.getUser();
 
-  return isAuth;
+        if (user) {
+          setAuthState("auth");
+        } else {
+          setAuthState("external");
+        }
+      } catch (e) {
+        setAuthState("external");
+      }
+    }
+
+    checkAuth();
+  }, [authApi]);
+
+  return authState;
 }
