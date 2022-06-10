@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
 import { Formik, Form } from "formik";
 import { useActions } from "react-redux-actions-hook";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "hooks/use-app-dispatch";
 import { signUpSchema } from "utils/validationFields";
 import InputField from "components/InputField/InputField";
 import Modal from "components/Modal/Modal";
@@ -10,7 +12,9 @@ import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPage
 import { PATHS } from "Routes/paths";
 import CustomLink from "components/CustomLink/CustomLink";
 import { SignUpRequestData } from "api/auth/auth-api.types";
-import { authActions } from "store/auth/actions";
+
+import { register } from "store/auth";
+import { notificationsActions } from "store/notifications";
 
 export function SignUpPage() {
   const [inputs] = useState<SignUpRequestData>({
@@ -23,11 +27,22 @@ export function SignUpPage() {
     email: "",
   });
 
-  const { signUp } = useActions(authActions);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { setNotification } = useActions(notificationsActions);
 
   const onSubmit = useCallback(
-    (values: SignUpRequestData) => {
-      signUp(values);
+    async (values: SignUpRequestData) => {
+      try {
+        await dispatch(register(values)).unwrap();
+        navigate(PATHS.SIGN_IN);
+      } catch (e: unknown) {
+        if (typeof e === "string") {
+          setNotification({ message: e });
+        } else {
+          setNotification({ message: "Unable to register" });
+        }
+      }
     },
     [inputs]
   );
