@@ -23,7 +23,7 @@ export function useAuth() {
     }
 
     checkAuth();
-  }, [authApi]);
+  }, [setAuthState]);
 
   return authState;
 }
