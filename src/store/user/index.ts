@@ -16,8 +16,17 @@ const initialState: UserState = {
   error: null,
 };
 
-export const fetchUser = createAsyncThunk("user/fetchUser", async () =>
-  authApi.getUser()
+export const fetchUser = createAsyncThunk(
+  "user/fetchUser",
+  async (_, { rejectWithValue }) => {
+    try {
+      return await authApi.getUser();
+    } catch (error: unknown) {
+      console.error(error);
+
+      return rejectWithValue((error as Error).message);
+    }
+  }
 );
 
 export const userSlice = createSlice({
