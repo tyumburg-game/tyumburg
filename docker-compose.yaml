@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  ssr:
+    build:
+      context: .
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./shared:/var/www/shared
