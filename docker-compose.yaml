@@ -4,7 +4,9 @@ services:
   ssr:
     build:
       context: .
-    ports:
-      - "8080:3000"
     volumes:
       - ./shared:/var/www/shared
+    env_file:
+      - .env
+    ports:
+      - "${SSR_PORT}:${SSR_PORT_INTERNAL}"
