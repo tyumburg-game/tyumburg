@@ -1,14 +1,13 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-const { HotModuleReplacementPlugin } = require("webpack");
-const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
-  entry: ["@gatsbyjs/webpack-hot-middleware/client?path=/__webpack_hmr", "./src/index.tsx"],
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  entry: "./src/components/App/App.tsx",
+  target: "node",
   output: {
     path: path.resolve(__dirname, "../dist"),
-    filename: "client.bundle.js",
+    filename: "ssr.bundle.js",
     publicPath: '/',
     clean: true,
   },
@@ -40,16 +39,4 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: "www/index.html",
-    // }),
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshPlugin({
-      overlay: {
-        sockIntegration: "whm"
-      }
-    }),
-    new MiniCssExtractPlugin(),
-  ],
 };

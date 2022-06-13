@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "es2017"],
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
     "jsx": "react-jsx",
@@ -21,6 +21,6 @@
     },
     "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"]
   },
-  "include": ["src", "typings/**/*.d.ts", "./node_modules/@types"],
+  "include": ["src", "typings/**/*.d.ts", "./node_modules/@types", "server"],
   "exclude": ["**/*.js"]
 }

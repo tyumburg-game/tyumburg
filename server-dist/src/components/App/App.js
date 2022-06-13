@@ -1,3 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.App = void 0;
+var tslib_1 = require("tslib");
 // import {
 //   BrowserRouter as Router,
 //   Outlet,
@@ -17,15 +21,12 @@
 // import "./App.css";
 // import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 // @ts-ignore
-import React, { useEffect } from "react";
-
-export function App() {
-  useEffect(() => {
-    console.log("Hello");
-  }, []);
-
-  return (
-    <div>React app</div>
+var react_1 = tslib_1.__importStar(require("react"));
+function App() {
+    (0, react_1.useEffect)(function () {
+        console.log("Hello");
+    }, []);
+    return (react_1.default.createElement("div", null, "React app")
     // <Router>
     //   <Routes>
     //     {/* TODO заиметь Outlet на готовые компоненты */}
@@ -43,5 +44,6 @@ export function App() {
     //     </Route>
     //   </Routes>
     // </Router>
-  );
+    );
 }
+exports.App = App;

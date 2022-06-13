@@ -1,15 +1,16 @@
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
+import { hydrateRoot } from "react-dom/client";
 import { App } from "components/App/App";
 import "./styles/index.css";
-import { configureStore } from "store";
+// import { configureStore } from "store";
 
 const container = document.getElementById("root");
-const root = createRoot(container!);
-const store = configureStore();
+// const store = configureStore();
 
-root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+hydrateRoot(
+  container!,
+  <App />
+  // <Provider store={store}>
+  //   <App />
+  // </Provider>
 );
