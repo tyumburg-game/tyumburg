@@ -10,6 +10,12 @@ services:
       - .env
     ports:
       - "${SSR_PORT}:${SSR_PORT_INTERNAL}"
+    depends_on:
+      - "postgres"
+    networks:
+      - common-network
+    #    command: [ "./wait-for.sh", "postgres:5432", "--", "node", "server.js" ]
+    command: node server.js
   postgres:
     image: postgres:14
     env_file:
