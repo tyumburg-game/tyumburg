@@ -10,3 +10,18 @@ services:
       - .env
     ports:
       - "${SSR_PORT}:${SSR_PORT_INTERNAL}"
+  postgres:
+    image: postgres:14
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - ./postgresdata:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_DB: tyumburg
+
+networks:
+  common-network:
+    driver: bridge
