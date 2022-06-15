@@ -14,8 +14,7 @@ services:
       - "postgres"
     networks:
       - common-network
-    #    command: [ "./wait-for.sh", "postgres:5432", "--", "node", "server.js" ]
-    command: node server.js
+    command: [ "./wait-for.sh", "postgres:5432", "--", "node", "server.js" ]
   postgres:
     image: postgres:14
     env_file:
@@ -27,6 +26,8 @@ services:
     restart: always
     environment:
       POSTGRES_DB: tyumburg
+    networks:
+      - common-network
 
 networks:
   common-network:
