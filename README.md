@@ -46,10 +46,4 @@
 ## Environments
 
 В корне проекта создать файл `.evn` с переменным окружения.
-Структура файла:
-
-* `SSR_PORT=8080`
-* `SSR_PORT_INTERNAL=3000`
-* `POSTGRES_PORT=8765`
-* `POSTGRES_USER=postgres`
-* `POSTGRES_PASSWORD=newPassword`
+Пример файла: `.env.example`
