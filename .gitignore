@@ -24,3 +24,5 @@ chrome-user-data
 *.swp
 *.swo
 dist/
+.env
+postgresdata/
