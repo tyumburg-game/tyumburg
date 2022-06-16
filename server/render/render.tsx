@@ -4,13 +4,15 @@ import path from "path";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { Request, Response } from "express";
-import { App } from "../../src/components/App/App";
 
 export function render(req: Request, res: Response) {
   const { devMiddleware } = res.locals.webpack;
   const jsonWebpackStats = devMiddleware.stats.toJson();
   const { assetsByChunkName } = jsonWebpackStats;
   const script = assetsByChunkName.main[1];
+
+  // eslint-disable-next-line global-require
+  const App = require("../../dist/ssr.bundle");
 
   const html = fs.readFileSync(
     path.join(__dirname, "../../../www/index.html"),
