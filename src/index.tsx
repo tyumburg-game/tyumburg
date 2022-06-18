@@ -7,6 +7,20 @@ import "./styles/index.css";
 const container = document.getElementById("root");
 const root = createRoot(container!);
 
+function startServiceWorker() {
+  if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").then(registration => {
+              console.log("ServiceWorker registration successful with scope: ", registration.scope);
+          }).catch((error: string) => {
+              console.log("ServiceWorker registration failed: ", error);
+          });
+      });
+  }
+}
+
+startServiceWorker();
+
 root.render(
   <Provider store={store}>
     <App />
