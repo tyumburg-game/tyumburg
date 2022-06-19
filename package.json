@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:ssr": "concurrently \"npm run start:server\" \"npm run start:client:ssr\"",
-    "start:client:ssr": "npm run compile:sw & webpack --config ./webpack-configs/webpack.ssr.js --watch",
-    "start:server": "node ./server-dist/server/index.js",
+    "start:client:ssr": "webpack --config ./webpack-configs/webpack.ssr.js --watch",
+    "start:server": "node ./ssr/server/index.js",
     "start:dev": "npm run compile:sw & webpack serve --config ./webpack-configs/webpack.dev.js",
     "build:client:prod": "npm run compile:sw & webpack --config ./webpack-configs/webpack.prod.js",
     "build:client:ssr": "npm run compile:sw & webpack --config ./webpack-configs/webpack.ssr.js",
