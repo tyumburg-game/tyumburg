@@ -9,11 +9,9 @@ const PORT = process.env.SSR_PORT_INTERNAL || 3000;
 
 app.use(express.static(path.join(__dirname, "/dist/")));
 
-app.use("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist/index.html"));
-});
+app.use(appRouter());
 
-(async () => {
+export async function startServer() {
   try {
     await connectToDatabase();
     console.log("Database connection was successfully established");
@@ -24,4 +22,4 @@ app.use("/*", (req, res) => {
     console.error("Unable to establish database connection", "\n", e);
     process.exit(1);
   }
-})();
+}
