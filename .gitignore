@@ -26,3 +26,4 @@ chrome-user-data
 dist/
 .env
 postgresdata/
+/server-dist/
