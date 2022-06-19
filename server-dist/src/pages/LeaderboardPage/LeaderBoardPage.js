@@ -35,3 +35,4 @@ function LeaderboardPage() {
             React.createElement(CustomLink_1.default, { to: paths_1.PATHS.START, mode: "primary" }, "\u041D\u0430 \u0433\u043B\u0430\u0432\u043D\u0443\u044E"))));
 }
 exports.LeaderboardPage = LeaderboardPage;
+//# sourceMappingURL=LeaderBoardPage.js.map

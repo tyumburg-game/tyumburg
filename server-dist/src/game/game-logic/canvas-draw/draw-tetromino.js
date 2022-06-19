@@ -13,3 +13,4 @@ function drawTetromino(ctx, tetromino) {
     }
 }
 exports.drawTetromino = drawTetromino;
+//# sourceMappingURL=draw-tetromino.js.map

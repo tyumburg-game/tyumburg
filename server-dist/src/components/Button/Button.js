@@ -9,3 +9,4 @@ function Button(props) {
     return (React.createElement("button", { onClick: onClick, type: type, disabled: disabled, className: b({ mode: mode }).mix(className) }, children));
 }
 exports.default = Button;
+//# sourceMappingURL=Button.js.map

@@ -8,11 +8,11 @@ import { PATHS } from "Routes/paths";
 import CustomLink from "components/CustomLink/CustomLink";
 import { useAppSelector } from "hooks/use-app-selector";
 import { useAppDispatch } from "hooks/use-app-dispatch";
-import { fetchUser, selectUser } from "store/user";
 import { RootState } from "store/types";
 import { FormFields } from "pages/ProfilePage/FormFields";
 import { getUserFields } from "pages/ProfilePage/helpers/get-user-fields";
 import { logout } from "store/auth";
+import { fetchUser, selectUser } from "../../store/user";
 
 export function ProfilePage() {
   const user = useAppSelector(selectUser);

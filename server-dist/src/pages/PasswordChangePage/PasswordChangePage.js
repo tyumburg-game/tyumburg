@@ -28,3 +28,4 @@ function PasswordChangePage() {
                     React.createElement(Button_1.default, { mode: "primary", onClick: function (event) { return console.log("click", event); } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"))))));
 }
 exports.PasswordChangePage = PasswordChangePage;
+//# sourceMappingURL=PasswordChangePage.js.map

@@ -6,3 +6,4 @@ function ModalContent(props) {
     return (React.createElement("div", { className: "modal-content" }, children));
 }
 exports.default = ModalContent;
+//# sourceMappingURL=ModalContent.js.map

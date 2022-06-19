@@ -8,3 +8,4 @@ function useLink() {
     return (0, react_1.useCallback)(function (url) { return function () { return navigate(url); }; }, []);
 }
 exports.useLink = useLink;
+//# sourceMappingURL=use-link.js.map

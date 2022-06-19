@@ -1,20 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.configureStore = exports.isServer = void 0;
-var tslib_1 = require("tslib");
-var redux_1 = require("redux");
-var redux_thunk_1 = tslib_1.__importDefault(require("redux-thunk"));
-var reducer_1 = require("./reducer");
+exports.store = exports.createStore = exports.isServer = void 0;
+var toolkit_1 = require("@reduxjs/toolkit");
+var user_1 = require("./user");
+var auth_1 = require("./auth");
+var notifications_1 = require("./notifications");
 exports.isServer = !(typeof window !== "undefined" &&
     window.document &&
     window.document.createElement);
-function configureStore(initialState) {
+function createStore(initialState) {
     if (initialState === void 0) { initialState = {}; }
-    var composeEnhancers = exports.isServer
-        ? redux_1.compose
-        : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-    var middleware = [redux_thunk_1.default];
-    var store = (0, redux_1.createStore)(reducer_1.rootReducer, initialState, composeEnhancers(redux_1.applyMiddleware.apply(void 0, middleware)));
-    return store;
+    var preloadedState = (!exports.isServer && window.__INITIAL_STATE__) || initialState;
+    return (0, toolkit_1.configureStore)({
+        reducer: {
+            auth: auth_1.authReducer,
+            user: user_1.userReducer,
+            notifications: notifications_1.notificationsReducer,
+        },
+        preloadedState: preloadedState,
+    });
 }
-exports.configureStore = configureStore;
+exports.createStore = createStore;
+exports.store = createStore();
+//# sourceMappingURL=index.js.map

@@ -42,3 +42,4 @@ function UiComponentsPage() {
                                 React.createElement(Button_1.default, { mode: "dangerous", className: "parent-class-name-one parent-class-name-two", onClick: function (event) { return console.log("click", event); } }, "Dangerous")))))))));
 }
 exports.UiComponentsPage = UiComponentsPage;
+//# sourceMappingURL=UiComponentsPage.js.map

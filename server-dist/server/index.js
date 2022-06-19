@@ -11,3 +11,4 @@ app.use(hmr_1.middleware);
 app.listen(PORT, function () {
     console.log("App on http://localhost:".concat(PORT));
 });
+//# sourceMappingURL=index.js.map

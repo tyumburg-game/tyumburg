@@ -10,7 +10,8 @@ function Input(props) {
     return (React.createElement("div", { className: b.mix(className) },
         React.createElement("label", { htmlFor: id, className: b("label") }, label),
         React.createElement("div", { className: b("field-wrapper", { mode: mode }) },
-            React.createElement("input", { value: value, id: id, onChange: onChange, disabled: disabled, type: type, name: name, className: b("field", { mode: mode }) })),
+            React.createElement("input", { value: value, id: id, onChange: onChange, disabled: disabled, type: type, name: name, className: b("field", { mode: mode, disabled: disabled }) })),
         React.createElement("div", { className: b("comment") }, comment !== null && comment !== void 0 ? comment : null)));
 }
 exports.default = Input;
+//# sourceMappingURL=Input.js.map

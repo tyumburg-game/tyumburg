@@ -13,7 +13,7 @@ function render(req, res) {
     var jsonWebpackStats = devMiddleware.stats.toJson();
     var assetsByChunkName = jsonWebpackStats.assetsByChunkName;
     var _a = assetsByChunkName.main, styles = _a[0], script = _a[1];
-    var reduxStore = (0, store_1.configureStore)();
+    var reduxStore = (0, store_1.createStore)();
     delete require.cache[require.resolve("../../../dist/ssr.bundle.js")];
     // eslint-disable-next-line
     var App = require("../../../dist/ssr.bundle").App;
@@ -24,3 +24,4 @@ function render(req, res) {
     res.status(200).send(response);
 }
 exports.render = render;
+//# sourceMappingURL=render.js.map

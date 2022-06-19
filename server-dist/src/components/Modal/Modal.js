@@ -15,3 +15,4 @@ exports.default = Modal;
 Modal.Header = ModalHeader_1.default;
 Modal.Content = ModalContent_1.default;
 Modal.Footer = ModalFooter_1.default;
+//# sourceMappingURL=Modal.js.map

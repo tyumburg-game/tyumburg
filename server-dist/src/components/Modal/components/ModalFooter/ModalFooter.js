@@ -9,3 +9,4 @@ function ModalFooter(props) {
     return React.createElement("div", { className: b.mix(className) }, children);
 }
 exports.default = ModalFooter;
+//# sourceMappingURL=ModalFooter.js.map

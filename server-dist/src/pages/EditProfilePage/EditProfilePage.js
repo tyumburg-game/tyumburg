@@ -56,3 +56,4 @@ function EditProfilePage() {
                         React.createElement(Button_1.default, { type: "submit", mode: "primary" }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F")))))));
 }
 exports.EditProfilePage = EditProfilePage;
+//# sourceMappingURL=EditProfilePage.js.map

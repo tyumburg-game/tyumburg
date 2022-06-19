@@ -8,3 +8,4 @@ var METHODS;
     METHODS["POST"] = "POST";
     METHODS["DELETE"] = "DELETE";
 })(METHODS = exports.METHODS || (exports.METHODS = {}));
+//# sourceMappingURL=http-transport-types.js.map

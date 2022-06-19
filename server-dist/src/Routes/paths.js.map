@@ -1,0 +1,1 @@
+{"version":3,"file":"paths.js","sourceRoot":"","sources":["../../../src/Routes/paths.ts"],"names":[],"mappings":";;;AAAa,QAAA,KAAK,GAAG;IACnB,EAAE,EAAE,KAAK;IACT,OAAO,EAAE,UAAU;IACnB,OAAO,EAAE,UAAU;IACnB,eAAe,EAAE,kBAAkB;IACnC,OAAO,EAAE,UAAU;IACnB,YAAY,EAAE,eAAe;IAC7B,KAAK,EAAE,QAAQ;IACf,WAAW,EAAE,aAAa;IAC1B,IAAI,EAAE,OAAO;IACb,KAAK,EAAE,GAAG;CACX,CAAC"}

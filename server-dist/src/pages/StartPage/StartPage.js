@@ -25,3 +25,4 @@ function StartPage() {
             React.createElement("div", { className: "main-menu" }, menuItems.map(function (item) { return (React.createElement(Button_1.default, { mode: "secondary", className: "main-menu__btn", onClick: navigate(item.url), key: item.url }, item.label)); })))));
 }
 exports.StartPage = StartPage;
+//# sourceMappingURL=StartPage.js.map

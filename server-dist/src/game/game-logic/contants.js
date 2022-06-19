@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QUEUE_SIZE = exports.PLAYFIELD_SIZE = exports.DEFAULT_SPEED = exports.GRID_SIZE = exports.TETROMINOES_COLORS = exports.TETROMINOES = void 0;
+exports.QUEUE_SIZE = exports.PLAYFIELD_SIZE = exports.LEVEL_SCORE = exports.SPEED_STEP = exports.DEFAULT_SPEED = exports.GRID_SIZE = exports.TETROMINOES_COLORS = exports.TETROMINOES = void 0;
 exports.TETROMINOES = {
     I: [
         [0, 0, 0, 0],
@@ -49,8 +49,11 @@ exports.TETROMINOES_COLORS = {
 };
 exports.GRID_SIZE = 32;
 exports.DEFAULT_SPEED = 500;
+exports.SPEED_STEP = 50;
+exports.LEVEL_SCORE = 30;
 exports.PLAYFIELD_SIZE = {
     cols: 10,
     rows: 20,
 };
 exports.QUEUE_SIZE = 2;
+//# sourceMappingURL=contants.js.map

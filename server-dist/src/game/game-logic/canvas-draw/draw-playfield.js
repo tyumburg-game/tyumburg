@@ -15,3 +15,4 @@ function drawPlayfield(ctx, canvas, playfield) {
     }
 }
 exports.drawPlayfield = drawPlayfield;
+//# sourceMappingURL=draw-playfield.js.map

@@ -10,3 +10,4 @@ function CustomLink(props) {
     return (React.createElement(react_router_dom_1.Link, { className: b({ mode: mode }).mix(className), to: to }, children));
 }
 exports.default = CustomLink;
+//# sourceMappingURL=CustomLink.js.map

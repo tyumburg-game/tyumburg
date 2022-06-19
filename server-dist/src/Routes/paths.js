@@ -13,3 +13,4 @@ exports.PATHS = {
     GAME: "/game",
     START: "/",
 };
+//# sourceMappingURL=paths.js.map

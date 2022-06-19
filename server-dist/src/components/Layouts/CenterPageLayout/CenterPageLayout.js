@@ -10,3 +10,4 @@ function CenterPageLayout(props) {
     return React.createElement("div", { className: b({}).mix(className) }, children);
 }
 exports.CenterPageLayout = CenterPageLayout;
+//# sourceMappingURL=CenterPageLayout.js.map

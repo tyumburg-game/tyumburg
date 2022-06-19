@@ -13,3 +13,4 @@ function showGameOver(ctx, canvas) {
     ctx.fillText("GAME OVER!", canvas.width / 2, canvas.height / 2);
 }
 exports.showGameOver = showGameOver;
+//# sourceMappingURL=show-game-over.js.map

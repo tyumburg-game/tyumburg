@@ -23,3 +23,4 @@ exports.middleware = [
     }),
     render_1.render,
 ];
+//# sourceMappingURL=hmr.js.map
