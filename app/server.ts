@@ -1,8 +1,10 @@
 import path from "path";
 import express from "express";
+import dotenv from "dotenv";
 import { connectToDatabase } from "./utils";
 import { appRouter } from "./router";
 
+dotenv.config();
 const app = express();
 
 const PORT = process.env.SSR_PORT_INTERNAL || 3000;
