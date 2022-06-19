@@ -14,7 +14,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ["./tsconfig.json"],
   },
-  ignorePatterns: [".eslintrc.js", "*.css", "*.png"],
+  ignorePatterns: [".eslintrc.js", "*.css", "*.png", "sw.ts"],
   settings: {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"],
