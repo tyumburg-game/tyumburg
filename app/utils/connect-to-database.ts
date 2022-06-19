@@ -1,6 +1,7 @@
-const promiseRetry = require("promise-retry");
-const { Client } = require("pg");
-const { timeout } = require("./timeout");
+import promiseRetry from "promise-retry";
+
+import { Client } from "pg";
+import { timeout } from "./timeout";
 
 const INITIAL_DB_CONNECTION_DELAY = 1000;
 
@@ -20,12 +21,13 @@ const retryOptions = {
   maxTimeout: process.env.APP_DB_CONNECTION_ATTEMPT_DELAY || 1000,
 };
 
-async function connectToDatabase() {
+export async function connectToDatabase() {
   await timeout(INITIAL_DB_CONNECTION_DELAY);
 
   return promiseRetry((retry, attempt) => {
     console.log("Connection to database: attempt #", attempt);
     const client = getClient();
+
     return client.connect().catch((e) => {
       console.error(e);
       client.end();
@@ -33,7 +35,3 @@ async function connectToDatabase() {
     });
   }, retryOptions);
 }
-
-module.exports = {
-  connectToDatabase,
-};

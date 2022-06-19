@@ -1,7 +1,9 @@
-const express = require("express");
-const path = require("path");
+import path from "path";
+import express from "express";
+import { connectToDatabase } from "./utils";
+import { appRouter } from "./router";
+
 const app = express();
-const { connectToDatabase } = require("./utils");
 
 const PORT = process.env.SSR_PORT_INTERNAL || 3000;
 
