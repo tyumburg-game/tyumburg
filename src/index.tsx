@@ -8,7 +8,7 @@ const container = document.getElementById("root");
 const root = createRoot(container!);
 
 function startServiceWorker() {
-  if ("serviceWorker" in navigator) {
+  if (typeof window !== 'undefined' && "serviceWorker" in navigator) {
       window.addEventListener("load", () => {
           navigator.serviceWorker.register("/sw.js").then(registration => {
               console.log("ServiceWorker registration successful with scope: ", registration.scope);
