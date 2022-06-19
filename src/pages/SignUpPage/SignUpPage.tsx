@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  Formik,
-  Form,
-  FormikValues,
-} from "formik";
+import { Formik, Form, FormikValues } from "formik";
 import { signUpSchema } from "utils/validationFields";
 import InputField from "components/InputField/InputField";
 import Modal from "components/Modal/Modal";
@@ -35,38 +31,14 @@ export function SignUpPage() {
       >
         <Form className="sign-up-page__form">
           <Modal fixed={false}>
-            <Modal.Header title="Регистарция"/>
+            <Modal.Header title="Регистарция" />
             <Modal.Content>
-              <InputField
-                type="text"
-                label="E-mail"
-                name="email"
-              />
-              <InputField
-                type="text"
-                label="Логин"
-                name="login"
-              />
-              <InputField
-                type="text"
-                label="Имя"
-                name="firstName"
-              />
-              <InputField
-                type="text"
-                label="Фамилия"
-                name="secondName"
-              />
-              <InputField
-                type="tel"
-                label="Телефон"
-                name="phone"
-              />
-              <InputField
-                type="password"
-                label="Пароль"
-                name="password"
-              />
+              <InputField type="text" label="E-mail" name="email" />
+              <InputField type="text" label="Логин" name="login" />
+              <InputField type="text" label="Имя" name="firstName" />
+              <InputField type="text" label="Фамилия" name="secondName" />
+              <InputField type="tel" label="Телефон" name="phone" />
+              <InputField type="password" label="Пароль" name="password" />
               <InputField
                 type="password"
                 label="Повтор пароля"
@@ -78,9 +50,7 @@ export function SignUpPage() {
                 <CustomLink to={PATHS.SIGN_IN} mode="secondary">
                   Уже есть аккаунт?
                 </CustomLink>
-                <Button type="submit"
-                        mode="primary"
-                >
+                <Button type="submit" mode="primary">
                   Зарегистрироваться
                 </Button>
               </ButtonsGroup>

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -9,7 +10,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "ssr.bundle.js",
-    publicPath: '/',
+    publicPath: "/",
+    libraryTarget: "commonjs2",
     clean: true,
   },
   resolve: {
@@ -28,9 +30,9 @@ module.exports = {
           "babel-loader",
           {
             loader: "ts-loader",
-            options: {
-              configFile: "../tsconfig.json",
-            },
+            // options: {
+            //   configFile: "../tsconfig.json",
+            // },
           },
         ],
       },

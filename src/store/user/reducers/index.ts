@@ -1,6 +1,6 @@
-import { Actions, ItemAction } from "store/user/actions";
 import { User } from "types/user";
 import { Nullable } from "types/util";
+import { Actions, ItemAction } from "../actions/index";
 
 type LoadStatus = "success" | "pending" | "failed";
 

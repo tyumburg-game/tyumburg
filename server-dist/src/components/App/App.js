@@ -1,49 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
-var tslib_1 = require("tslib");
-// import {
-//   BrowserRouter as Router,
-//   Outlet,
-//   Route,
-//   Routes,
-// } from "react-router-dom";
-// import { GamePage } from "components/GamePage/GamePage";
-// import { PATHS } from "Routes/paths";
-// import { PrivateOutlet } from "Routes/PrivateOutlet";
-// import { UiComponentsPage } from "pages/UiComponentsPage/UiComponentsPage";
-// import { StartPage } from "pages/StartPage/StartPage";
-// import { LoginPage } from "pages/LoginPage/LoginPage";
-// import { SignUpPage } from "pages/SignUpPage/SignUpPage";
-// import { PasswordChangePage } from "pages/PasswordChangePage/PasswordChangePage";
-// import { EditProfilePage } from "pages/EditProfilePage/EditProfilePage";
-// import { ProfilePage } from "pages/ProfilePage/ProfilePage";
-// import "./App.css";
-// import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
-// @ts-ignore
-var react_1 = tslib_1.__importStar(require("react"));
+var react_router_dom_1 = require("react-router-dom");
+var GamePage_1 = require("components/GamePage/GamePage");
+var paths_1 = require("Routes/paths");
+var PrivateOutlet_1 = require("Routes/PrivateOutlet");
+var UiComponentsPage_1 = require("pages/UiComponentsPage/UiComponentsPage");
+var StartPage_1 = require("pages/StartPage/StartPage");
+var LoginPage_1 = require("pages/LoginPage/LoginPage");
+var SignUpPage_1 = require("pages/SignUpPage/SignUpPage");
+var PasswordChangePage_1 = require("pages/PasswordChangePage/PasswordChangePage");
+var EditProfilePage_1 = require("pages/EditProfilePage/EditProfilePage");
+var ProfilePage_1 = require("pages/ProfilePage/ProfilePage");
+require("./App.css");
+require("../../styles/index.css");
+var LeaderBoardPage_1 = require("pages/LeaderboardPage/LeaderBoardPage");
 function App() {
-    (0, react_1.useEffect)(function () {
-        console.log("Hello");
-    }, []);
-    return (react_1.default.createElement("div", null, "React app")
-    // <Router>
-    //   <Routes>
-    //     {/* TODO заиметь Outlet на готовые компоненты */}
-    //     <Route path={PATHS.START} element={<StartPage />} />
-    //     <Route path={PATHS.FORUM} element={<Outlet />} />
-    //     <Route path={PATHS.GAME} element={<GamePage />} />
-    //     <Route path={PATHS.LEADERBOARD} element={<LeaderboardPage />} />
-    //     <Route path={PATHS.SIGN_IN} element={<LoginPage />} />
-    //     <Route path={PATHS.SIGN_UP} element={<SignUpPage />} />
-    //     <Route path={PATHS.PASSWORD_CHANGE} element={<PasswordChangePage />} />
-    //     <Route path={PATHS.UI} element={<UiComponentsPage />} />
-    //     <Route element={<PrivateOutlet />}>
-    //       <Route path={PATHS.PROFILE} element={<ProfilePage />} />
-    //       <Route path={PATHS.EDIT_PROFILE} element={<EditProfilePage />} />
-    //     </Route>
-    //   </Routes>
-    // </Router>
-    );
+    return (React.createElement(react_router_dom_1.Routes, null,
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.START, element: React.createElement(StartPage_1.StartPage, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.FORUM, element: React.createElement(react_router_dom_1.Outlet, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.GAME, element: React.createElement(GamePage_1.GamePage, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.LEADERBOARD, element: React.createElement(LeaderBoardPage_1.LeaderboardPage, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.SIGN_IN, element: React.createElement(LoginPage_1.LoginPage, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.SIGN_UP, element: React.createElement(SignUpPage_1.SignUpPage, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.PASSWORD_CHANGE, element: React.createElement(PasswordChangePage_1.PasswordChangePage, null) }),
+        React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.UI, element: React.createElement(UiComponentsPage_1.UiComponentsPage, null) }),
+        React.createElement(react_router_dom_1.Route, { element: React.createElement(PrivateOutlet_1.PrivateOutlet, null) },
+            React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.PROFILE, element: React.createElement(ProfilePage_1.ProfilePage, null) }),
+            React.createElement(react_router_dom_1.Route, { path: paths_1.PATHS.EDIT_PROFILE, element: React.createElement(EditProfilePage_1.EditProfilePage, null) }))));
 }
 exports.App = App;

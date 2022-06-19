@@ -41,9 +41,9 @@ module.exports = {
     ],
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: "www/index.html",
-    // }),
+    new HtmlWebpackPlugin({
+      template: "www/index.html",
+    }),
     new HotModuleReplacementPlugin(),
     new ReactRefreshPlugin({
       overlay: {
