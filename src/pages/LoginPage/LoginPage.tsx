@@ -1,47 +1,73 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { Form, Formik } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useActions } from "react-redux-actions-hook";
+import { useAppDispatch } from "hooks/use-app-dispatch";
 import Modal from "components/Modal/Modal";
 import Button from "components/Button/Button";
 import { ButtonsGroup } from "components/ButtonsGroup/ButtonsGroup";
 import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPageLayout";
-import Input from "components/Input/Input";
 import { PATHS } from "Routes/paths";
-import { useLink } from "hooks/use-link";
+import CustomLink from "components/CustomLink/CustomLink";
+import InputField from "components/InputField/InputField";
+import { signInSchema } from "utils/validationFields";
+import { SignInRequestData } from "api/auth/auth-api.types";
+import { signIn } from "store/auth";
+import { notificationsActions } from "store/notifications";
 
 export function LoginPage() {
-  const [password, setPassword] = useState("");
-  const [login, setLogin] = useState("");
-  const navigate = useLink();
+  const [inputs] = useState<SignInRequestData>({
+    login: "",
+    password: "",
+  });
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { setNotification } = useActions(notificationsActions);
+
+  const onSubmit = useCallback(
+    async (values: SignInRequestData) => {
+      try {
+        await dispatch(signIn(values)).unwrap();
+        navigate(PATHS.START);
+      } catch (e: unknown) {
+        if (typeof e === "string") {
+          setNotification({ message: e });
+        } else {
+          setNotification({ message: "Unable to log in" });
+        }
+      }
+    },
+    [inputs]
+  );
 
   return (
     <CenterPageLayout>
-      <form action="#" className="login-page__form">
-        <Modal fixed={false}>
-          <Modal.Header title="Вход" />
-          <Modal.Content>
-            <Input
-              onChange={(event) => setLogin(event.target.value)}
-              value={login}
-              label="Логин"
-            />
-            <Input
-              onChange={(event) => setPassword(event.target.value)}
-              type="password"
-              value={password}
-              label="Пароль"
-            />
-          </Modal.Content>
-          <Modal.Footer>
-            <ButtonsGroup>
-              <Button onClick={navigate(PATHS.SIGN_UP)} mode="secondary">
-                Нет аккаунта
-              </Button>
-              <Button mode="primary" onClick={() => {}}>
-                Войти
-              </Button>
-            </ButtonsGroup>
-          </Modal.Footer>
-        </Modal>
-      </form>
+      <Formik
+        initialValues={inputs}
+        validationSchema={signInSchema}
+        onSubmit={onSubmit}
+      >
+        <Form className="login-page__form">
+          <Modal fixed={false}>
+            <Modal.Header title="Вход" />
+            <Modal.Content>
+              <InputField type="text" label="Логин" name="login" />
+              <InputField type="password" label="Пароль" name="password" />
+            </Modal.Content>
+            <Modal.Footer>
+              <ButtonsGroup>
+                <CustomLink to={PATHS.SIGN_UP} mode="secondary">
+                  Нет аккаунта
+                </CustomLink>
+                <Button type="submit" mode="primary">
+                  Войти
+                </Button>
+              </ButtonsGroup>
+            </Modal.Footer>
+          </Modal>
+        </Form>
+      </Formik>
     </CenterPageLayout>
   );
 }

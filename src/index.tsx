@@ -2,19 +2,29 @@ import { Provider } from "react-redux";
 import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "components/App/App";
-import { configureStore } from "store";
+import { store } from "./store";
 
-declare global {
-  interface Window {
-    __INITIAL_STATE__: RootState;
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
+function startServiceWorker() {
+  if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) => {
+          console.log(
+            "ServiceWorker registration successful with scope: ",
+            registration.scope
+          );
+        })
+        .catch((error: string) => {
+          console.log("ServiceWorker registration failed: ", error);
+        });
+    });
   }
 }
 
-type RootState = ReturnType<typeof store.getState>;
+startServiceWorker();
 
 const container = document.getElementById("root");
-const store = configureStore(window.__INITIAL_STATE__);
 
 hydrateRoot(
   container!,

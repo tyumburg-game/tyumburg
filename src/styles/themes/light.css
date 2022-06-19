@@ -88,6 +88,11 @@
   --color-input-error-active-background: var(--gray-1);
   --color-input-error-active-text: var(--gray-5);
   --color-input-error-active-border: var(--color-accent);
+
+  /* Disabled */
+  --color-input-disabled-initial-background: var(--gray-1);
+  --color-input-disabled-initial-text: var(--gray-5);
+  --color-input-disabled-initial-border: var(--gray-1);
 }
 
 /* Input label */
@@ -117,6 +122,8 @@
   --color-game-playfield-background: var(--grayish-orange);
   --color-game-inner-border: var(--color-accent);
   --color-game-wrapper-border: var(--gray-2);
+  --color-game-statistics-text: var(--purple-4);
+  --color-game-modal-text: var(--dark-blue);
 }
 
 /* CustomLinks */

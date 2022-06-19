@@ -1,25 +1,15 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import thunk from "redux-thunk";
-import { rootReducer } from "./reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { userReducer } from "store/user";
+import { authReducer } from "store/auth";
+import { notificationsReducer } from "store/notifications";
 
-export const isServer = !(
-  typeof window !== "undefined" &&
-  window.document &&
-  window.document.createElement
-);
+const initialState = window.__INITIAL_STATE__ || {};
 
-export function configureStore(initialState = {}) {
-  const composeEnhancers = isServer
-    ? compose
-    : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-
-  const middleware = [thunk];
-
-  const store = createStore(
-    rootReducer,
-    initialState,
-    composeEnhancers(applyMiddleware(...middleware))
-  );
-
-  return store;
-}
+export const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    user: userReducer,
+    notifications: notificationsReducer,
+  },
+  preloadedState: initialState,
+});

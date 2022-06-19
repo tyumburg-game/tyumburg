@@ -12,13 +12,13 @@
   font-weight: bold;
 }
 
+.leaderboard-table td {
+  color: var(--color-text);
+}
+
 .leaderboard-table th:last-child,
 .leaderboard-table td:last-child {
   text-align: right;
-}
-
-.leaderboard-table td {
-  color: var(--color-text);
 }
 
 .buttons-group_align-right {

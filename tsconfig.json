@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es2017", "webworker"],
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
@@ -13,7 +13,7 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "declaration": false,
-    "sourceMap": false,
+    "sourceMap": true,
     "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
