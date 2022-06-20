@@ -1,37 +1,43 @@
 import promiseRetry from "promise-retry";
-
-import { Client } from "pg";
+import { Sequelize, SequelizeOptions } from "sequelize-typescript";
 import { timeout } from "./timeout";
 
 const INITIAL_DB_CONNECTION_DELAY = 1000;
 
-function getClient() {
-  return new Client({
-    user: process.env.POSTGRES_USER,
+const getSequelizeOptions: () => SequelizeOptions = () => {
+  const isRunsInsideContainer = !!process.env.APP_RUNS_INSIDE_CONTAINER;
+
+  return {
+    host: isRunsInsideContainer ? "postgres" : "0.0.0.0",
+    port: isRunsInsideContainer
+      ? 5432
+      : parseInt(process.env.POSTGRES_PORT, 10),
+    username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
-    host: "postgres",
-    port: 5432,
-  });
-}
+    dialect: "postgres",
+  };
+};
 
-const retryOptions = {
+const getRetryOptions = () => ({
   retries: process.env.APP_DB_CONNECTION_RETRIES || 5,
   minTimeout: process.env.APP_DB_CONNECTION_ATTEMPT_DELAY || 1000,
   maxTimeout: process.env.APP_DB_CONNECTION_ATTEMPT_DELAY || 1000,
-};
+});
 
 export async function connectToDatabase() {
   await timeout(INITIAL_DB_CONNECTION_DELAY);
+  const sequelize = new Sequelize(getSequelizeOptions());
 
   return promiseRetry((retry, attempt) => {
     console.log("Connection to database: attempt #", attempt);
-    const client = getClient();
 
-    return client.connect().catch((e) => {
-      console.error(e);
-      client.end();
-      retry();
-    });
-  }, retryOptions);
+    return sequelize
+      .authenticate()
+      .then(() => sequelize.sync())
+      .catch((e) => {
+        console.error("Unable to connect to the database:", e);
+        retry();
+      });
+  }, getRetryOptions());
 }
