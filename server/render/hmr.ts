@@ -9,15 +9,19 @@ import { render } from "./render";
 
 const compiler = webpack({ ...config, mode: "development" });
 
-export const middleware = [
-  devMiddleware(compiler, {
-    serverSideRender: true,
-    index: false,
-    publicPath: config.output.publicPath,
-  }),
-  hotMiddleware(compiler, {
-    path: "/__webpack_hmr",
-    log: false,
-  }),
-  render,
-];
+const isProd = process.env.NODE_ENV === "production";
+
+export const middleware = !isProd
+  ? [
+      devMiddleware(compiler, {
+        serverSideRender: true,
+        index: false,
+        publicPath: config.output.publicPath,
+      }),
+      hotMiddleware(compiler, {
+        path: "/__webpack_hmr",
+        log: false,
+      }),
+      render,
+    ]
+  : [render];

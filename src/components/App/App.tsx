@@ -8,17 +8,16 @@ import { LoginPage } from "pages/LoginPage/LoginPage";
 import { PasswordChangePage } from "pages/PasswordChangePage/PasswordChangePage";
 import { EditProfilePage } from "pages/EditProfilePage/EditProfilePage";
 import { ProfilePage } from "pages/ProfilePage";
-import "./App.css";
-import "../../styles/index.css";
 import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 import { NotificationList } from "components/NotificationList/NotificationList";
 import { SignUpPage } from "pages/SignUpPage/SignUpPage";
+import "./App.css";
+import "../../styles/index.css";
 
 export function App() {
   return (
     <>
       <Routes>
-        {/* TODO заиметь Outlet на готовые компоненты */}
         <Route path={PATHS.START} element={<StartPage />} />
         <Route path={PATHS.FORUM} element={<Outlet />} />
         <Route path={PATHS.GAME} element={<GamePage />} />
