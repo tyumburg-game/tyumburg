@@ -1,8 +1,8 @@
 import path from "path";
 import express from "express";
 import dotenv from "dotenv";
-import { connectToDatabase } from "./utils";
 import { appRouter } from "./router";
+import { connectToDatabase, fillDatabase } from "./database";
 
 dotenv.config();
 const app = express();
@@ -15,7 +15,10 @@ app.use(appRouter());
 
 export async function startServer() {
   try {
-    await connectToDatabase();
+    const sequelize = await connectToDatabase();
+
+    await sequelize.sync({ force: true });
+    await fillDatabase();
     console.log("Database connection was successfully established");
     app.listen(PORT, () => {
       console.log(`App listening on port ${PORT}`);
