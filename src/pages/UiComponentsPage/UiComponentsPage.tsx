@@ -1,4 +1,4 @@
-import {useState, useCallback, ChangeEvent} from "react";
+import { useState, useCallback, ChangeEvent } from "react";
 import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
@@ -6,12 +6,15 @@ import Modal from "components/Modal/Modal";
 import Button from "../../components/Button/Button";
 import "./UiComponentsPage.css";
 
-export function UiComponentsPage () {
-  const [text, setText] = useState<string>('');
+export function UiComponentsPage() {
+  const [text, setText] = useState<string>("");
 
-  const handleFirstName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-  }, []);
+  const handleFirstName = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setText(event.target.value);
+    },
+    []
+  );
 
   return (
     <ErrorBoundary>
@@ -38,7 +41,12 @@ export function UiComponentsPage () {
                   comment={<ValidationMessage>invalid</ValidationMessage>}
                 />
                 <div>Type number</div>
-                <Input onChange={() => {}} value="3" label="Ages" type="number" />
+                <Input
+                  onChange={() => {}}
+                  value="3"
+                  label="Ages"
+                  type="number"
+                />
               </div>
             </Modal.Content>
             <Modal.Footer>

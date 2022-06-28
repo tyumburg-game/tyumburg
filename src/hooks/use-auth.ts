@@ -1,18 +1,29 @@
 import { useEffect, useState } from "react";
+import { authApi } from "api/auth/auth-api";
+
+export type AuthState = "loading" | "auth" | "external";
 
 export function useAuth() {
-  const [isAuth, setIsAuth] = useState<boolean>(true);
+  const [authState, setAuthState] = useState<AuthState>("loading");
 
   useEffect(() => {
-    // TODO реализовать при добавлении авторизации
-    const checkAuth = async () => {
-      const res = await true;
+    async function checkAuth() {
+      try {
+        setAuthState("loading");
+        const user = await authApi.getUser();
 
-      setIsAuth(res);
-    };
+        if (user) {
+          setAuthState("auth");
+        } else {
+          setAuthState("external");
+        }
+      } catch (e) {
+        setAuthState("external");
+      }
+    }
 
     checkAuth();
-  }, []);
+  }, [setAuthState]);
 
-  return isAuth;
+  return authState;
 }
