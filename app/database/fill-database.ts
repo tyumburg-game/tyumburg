@@ -1,4 +1,6 @@
-import { UserModel } from "./models";
+import { models } from "./models";
+
+const { UserModel } = models;
 
 const fillDatabase = async (): Promise<void> => {
   await UserModel.create({

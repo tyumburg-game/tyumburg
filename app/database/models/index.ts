@@ -1,4 +1,8 @@
-import { models } from "./models";
+import { Models } from "../types";
 import { UserModel } from "./user.model";
 
-export { models, UserModel };
+const models: Models = {
+  UserModel,
+};
+
+export { models };
