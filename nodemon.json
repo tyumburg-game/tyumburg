@@ -1,0 +1,8 @@
+{
+  "watch": [
+    "app/",
+    "shared"
+  ],
+  "ext": "ts",
+  "exec": "npm run build:server && npm run start:server"
+}
