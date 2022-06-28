@@ -21,6 +21,21 @@ const usersRouter = (): Router => {
     }
   });
 
+  router.post("/", async (req, res) => {
+    try {
+      const newUser = req.body;
+      const user = await usersController.createNewUser(newUser);
+
+      if (user) {
+        res.status(HttpCode.CREATED).json(user);
+      } else {
+        res.status(HttpCode.NOT_FOUND).send();
+      }
+    } catch (e) {
+      res.status(HttpCode.NOT_FOUND).send();
+    }
+  });
+
   return router;
 };
 

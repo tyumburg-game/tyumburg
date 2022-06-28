@@ -1,6 +1,6 @@
 import { isNull } from "lodash";
 import { models } from "../database";
-import { User } from "../../shared/types/user";
+import { NewUser, User } from "../../shared/types/user";
 import { Nullable } from "../../src/types/util";
 
 const { UserModel } = models;
@@ -11,8 +11,13 @@ async function getUserById(id: number): Promise<Nullable<User>> {
   return !isNull(user) ? user.get() : null;
 }
 
+async function createNewUser(newUser: NewUser): Promise<User> {
+  return UserModel.create(newUser, { returning: true });
+}
+
 const usersController = {
   getUserById,
+  createNewUser,
 };
 
 export { usersController };
