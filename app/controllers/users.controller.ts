@@ -11,4 +11,8 @@ async function getUserById(id: number): Promise<Nullable<User>> {
   return !isNull(user) ? user.get() : null;
 }
 
-export { getUserById };
+const usersController = {
+  getUserById,
+};
+
+export { usersController };
