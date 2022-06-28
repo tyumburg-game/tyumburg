@@ -1,6 +1,7 @@
 import path from "path";
 import express from "express";
 import dotenv from "dotenv";
+import * as bodyParser from "body-parser";
 import { appRouter } from "./router";
 import { connectToDatabase, fillDatabase } from "./database";
 
@@ -10,7 +11,7 @@ const app = express();
 const PORT = process.env.SSR_PORT_INTERNAL || 3000;
 
 app.use(express.static(path.join(__dirname, "/dist/")));
-
+app.use(bodyParser.json());
 app.use(appRouter());
 
 export async function startServer() {
