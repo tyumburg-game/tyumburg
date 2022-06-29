@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Nullable } from "types/util";
-import { User } from "../../api/auth/auth-api.types";
-import { authApi } from "../../api/auth/auth-api";
+import { User } from "api/auth/auth-api.types";
+import { authApi } from "api/auth/auth-api";
 import type { RootState } from "../types";
 
 interface UserState {

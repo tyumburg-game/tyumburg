@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Nullable } from "types/util";
-import { fetchUser } from "../user";
 import {
   SignInRequestData,
   SignUpRequestData,
   User,
-} from "../../api/auth/auth-api.types";
-import { authApi } from "../../api/auth/auth-api";
+} from "api/auth/auth-api.types";
+import { authApi } from "api/auth/auth-api";
+import { fetchUser } from "../user";
 import { AuthState } from "./types";
 
 const initialState: AuthState = {

@@ -20,7 +20,7 @@ export function StartPage() {
 
   return (
     <Modal>
-      <Modal.Header title="Менdю" />
+      <Modal.Header title="Меню" />
       <Modal.Content>
         <div className="main-menu">
           {menuItems.map((item) => (
