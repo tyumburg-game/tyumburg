@@ -23,7 +23,7 @@ export async function startServer() {
       console.log(`App listening on port ${PORT}`);
     });
   } catch (e) {
-    console.error("Unable to establish database connection", "\n", e);
+    console.error("Unable to start server", "\n", e);
     process.exit(1);
   }
 }

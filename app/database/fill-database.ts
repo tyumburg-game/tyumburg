@@ -1,18 +1,17 @@
 import { shuffle } from "lodash";
 import { NewUser } from "../types/user";
-import { getRandomInt } from "../utils/values-generators";
+import { getRandomInt } from "../utils";
 import { NewTopicDB } from "../types/topic";
-import { words, sentences } from "../constants/text-examples";
-import { models } from "./models";
-import { TopicModel } from "./models/topic.model";
+import { words, sentences } from "../constants";
+import { TopicModel, UserModel } from "./connect-to-database";
 
 const USERS_COUNT = 10;
 const TOPICS_COUNT = 20;
-const { UserModel } = models;
 
 const fillDatabase = async (): Promise<void> => {
   await UserModel.sync({ force: true });
   await TopicModel.sync({ force: true });
+
   await Promise.all(
     new Array(USERS_COUNT).fill(undefined).map(async () => {
       await UserModel.create(generateUser());
@@ -27,15 +26,15 @@ const fillDatabase = async (): Promise<void> => {
 
 function generateUser(): NewUser {
   const [firstName, secondName] = [
-    words[getRandomInt(0, words.length)],
-    words[getRandomInt(0, words.length)],
+    words[getRandomInt(0, words.length - 1)],
+    words[getRandomInt(0, words.length - 1)],
   ].map((item) => capitalizeFirstLetter(item));
 
   return {
-    avatar: words[getRandomInt(0, words.length)],
-    email: words[getRandomInt(0, words.length)],
-    login: words[getRandomInt(0, words.length)],
-    phone: words[getRandomInt(0, words.length)],
+    avatar: words[getRandomInt(0, words.length - 1)],
+    email: words[getRandomInt(0, words.length - 1)],
+    login: words[getRandomInt(0, words.length - 1)],
+    phone: words[getRandomInt(0, words.length - 1)],
     display_name: [firstName, secondName].join(" "),
     first_name: firstName,
     second_name: secondName,
@@ -48,7 +47,7 @@ function generateTopic(): NewTopicDB {
       sentences[getRandomInt(0, sentences.length - 1)]
     ),
     content: shuffle(sentences).slice(0, 4).join(". ").slice(0, 253),
-    author_id: getRandomInt(0, USERS_COUNT),
+    user_id: getRandomInt(1, USERS_COUNT - 1),
   };
 }
 

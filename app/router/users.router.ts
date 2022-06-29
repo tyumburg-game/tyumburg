@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { HttpCode } from "../constants/http-code";
+import { HttpCode } from "../constants";
 import { usersController } from "../controllers";
 
 const usersRouter = (): Router => {

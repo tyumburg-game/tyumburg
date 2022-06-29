@@ -1,9 +1,7 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../static-connection";
-import { IUserModel, UserDBModel } from "./user.model.types";
 
-const USER_MODEL_NAME = "User";
-const UserModel: IUserModel = sequelize.define<UserDBModel>(USER_MODEL_NAME, {
+const USER_MODEL_NAME = "user";
+const UserModelParams = {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -31,6 +29,6 @@ const UserModel: IUserModel = sequelize.define<UserDBModel>(USER_MODEL_NAME, {
   phone: {
     type: DataTypes.STRING,
   },
-});
+};
 
-export { USER_MODEL_NAME, UserModel };
+export { USER_MODEL_NAME, UserModelParams };

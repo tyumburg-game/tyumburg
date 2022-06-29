@@ -1,11 +1,20 @@
 import { isNull } from "lodash";
-import { models } from "../database";
 import { NewUser, User } from "../types/user";
-
-const { UserModel } = models;
+import { UserModel } from "../database";
 
 async function getUserById(id: number): Promise<Nullable<User>> {
-  const user = await UserModel.findOne({ where: { id } });
+  const user = await UserModel.findOne({
+    where: { id },
+    attributes: [
+      "id",
+      "avatar",
+      "first_name",
+      "second_name",
+      "login",
+      "email",
+      "display_name",
+    ],
+  });
 
   return !isNull(user) ? user.get() : null;
 }
