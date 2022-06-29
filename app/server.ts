@@ -16,9 +16,7 @@ app.use(appRouter());
 
 export async function startServer() {
   try {
-    const sequelize = await connectToDatabase();
-
-    await sequelize.sync({ force: true });
+    await connectToDatabase();
     await fillDatabase();
     console.log("Database connection was successfully established");
     app.listen(PORT, () => {

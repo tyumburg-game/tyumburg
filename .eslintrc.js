@@ -36,7 +36,7 @@ module.exports = {
     "react/require-default-props": "off",
     "react/button-has-type": "off",
     "react/jsx-no-bind": "off",
-    "react/jsx-no-useless-fragment" : "off",
+    "react/jsx-no-useless-fragment": "off",
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
@@ -74,5 +74,6 @@ module.exports = {
         ],
       },
     ],
+    "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
   },
 };

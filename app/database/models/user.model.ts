@@ -33,4 +33,4 @@ const UserModel: IUserModel = sequelize.define<UserDBModel>(USER_MODEL_NAME, {
   },
 });
 
-export { USER_MODEL_NAME, UserModel, IUserModel };
+export { USER_MODEL_NAME, UserModel };

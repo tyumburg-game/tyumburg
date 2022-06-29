@@ -15,7 +15,7 @@ const getSequelizeOptions: () => Options = () => {
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
     dialect: "postgres",
-    logging: false,
+    // logging: false,
   };
 };
 
