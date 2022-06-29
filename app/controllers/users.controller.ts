@@ -1,7 +1,6 @@
 import { isNull } from "lodash";
 import { models } from "../database";
-import { NewUser, User } from "../../shared/types/user";
-import { Nullable } from "../../src/types/util";
+import { NewUser, User } from "../types/user";
 
 const { UserModel } = models;
 

@@ -4,8 +4,6 @@ services:
   app:
     build:
       context: .
-    volumes:
-      - ./shared:/var/www/shared
     env_file:
       - .env
     environment:

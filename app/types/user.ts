@@ -8,3 +8,5 @@ export interface User {
   display_name: string;
   phone: string;
 }
+
+export type NewUser = Omit<User, "id">;

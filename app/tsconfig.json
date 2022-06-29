@@ -3,16 +3,8 @@
     "module": "commonjs",
     "target": "ES2022",
     "sourceMap": true,
-    "esModuleInterop": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./../shared/types"
-    ]
+    "esModuleInterop": true
   },
-  "include": [
-    ".",
-    "../shared/"
-  ],
   "exclude": [
     "node_modules"
   ]
