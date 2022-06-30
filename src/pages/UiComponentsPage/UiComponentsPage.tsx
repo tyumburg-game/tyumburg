@@ -3,7 +3,7 @@ import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
 import Input from "components/Input/Input";
 import ValidationMessage from "components/Input/ValidationMessage/ValidationMessage";
 import Modal from "components/Modal/Modal";
-import Button from "../../components/Button/Button";
+import Button from "components/Button/Button";
 import "./UiComponentsPage.css";
 
 export function UiComponentsPage() {
