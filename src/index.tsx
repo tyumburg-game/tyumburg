@@ -1,28 +1,36 @@
-import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
+import { hydrateRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { App } from "components/App/App";
-import { store } from "store";
-import "./styles/index.css";
-
-const container = document.getElementById("root");
-const root = createRoot(container!);
+import { store } from "./store";
 
 function startServiceWorker() {
-  if (typeof window !== 'undefined' && "serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/sw.js").then(registration => {
-              console.log("ServiceWorker registration successful with scope: ", registration.scope);
-          }).catch((error: string) => {
-              console.log("ServiceWorker registration failed: ", error);
-          });
-      });
+  if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) => {
+          console.log(
+            "ServiceWorker registration successful with scope: ",
+            registration.scope
+          );
+        })
+        .catch((error: string) => {
+          console.log("ServiceWorker registration failed: ", error);
+        });
+    });
   }
 }
 
 startServiceWorker();
 
-root.render(
+const container = document.getElementById("root");
+
+hydrateRoot(
+  container!,
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
 );

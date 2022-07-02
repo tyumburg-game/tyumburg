@@ -6,8 +6,8 @@ import {
   User,
 } from "api/auth/auth-api.types";
 import { authApi } from "api/auth/auth-api";
-import { fetchUser } from "store/user";
-import { AuthState } from "store/auth/types";
+import { fetchUser } from "../user";
+import { AuthState } from "./types";
 import { oAuthApi } from "api/oauth/api";
 
 const initialState: AuthState = {
