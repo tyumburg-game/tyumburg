@@ -24,7 +24,6 @@ export function StartPage() {
   const { search } = useLocation();
   const navigate = useLink();
   const checkAuthorizationCode = async () => {
-
     const code = new URLSearchParams(search).get("code");
 
     if (code) {

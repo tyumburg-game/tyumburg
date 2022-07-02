@@ -14,8 +14,8 @@ import { signInSchema } from "utils/validationFields";
 import { SignInRequestData } from "api/auth/auth-api.types";
 import { signIn } from "store/auth";
 import { notificationsActions } from "store/notifications";
-import { oAuthApi } from "api/oauth/oauth-api";
-import { OAuthPaths } from "api/oauth/oauth-paths";
+import { oAuthApi } from "api/oauth/api";
+import { OAuthPaths } from "api/oauth/paths";
 import './LoginPage.css';
 
 export function LoginPage() {

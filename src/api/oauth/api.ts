@@ -1,6 +1,6 @@
 import { BaseAPI } from "api/base-api";
-import { GetServiceIdResposeData, SignInWithYandexRequestData } from "./oauth-api.types";
-import { OAuthPaths } from "./oauth-paths";
+import { GetServiceIdResposeData, SignInWithYandexRequestData } from "./api.types";
+import { OAuthPaths } from "./paths";
 
 class OAuthAPI extends BaseAPI {
   constructor() {
