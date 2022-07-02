@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "components/Button/Button";
 import Modal from "components/Modal/Modal";
@@ -23,22 +23,25 @@ export function StartPage() {
   const dispatch = useAppDispatch();
   const { search } = useLocation();
   const navigate = useLink();
-  const checkAuthorizationCode = async () => {
-    const code = new URLSearchParams(search).get("code");
+  const checkAuthorizationCode = useCallback(
+    async () => {
+      const code = new URLSearchParams(search).get("code");
 
-    if (code) {
-      try {
-        await dispatch(signInOAuth(code)).unwrap();
-        navigate(PATHS.START);
-      } catch (e: unknown) {
-        if (typeof e === "string") {
-          setNotification({ message: e });
-        } else {
-          setNotification({ message: "Unable to log in" });
+      if (code) {
+        try {
+          await dispatch(signInOAuth(code)).unwrap();
+          navigate(PATHS.START);
+        } catch (e: unknown) {
+          if (typeof e === "string") {
+            setNotification({ message: e });
+          } else {
+            setNotification({ message: "Unable to log in" });
+          }
         }
       }
-    }
-  }
+    },
+    []
+  )
 
   useEffect(() => {
     checkAuthorizationCode();

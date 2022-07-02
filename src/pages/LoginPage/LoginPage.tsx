@@ -28,17 +28,20 @@ export function LoginPage() {
   const navigate = useNavigate();
   const { setNotification } = useActions(notificationsActions);
 
-  const onOAuth = async () => {
-    try {
-      const result = await oAuthApi.getServiceId();
+  const onOAuth = useCallback(
+    async () => {
+      try {
+        const result = await oAuthApi.getServiceId();
 
-      if (result) {
-        window.location.replace(`${OAuthPaths.providerURL}&client_id=${result.service_id}&redirect_uri=${OAuthPaths.redirectURI}`);
+        if (result) {
+          window.location.replace(`${OAuthPaths.providerURL}&client_id=${result.service_id}&redirect_uri=${OAuthPaths.redirectURI}`);
+        }
+      } catch (e) {
+          console.error(e);
       }
-    } catch (e) {
-        console.error(e);
-    }
-  }
+    },
+    []
+  )
 
   const onSubmit = useCallback(
     async (values: SignInRequestData) => {
