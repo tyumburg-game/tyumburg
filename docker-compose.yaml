@@ -4,10 +4,10 @@ services:
   app:
     build:
       context: .
-    volumes:
-      - ./shared:/var/www/shared
     env_file:
       - .env
+    environment:
+      - APP_RUNS_INSIDE_CONTAINER=1
     ports:
       - "${SSR_PORT}:${SSR_PORT_INTERNAL}"
     depends_on:
