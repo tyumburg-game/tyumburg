@@ -5,7 +5,7 @@ import {
   SignUpRequestData,
   User,
 } from "api/auth/auth-api.types";
-import { authApi } from "api/auth/auth-api";
+import { authApi } from "../../api/auth/auth-api";
 import { fetchUser } from "../user";
 import { AuthState } from "./types";
 
