@@ -10,7 +10,7 @@ module.exports = {
     "./src/client/index.tsx",
   ],
   output: {
-    path: path.resolve(__dirname, "../dist/client"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "client.bundle.js",
     publicPath: "/",
     clean: true,

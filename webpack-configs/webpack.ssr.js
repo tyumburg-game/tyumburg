@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -8,7 +7,7 @@ module.exports = {
   entry: "./src/client/components/App/App.tsx",
   target: "node",
   output: {
-    path: path.resolve(__dirname, "../dist/client"),
+    path: path.resolve(__dirname, "../dist/bundle"),
     filename: "ssr.bundle.js",
     publicPath: "/",
     libraryTarget: "commonjs2",

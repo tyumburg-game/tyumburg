@@ -10,10 +10,6 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
   ],
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ["./src/client/tsconfig.json"],
-  },
   ignorePatterns: [".eslintrc.js", "*.css", "*.png", "sw.ts"],
   settings: {
     "import/parsers": {

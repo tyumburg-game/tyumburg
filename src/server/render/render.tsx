@@ -4,7 +4,7 @@ import { StaticRouter } from "react-router-dom/server";
 import { renderToString } from "react-dom/server";
 import { Request, Response } from "express";
 import { Provider } from "react-redux";
-import { createStore } from "../../src/client/store";
+import { createStore } from "../../client/store";
 
 export function render(req: Request, res: Response) {
   const { devMiddleware } = res.locals.webpack;
@@ -14,9 +14,9 @@ export function render(req: Request, res: Response) {
   const [styles, script] = assetsByChunkName.main;
   const reduxStore = createStore();
 
-  delete require.cache[require.resolve("../../../dist/ssr.bundle.js")];
+  delete require.cache[require.resolve("../../bundle/ssr.bundle.js")];
   // eslint-disable-next-line
-  const { App } = require("../../../dist/ssr.bundle");
+  const { App } = require("../../bundle/ssr.bundle");
 
   const reactHtml = renderToString(
     <StaticRouter location={req.url}>
