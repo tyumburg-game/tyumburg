@@ -5,18 +5,21 @@ const { HotModuleReplacementPlugin } = require("webpack");
 const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
-  entry: ["@gatsbyjs/webpack-hot-middleware/client?path=/__webpack_hmr", "./src/index.tsx"],
+  entry: [
+    "@gatsbyjs/webpack-hot-middleware/client?path=/__webpack_hmr",
+    "./src/client/index.tsx",
+  ],
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "client.bundle.js",
-    publicPath: '/',
+    publicPath: "/",
     clean: true,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
     modules: [
       path.resolve(__dirname, "../node_modules"),
-      path.resolve(__dirname, "../src"),
+      path.resolve(__dirname, "../src/client"),
     ],
   },
   module: {
@@ -29,7 +32,7 @@ module.exports = {
           {
             loader: "ts-loader",
             options: {
-              configFile: "../tsconfig.json",
+              configFile: path.resolve("./src/client/tsconfig.json"),
             },
           },
         ],
@@ -47,8 +50,8 @@ module.exports = {
     new HotModuleReplacementPlugin(),
     new ReactRefreshPlugin({
       overlay: {
-        sockIntegration: "whm"
-      }
+        sockIntegration: "whm",
+      },
     }),
     new MiniCssExtractPlugin(),
   ],
