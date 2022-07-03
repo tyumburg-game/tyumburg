@@ -1,6 +1,5 @@
 import {
   BrowserRouter as Router,
-  Outlet,
   Route,
   Routes,
 } from "react-router-dom";
@@ -17,6 +16,7 @@ import { ProfilePage } from "pages/ProfilePage";
 import "./App.css";
 import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 import { NotificationList } from "components/NotificationList/NotificationList";
+import {ListForumPage} from 'pages/ListForumPage/ListForumPage';
 
 export function App() {
   return (
@@ -25,7 +25,7 @@ export function App() {
         <Routes>
           {/* TODO заиметь Outlet на готовые компоненты */}
           <Route path={PATHS.START} element={<StartPage />} />
-          <Route path={PATHS.FORUM} element={<Outlet />} />
+          <Route path={PATHS.FORUM} element={<ListForumPage />} />
           <Route path={PATHS.GAME} element={<GamePage />} />
           <Route path={PATHS.LEADERBOARD} element={<LeaderboardPage />} />
           <Route path={PATHS.SIGN_IN} element={<LoginPage />} />

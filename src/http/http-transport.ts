@@ -20,6 +20,7 @@ export class HTTPTransport {
   }
 
   get<T>(url: string, options: OptionsWithoutMethodAndData = {}): Promise<T> {
+    console.log("url ->", `${this.baseUrl}${this.path}${url}`)
     return this.request(url, { ...options, method: METHODS.GET });
   }
 
