@@ -4,17 +4,17 @@ services:
   app:
     build:
       context: .
-    volumes:
-      - ./shared:/var/www/shared
     env_file:
       - .env
+    environment:
+      - APP_RUNS_INSIDE_CONTAINER=1
     ports:
       - "${SSR_PORT}:${SSR_PORT_INTERNAL}"
     depends_on:
       - "postgres"
     networks:
       - common-network
-    command: [ "node", "app/server.js" ]
+    command: "npm run start"
   postgres:
     image: postgres:14
     env_file:

@@ -1,4 +1,4 @@
-import { noop } from "lodash";
+import noop from "lodash/noop";
 import Input from "components/Input/Input";
 import { ProfileInputs } from "pages/ProfilePage/types";
 

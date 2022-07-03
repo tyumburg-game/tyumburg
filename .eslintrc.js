@@ -71,5 +71,6 @@ module.exports = {
       },
     ],
     "no-underscore-dangle": "off",
+    "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
   },
 };
