@@ -11,9 +11,9 @@ import { ProfilePage } from "pages/ProfilePage";
 import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 import { NotificationList } from "components/NotificationList/NotificationList";
 import { SignUpPage } from "pages/SignUpPage/SignUpPage";
+import { ListForumPage } from "pages/ListForumPage/ListForumPage";
 import "./App.css";
 import "../../styles/index.css";
-import {ListForumPage} from 'pages/ListForumPage/ListForumPage';
 
 export function App() {
   return (

@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { userReducer } from "./user";
 import { authReducer } from "./auth";
-import { forumReducer } from "store/forum";
+import { forumReducer } from "./forum";
 import { notificationsReducer } from "./notifications";
 
 declare global {

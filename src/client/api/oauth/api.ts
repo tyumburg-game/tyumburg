@@ -7,7 +7,7 @@ import { OAuthPaths } from "./paths";
 
 class OAuthAPI extends BaseAPI {
   constructor() {
-    super(OAuthPaths.oAuthApiRoot);
+    super(OAuthPaths.oAuthApiRoot, undefined);
   }
 
   getServiceId() {
