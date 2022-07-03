@@ -1,5 +1,5 @@
 import express from "express";
-import * as bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import { appRouter } from "./router";
 import { connectToDatabase, fillDatabase } from "./database";
