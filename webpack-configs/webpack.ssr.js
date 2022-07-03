@@ -1,15 +1,17 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-const { HotModuleReplacementPlugin } = require("webpack");
-const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const webpack = require("webpack");
+const nodeExternals = require("webpack-node-externals");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: ["@gatsbyjs/webpack-hot-middleware/client?path=/__webpack_hmr", "./src/index.tsx"],
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  entry: "./src/components/App/App.tsx",
+  target: "node",
   output: {
     path: path.resolve(__dirname, "../dist"),
-    filename: "client.bundle.js",
-    publicPath: '/',
+    filename: "ssr.bundle.js",
+    publicPath: "/",
+    libraryTarget: "commonjs2",
     clean: true,
   },
   resolve: {
@@ -28,9 +30,6 @@ module.exports = {
           "babel-loader",
           {
             loader: "ts-loader",
-            options: {
-              configFile: "../tsconfig.json",
-            },
           },
         ],
       },
@@ -41,15 +40,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "www/index.html",
-    }),
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshPlugin({
-      overlay: {
-        sockIntegration: "whm"
-      }
-    }),
     new MiniCssExtractPlugin(),
   ],
+  externals: [nodeExternals()]
 };

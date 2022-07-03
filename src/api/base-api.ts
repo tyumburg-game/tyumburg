@@ -1,4 +1,4 @@
-import { HTTPTransport } from "http/http-transport";
+import { HTTPTransport } from "../http/http-transport";
 
 export class BaseAPI {
   protected instance: HTTPTransport;

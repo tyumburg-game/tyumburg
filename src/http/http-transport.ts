@@ -1,5 +1,5 @@
 import axios from "axios";
-import { env } from "constants/env";
+import { env } from "../constants/env";
 import {
   OptionsWithoutMethodAndData,
   METHODS,

@@ -1,14 +1,34 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userReducer } from "store/user";
+import { userReducer } from "./user";
+import { authReducer } from "./auth";
 import { forumReducer } from "store/forum";
-import { authReducer } from "store/auth";
-import { notificationsReducer } from "store/notifications";
+import { notificationsReducer } from "./notifications";
 
-export const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    user: userReducer,
-    topic: forumReducer,
-    notifications: notificationsReducer,
-  },
-});
+declare global {
+  interface Window {
+    __INITIAL_STATE__: any;
+  }
+}
+
+export const isServer = !(
+  typeof window !== "undefined" &&
+  window.document &&
+  window.document.createElement
+);
+
+export function createStore(initialState: any = {}) {
+  const preloadedState =
+    (!isServer && window.__INITIAL_STATE__) || initialState;
+
+  return configureStore({
+    reducer: {
+      auth: authReducer,
+      user: userReducer,
+      topic: forumReducer,
+      notifications: notificationsReducer,
+    },
+    preloadedState,
+  });
+}
+
+export const store = createStore();
