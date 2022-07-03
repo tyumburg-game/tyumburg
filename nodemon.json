@@ -1,7 +1,0 @@
-{
-  "watch": [
-    "app/"
-  ],
-  "ext": "ts",
-  "exec": "npm run build:server && npm run start:server"
-}
