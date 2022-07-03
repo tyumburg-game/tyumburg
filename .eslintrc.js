@@ -10,10 +10,6 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
   ],
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ["./tsconfig.json"],
-  },
   ignorePatterns: [".eslintrc.js", "*.css", "*.png", "sw.ts"],
   settings: {
     "import/parsers": {
@@ -75,6 +71,5 @@ module.exports = {
       },
     ],
     "no-underscore-dangle": "off",
-    "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
   },
 };

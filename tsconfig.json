@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2017", "webworker"],
+    "lib": [
+      "dom",
+      "es2017",
+      "webworker"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
@@ -14,14 +18,9 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "declaration": false,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "./dist",
-    "paths": {
-      "*": ["./src/*"]
-    },
-    "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"]
+    "sourceMap": true
   },
-  "include": ["src", "typings/**/*.d.ts", "./node_modules/@types", "server"],
-  "exclude": ["**/*.js"]
+  "exclude": [
+    "**/*.js"
+  ]
 }

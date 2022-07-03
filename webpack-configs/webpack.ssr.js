@@ -1,14 +1,13 @@
 const path = require("path");
-const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  entry: "./src/components/App/App.tsx",
+  entry: "./src/client/components/App/App.tsx",
   target: "node",
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "../dist/bundle"),
     filename: "ssr.bundle.js",
     publicPath: "/",
     libraryTarget: "commonjs2",
@@ -18,7 +17,7 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js"],
     modules: [
       path.resolve(__dirname, "../node_modules"),
-      path.resolve(__dirname, "../src"),
+      path.resolve(__dirname, "../src/client"),
     ],
   },
   module: {
@@ -39,8 +38,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin(),
-  ],
-  externals: [nodeExternals()]
+  plugins: [new MiniCssExtractPlugin()],
+  externals: [nodeExternals()],
 };
