@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2017", "webworker"],
+    "lib": [
+      "dom",
+      "es2017",
+      "webworker"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
@@ -15,12 +19,9 @@
     "declaration": false,
     "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "./dist",
-    "paths": {
-      "*": ["./src/*"]
-    },
-    "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"]
+    "outDir": "./dist"
   },
-  "include": ["src", "typings/**/*.d.ts", "./node_modules/@types", "server"],
-  "exclude": ["**/*.js"]
+  "exclude": [
+    "**/*.js"
+  ]
 }

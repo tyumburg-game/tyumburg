@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start:ssr": "concurrently \"npm run start:server\" \"npm run start:client:ssr\" \"npm run compile:sw\"",
-    "start:client:ssr": "webpack --config ./webpack-configs/webpack.ssr.js --watch & npm run compile:sw",
+    "start:client:ssr": "npm run compile:sw && webpack --config ./webpack-configs/webpack.ssr.js --watch",
     "start:server": "node ./ssr/server/index.js",
-    "build:client:prod": "webpack --config ./webpack-configs/webpack.prod.js & npm run compile:sw",
-    "build:client:ssr": "webpack --config ./webpack-configs/webpack.ssr.js & npm run compile:sw",
+    "build:client:prod": "npm run compile:sw && webpack --config ./webpack-configs/webpack.prod.js",
+    "build:client:ssr": "npm run compile:sw && webpack --config ./webpack-configs/webpack.ssr.js",
     "build:server": "tsc --project ./server",
     "compile:sw": "tsc sw.ts --outFile ./dist/sw.js",
     "test": "echo \"Error: no test specified\" && exit 1",

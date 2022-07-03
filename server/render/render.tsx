@@ -4,7 +4,7 @@ import { StaticRouter } from "react-router-dom/server";
 import { renderToString } from "react-dom/server";
 import { Request, Response } from "express";
 import { Provider } from "react-redux";
-import { createStore } from "../../src/store";
+import { createStore } from "../../src/client/store";
 
 export function render(req: Request, res: Response) {
   const { devMiddleware } = res.locals.webpack;
