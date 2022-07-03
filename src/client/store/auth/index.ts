@@ -8,6 +8,7 @@ import {
 import { authApi } from "../../api/auth/auth-api";
 import { fetchUser } from "../user";
 import { AuthState } from "./types";
+import { oAuthApi } from "api/oauth/api";
 
 const initialState: AuthState = {
   user: null,
@@ -31,6 +32,20 @@ export const signIn = createAsyncThunk(
   async (data: SignInRequestData, { dispatch, rejectWithValue }) => {
     try {
       await authApi.signIn(data);
+      dispatch(fetchUser());
+    } catch (error: unknown) {
+      console.error(error);
+
+      return rejectWithValue((error as Error).message);
+    }
+  }
+);
+
+export const signInOAuth = createAsyncThunk(
+  "auth/signIn",
+  async (code: string, { dispatch, rejectWithValue }) => {
+    try {
+      await oAuthApi.signInWithYandex(code);
       dispatch(fetchUser());
     } catch (error: unknown) {
       console.error(error);
