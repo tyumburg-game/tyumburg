@@ -1,4 +1,4 @@
-import { shuffle } from "lodash";
+import shuffle from "lodash/shuffle";
 import { NewUser } from "../types/user";
 import { getRandomInt } from "../utils";
 import { NewTopicDB } from "../types/topic";
@@ -14,11 +14,13 @@ const fillDatabase = async (): Promise<void> => {
 
   await Promise.all(
     new Array(USERS_COUNT).fill(undefined).map(async () => {
+      // @ts-ignore
       await UserModel.create(generateUser());
     })
   );
   await Promise.all(
     new Array(TOPICS_COUNT).fill(undefined).map(async () => {
+      // @ts-ignore
       await TopicModel.create(generateTopic());
     })
   );

@@ -1,4 +1,3 @@
-import { isNull } from "lodash";
 import { NewUser, User } from "../types/user";
 import { UserModel } from "../database";
 
@@ -16,10 +15,11 @@ async function getUserById(id: number): Promise<Nullable<User>> {
     ],
   });
 
-  return !isNull(user) ? user.get() : null;
+  return user !== null ? user.get() : null;
 }
 
 async function createNewUser(newUser: NewUser): Promise<User> {
+  // @ts-ignore
   return UserModel.create(newUser, { returning: true });
 }
 

@@ -14,7 +14,7 @@ services:
       - "postgres"
     networks:
       - common-network
-    command: [ "node", "app/server.js" ]
+    command: "npm run start"
   postgres:
     image: postgres:14
     env_file:

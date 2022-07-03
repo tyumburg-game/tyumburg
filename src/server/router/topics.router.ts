@@ -21,6 +21,24 @@ export const topicsRouter = (): Router => {
     }
   });
 
+  router.get("/", async (req, res) => {
+    const { limit } = req.query;
+
+    try {
+      const topics = await topicsController.getAllTopics(
+        limit ? parseInt(limit as string, 10) : undefined
+      );
+
+      if (topics) {
+        res.status(HttpCode.OK).json(topics);
+      } else {
+        res.status(HttpCode.NOT_FOUND).send();
+      }
+    } catch (e) {
+      res.status(HttpCode.NOT_FOUND).send();
+    }
+  });
+
   router.post("/", async (req, res) => {
     try {
       const newTopic = req.body;
