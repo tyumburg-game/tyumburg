@@ -7,7 +7,11 @@ class ForumAPI extends BaseAPI {
   }
 
   getTopics() {
-    return this.instance.get<TopicForum>("/api/topics/id/3", {});
+    return this.instance.get<Array<TopicForum>>("/api/topics?limit=10", {});
+  }
+
+  getTopic(id: number) {
+    return this.instance.get<TopicForum>(`/api/topics/id/${id}`, {});
   }
 }
 

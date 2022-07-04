@@ -1,21 +1,25 @@
 import { CenterPageLayout } from 'components/Layouts/CenterPageLayout/CenterPageLayout';
 import Modal from 'components/Modal/Modal';
 import {useAppSelector} from 'hooks/use-app-selector';
-import {getTopic, selectTopic} from 'store/forum';
+import {getTopics, selectTopics} from 'store/forum';
 import {RootState} from 'store/types';
 import {useAppDispatch} from 'hooks/use-app-dispatch';
 import {useEffect} from 'react';
+import {TopicItem} from './TopicItem';
+import "./ListForumPage.css"
+import {PATHS} from '../../Routes/paths';
+import CustomLink from '../../components/CustomLink/CustomLink';
 
 export function ListForumPage() {
-  const topic = useAppSelector(selectTopic);
+  const topic = useAppSelector(selectTopics);
   const topicLoadingStatus = useAppSelector(
-    (state: RootState) => state.topic.status
+    (state: RootState) => state.topics.status
   );
-  const error = useAppSelector((state: RootState) => state.user.error);
+  const error = useAppSelector((state: RootState) => state.topics.error);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getTopic());
+    dispatch(getTopics());
   }, [dispatch]);
 
   let content;
@@ -23,19 +27,27 @@ export function ListForumPage() {
   if (topicLoadingStatus === "loading") {
     content = "Loading...";
   } else if (topicLoadingStatus === "succeeded") {
-    console.log(topic)
-    content = <p>test</p>;
+    if (topic && topic.topics && topic.topics.length > 0) {
+      content = topic.topics.map(itemTopic => <TopicItem topic={itemTopic} />);
+    } else {
+      content = <p>123</p>;
+    }
   } else if (topicLoadingStatus === "failed") {
     content = <div>{error}</div>;
   }
 
   return (
     <CenterPageLayout>
-      <Modal>
+      <Modal className="modal-forum">
         <Modal.Header title="Форум" />
         <Modal.Content>
-          ${content}
+          {content}
         </Modal.Content>
+        <Modal.Footer>
+          <CustomLink to={PATHS.START} mode="primary">
+            На главную
+          </CustomLink>
+        </Modal.Footer>
       </Modal>
     </CenterPageLayout>
   )

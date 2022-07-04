@@ -24,7 +24,7 @@ export function createStore(initialState: any = {}) {
     reducer: {
       auth: authReducer,
       user: userReducer,
-      topic: forumReducer,
+      topics: forumReducer,
       notifications: notificationsReducer,
     },
     preloadedState,

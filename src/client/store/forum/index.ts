@@ -5,13 +5,13 @@ import { forumApi } from "../../api/forum/forum-api";
 import {RootState} from '../types';
 
 const initialState: ForumState = {
-  topic: null,
+  topics: null,
   status: "idle",
   error: null,
 };
 
-export const getTopic = createAsyncThunk(
-  "forum/getTopic",
+export const getTopics = createAsyncThunk(
+  "forum/getTopics",
   async (_, { rejectWithValue }) => {
     try {
       return await forumApi.getTopics();
@@ -24,21 +24,21 @@ export const getTopic = createAsyncThunk(
 );
 
 export const forumSlice = createSlice({
-  name: "topic",
+  name: "topics",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getTopic.pending, (state) => ({
+      .addCase(getTopics.pending, (state) => ({
         ...state,
         status: "loading",
       }))
-      .addCase(getTopic.fulfilled, (state, action) => ({
+      .addCase(getTopics.fulfilled, (state, action) => ({
         ...state,
         status: "succeeded",
-        topic: action.payload,
+        topics: action.payload,
       }))
-      .addCase(getTopic.rejected, (state, action) => ({
+      .addCase(getTopics.rejected, (state, action) => ({
         ...state,
         status: "failed",
         error: action.error.message ?? null,
@@ -46,6 +46,7 @@ export const forumSlice = createSlice({
   },
 });
 
+
 export const forumReducer = forumSlice.reducer;
 
-export const selectTopic = (state: RootState) => state.topic;
+export const selectTopics = (state: RootState) => state.topics;
