@@ -12,9 +12,9 @@ const initialState: ForumState = {
 
 export const getTopics = createAsyncThunk(
   "forum/getTopics",
-  async (_, { rejectWithValue }) => {
+  (_, { rejectWithValue }) => {
     try {
-      return await forumApi.getTopics();
+      return forumApi.getTopics();
     } catch (error: unknown) {
       console.error(error);
 
