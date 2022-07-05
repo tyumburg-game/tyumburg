@@ -6,9 +6,3 @@ export type ForumState = {
   status: "idle" | "loading" | "succeeded" | "failed";
   error: Nullable<string>;
 };
-
-export type ForumTopicState = {
-  topic: Nullable<TopicForum>;
-  status: "idle" | "loading" | "succeeded" | "failed";
-  error: Nullable<string>;
-};

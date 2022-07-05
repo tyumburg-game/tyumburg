@@ -50,7 +50,7 @@ module.exports = {
       { blankLine: "always", prev: "if", next: "*" },
       { blankLine: "any", prev: "if", next: "if" },
     ],
-    "import/no-unresolved": ["error", { commonjs: true, amd: true }],
+    "import/no-unresolved": [0, { commonjs: true, amd: true }],
     "import/named": "error",
     "import/namespace": "error",
     "import/default": "error",

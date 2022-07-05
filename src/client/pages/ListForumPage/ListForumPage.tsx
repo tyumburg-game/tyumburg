@@ -5,10 +5,10 @@ import {getTopics, selectTopics} from 'store/forum';
 import {RootState} from 'store/types';
 import {useAppDispatch} from 'hooks/use-app-dispatch';
 import {useEffect} from 'react';
-import {TopicItem} from './TopicItem';
 import "./ListForumPage.css"
 import {PATHS} from '../../Routes/paths';
 import CustomLink from '../../components/CustomLink/CustomLink';
+import { TopicItem } from './TopicItem';
 
 export function ListForumPage() {
   const topic = useAppSelector(selectTopics);
