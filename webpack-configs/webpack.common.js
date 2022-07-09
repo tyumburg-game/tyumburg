@@ -1,21 +1,17 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// @ts-check
 const path = require("path");
-const { HotModuleReplacementPlugin } = require("webpack");
-const DotenvPlugin = require("dotenv-webpack");
-const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const { typeScriptRule } = require("./loaders/type-script");
+const { cssRule } = require("./loaders/css");
+const { output } = require("./output");
+const { entry } = require("./entry");
+const { plugins } = require("./plugins");
 
+/**
+ @type {import('webpack').Configuration} Configuration
+ */
 module.exports = {
-  entry: [
-    "@gatsbyjs/webpack-hot-middleware/client?path=/__webpack_hmr",
-    "./src/client/index.tsx",
-  ],
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "client.bundle.js",
-    publicPath: "/",
-    clean: true,
-  },
+  entry: entry.client,
+  output: output.client,
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
     modules: [
@@ -24,37 +20,7 @@ module.exports = {
     ],
   },
   module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: [
-          "babel-loader",
-          {
-            loader: "ts-loader",
-            options: {
-              configFile: path.resolve("./src/client/tsconfig.json"),
-            },
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
-      },
-    ],
+    rules: [typeScriptRule.client, cssRule],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "www/index.html",
-    }),
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshPlugin({
-      overlay: {
-        sockIntegration: "whm",
-      },
-    }),
-    new MiniCssExtractPlugin(),
-    new DotenvPlugin(),
-  ],
+  plugins: plugins.client,
 };
