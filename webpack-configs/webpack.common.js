@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const { HotModuleReplacementPlugin } = require("webpack");
+const DotenvPlugin = require("dotenv-webpack");
 const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
@@ -54,5 +55,6 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin(),
+    new DotenvPlugin(),
   ],
 };
