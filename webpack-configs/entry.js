@@ -14,7 +14,7 @@ const entry = {
   client: [
     !isProd && "@gatsbyjs/webpack-hot-middleware/client?path=/__webpack_hmr",
     "./src/client/index.tsx",
-  ].filter((plugin) => Boolean(plugin)),
+  ].filter(Boolean),
   server: ["./src/client/components/App/App.tsx"],
 };
 

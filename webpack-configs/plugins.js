@@ -29,7 +29,7 @@ const plugins = {
       }),
     new MiniCssExtractPlugin(),
     new DotenvWebpackPlugin(),
-  ].filter((plugin) => Boolean(plugin)),
+  ].filter(Boolean),
   server: [new MiniCssExtractPlugin(), new DotenvWebpackPlugin()],
 };
 
