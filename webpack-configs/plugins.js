@@ -10,6 +10,8 @@ const { HotModuleReplacementPlugin } = require("webpack");
  * @typedef {import('./types/index').ConfigPair<Plugins>} PluginsConfigPair
  */
 
+const production = process.env.NODE_ENV === "production";
+
 /**
  * @type {PluginsConfigPair}
  */
@@ -18,15 +20,16 @@ const plugins = {
     new HtmlWebpackPlugin({
       template: "www/index.html",
     }),
-    new HotModuleReplacementPlugin(),
-    new ReactRefreshPlugin({
-      overlay: {
-        sockIntegration: "whm",
-      },
-    }),
+    !production && new HotModuleReplacementPlugin(),
+    !production &&
+      new ReactRefreshPlugin({
+        overlay: {
+          sockIntegration: "whm",
+        },
+      }),
     new MiniCssExtractPlugin(),
     new DotenvWebpackPlugin(),
-  ],
+  ].filter((plugin) => Boolean(plugin)),
   server: [new MiniCssExtractPlugin(), new DotenvWebpackPlugin()],
 };
 
