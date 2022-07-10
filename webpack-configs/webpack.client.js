@@ -6,10 +6,13 @@ const { output } = require("./output");
 const { entry } = require("./entry");
 const { plugins } = require("./plugins");
 
+const isProd = process.env.NODE_ENV === "production";
+
 /**
  @type {import('webpack').Configuration} Configuration
  */
 module.exports = {
+  mode: isProd ? "production" : "development",
   entry: entry.client,
   output: output.client,
   resolve: {
