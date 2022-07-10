@@ -21,7 +21,7 @@ const output = {
     filename: "ssr.bundle.js",
     publicPath: "/",
     libraryTarget: "commonjs2",
-    clean: true,
+    clean: false,
   },
 };
 
