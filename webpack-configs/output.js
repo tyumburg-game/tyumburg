@@ -14,14 +14,14 @@ const output = {
     path: path.resolve(__dirname, "../dist"),
     filename: "client.bundle.js",
     publicPath: "/",
-    clean: true,
+    clean: false,
   },
   server: {
     path: path.resolve(__dirname, "../dist/bundle"),
     filename: "ssr.bundle.js",
     publicPath: "/",
     libraryTarget: "commonjs2",
-    clean: false,
+    clean: true,
   },
 };
 
