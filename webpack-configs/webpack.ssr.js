@@ -7,13 +7,14 @@ const { output } = require("./output");
 const { entry } = require("./entry");
 const { plugins } = require("./plugins");
 
+const isProd = process.env.NODE_ENV === "production";
+
 /**
  @type {import('webpack').Configuration} Configuration
  */
 module.exports = {
-  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  mode: isProd ? "production" : "development",
   entry: entry.server,
-  target: "node",
   output: output.server,
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -26,5 +27,8 @@ module.exports = {
     rules: [typeScriptRule.server, cssRule],
   },
   plugins: plugins.server,
+  externalsPresets: {
+    node: true,
+  },
   externals: [nodeExternals()],
 };
