@@ -14,9 +14,9 @@ export function render(req: Request, res: Response) {
   const [styles, script] = assetsByChunkName.main;
   const reduxStore = createStore();
 
-  delete require.cache[require.resolve("../../bundle/ssr.bundle.js")];
+  delete require.cache[require.resolve("../../ssr.bundle.js")];
   // eslint-disable-next-line
-  const { App } = require("../../bundle/ssr.bundle");
+  const { App } = require("../../ssr.bundle");
 
   const reactHtml = renderToString(
     <StaticRouter location={req.url}>

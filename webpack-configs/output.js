@@ -17,11 +17,11 @@ const output = {
     clean: false,
   },
   server: {
-    path: path.resolve(__dirname, "../dist/bundle"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "ssr.bundle.js",
     publicPath: "/",
     libraryTarget: "commonjs2",
-    clean: true,
+    clean: false,
   },
 };
 
