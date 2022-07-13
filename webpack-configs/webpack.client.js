@@ -1,6 +1,5 @@
 // @ts-check
 const path = require("path");
-const nodeExternals = require("webpack-node-externals");
 const { typeScriptRule } = require("./loaders/type-script");
 const { cssRule } = require("./loaders/css");
 const { output } = require("./output");
@@ -14,8 +13,8 @@ const isProd = process.env.NODE_ENV === "production";
  */
 module.exports = {
   mode: isProd ? "production" : "development",
-  entry: entry.server,
-  output: output.server,
+  entry: entry.client,
+  output: output.client,
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
     modules: [
@@ -24,11 +23,7 @@ module.exports = {
     ],
   },
   module: {
-    rules: [typeScriptRule.server, cssRule],
+    rules: [typeScriptRule.client, cssRule],
   },
-  plugins: plugins.server,
-  externalsPresets: {
-    node: true,
-  },
-  externals: [nodeExternals()],
+  plugins: plugins.client,
 };
