@@ -13,37 +13,23 @@
 
 [ссылка на проект](https://tyumburg.herokuapp.com/)
 
-## Установка
+## Запуск
 
-Как установить проект локально:
+- Создайте в корне проекта файл `.env` и скопируйте в него контент
+  из `.env.exmaple`
 
-- `npm run start` — запуск версии для разработчика
-- `npm run build` — запуск версии для сборки проекта
+### В одной консоли
 
-## Дизайн проекта
+- `docker-compose build`
+- `docker-compose up`
 
-[ссылка на дизайн Игры Тетрис на ресурсе figma](https://www.figma.com/file/BmdOMrXU10u4YoTBCuW6IR/Tymburg-game)
+#### Отдельно приложение и базу данных
 
-## npm-пакеты
+##### База данных
 
-* Пакеты устанавливаются с
-  флагом `-E` (`--save-exact`): https://docs.npmjs.com/cli/v8/commands/npm-install#save-exact
+- `docker-compose up postgres`
 
-## Политики по веткам
+##### Приложение
 
-* `main` - целевая ветка, в которую мерджится код в конце спринта из `sprint_*`
-  -веток
-  * **Требования**
-    * 2 аппрува
-* `sprint_*` - целевые ветки для каждого спринта. Отводятся от `main` в начале
-  спринта
-  * **Требования**
-    * 1 аппрув
-* `task/tyum-X-*` - ветки, в которых выполяется работа. `tyum-X` соответствует
-  номеру задачи в Trello: https://trello.com/b/6B73GE3O/tyumburg-game.
-  Например, `task/tyum-3-prettier` - настройка Prettier.
-
-## Environments
-
-В корне проекта создать файл `.evn` с переменными окружения.
-Пример файла: `.env.example`
+- `npm run build`
+- `npm run start`

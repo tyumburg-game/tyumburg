@@ -10,10 +10,6 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript",
   ],
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ["./tsconfig.json"],
-  },
   ignorePatterns: [".eslintrc.js", "*.css", "*.png", "sw.ts"],
   settings: {
     "import/parsers": {
@@ -36,7 +32,8 @@ module.exports = {
     "react/require-default-props": "off",
     "react/button-has-type": "off",
     "react/jsx-no-bind": "off",
-    "react/jsx-no-useless-fragment" : "off",
+    "react/jsx-no-useless-fragment": "off",
+    "quotes": ["error", "double"],
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
@@ -74,5 +71,7 @@ module.exports = {
         ],
       },
     ],
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
   },
 };

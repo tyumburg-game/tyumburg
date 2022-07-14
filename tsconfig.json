@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2017", "webworker"],
-    "module": "esnext",
+    "lib": [
+      "dom",
+      "es2017",
+      "webworker"
+    ],
+    "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
     "jsx": "react-jsx",
@@ -10,17 +14,11 @@
     "esModuleInterop": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
     "skipLibCheck": true,
     "declaration": false,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "outDir": "./dist",
-    "paths": {
-      "*": ["./src/*"]
-    },
-    "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"]
+    "sourceMap": true
   },
-  "include": ["src", "typings/**/*.d.ts", "./node_modules/@types"],
-  "exclude": ["**/*.js"]
+  "exclude": [
+    "**/*.js"
+  ]
 }
