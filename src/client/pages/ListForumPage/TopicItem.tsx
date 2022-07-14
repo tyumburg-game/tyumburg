@@ -18,14 +18,14 @@ export function TopicItem(props: {topic: Nullable<TopicForum>}) {
   const createdAt = `${da}-${mo}-${ye} ${hours}:${minutes}`
 
   return (
-    <div className="topicItem-wrapper">
+    <div className="topic-item-wrapper">
       <div>
         <h3 className="h3-title">{topic.title}</h3>
       </div>
       <div>
         <p>{topic.content}</p>
       </div>
-      <ul className="topicItem-meta">
+      <ul className="topic-item-meta">
         <li>Author: {topic.user.first_name} {topic.user.display_name}</li>
         <li>Created: {createdAt}</li>
       </ul>

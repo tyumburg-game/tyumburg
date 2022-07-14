@@ -3,12 +3,12 @@
   font-size: 1.2rem;
 }
 
-.topicItem-meta {
+.topic-item-meta {
   display: block;
   padding: 0;
 }
 
-.topicItem-meta li {
+.topic-item-meta li {
   display: inline-block;
   margin-right: 20px;
 }
