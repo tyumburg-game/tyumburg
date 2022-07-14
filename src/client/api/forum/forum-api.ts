@@ -1,12 +1,16 @@
 import {BaseAPI} from "../base-api";
 import {TopicForum} from "./forum-api.types";
+import {env} from "../../constants/env"
 
 class ForumAPI extends BaseAPI {
   constructor() {
-    super("", "http://localhost:3000");
+    super("", env.HOST_API_2);
+
+
   }
 
   getTopics() {
+    console.log("env.HOST_API_2", env.HOST_API_2)
     return this.instance.get<Array<TopicForum>>("/api/topics?limit=10", {});
   }
 
