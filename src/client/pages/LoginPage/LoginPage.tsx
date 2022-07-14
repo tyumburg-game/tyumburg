@@ -16,7 +16,7 @@ import { signIn } from "store/auth";
 import { notificationsActions } from "store/notifications";
 import { oAuthApi } from "api/oauth/api";
 import { OAuthPaths } from "api/oauth/paths";
-import './LoginPage.css';
+import "./LoginPage.css";
 
 export function LoginPage() {
   const [inputs] = useState<SignInRequestData>({
@@ -28,20 +28,19 @@ export function LoginPage() {
   const navigate = useNavigate();
   const { setNotification } = useActions(notificationsActions);
 
-  const onOAuth = useCallback(
-    async () => {
-      try {
-        const result = await oAuthApi.getServiceId();
+  const onOAuth = useCallback(async () => {
+    try {
+      const result = await oAuthApi.getServiceId();
 
-        if (result) {
-          window.location.replace(`${OAuthPaths.providerURL}&client_id=${result.service_id}&redirect_uri=${OAuthPaths.redirectURI}`);
-        }
-      } catch (e) {
-          console.error(e);
+      if (result) {
+        window.location.replace(
+          `${OAuthPaths.providerURL}&client_id=${result.service_id}&redirect_uri=${OAuthPaths.redirectURI}`
+        );
       }
-    },
-    []
-  )
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
 
   const onSubmit = useCallback(
     async (values: SignInRequestData) => {
@@ -72,7 +71,11 @@ export function LoginPage() {
             <Modal.Content>
               <InputField type="text" label="Логин" name="login" />
               <InputField type="password" label="Пароль" name="password" />
-              <Button className="login-page__button-yandex" onClick={onOAuth} mode="secondary">
+              <Button
+                className="login-page__button-yandex"
+                onClick={onOAuth}
+                mode="secondary"
+              >
                 войти через Яндекс
               </Button>
             </Modal.Content>
