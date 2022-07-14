@@ -8,7 +8,7 @@ import {
 
 class AuthAPI extends BaseAPI {
   constructor() {
-    super("/auth", undefined);
+    super("/auth");
   }
 
   signUp(data: SignUpRequestData) {
