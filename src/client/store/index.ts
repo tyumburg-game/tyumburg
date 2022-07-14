@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { userReducer } from "./user";
 import { authReducer } from "./auth";
+import { forumReducer } from "./forum";
 import { notificationsReducer } from "./notifications";
 
 declare global {
@@ -23,6 +24,7 @@ export function createStore(initialState: any = {}) {
     reducer: {
       auth: authReducer,
       user: userReducer,
+      topics: forumReducer,
       notifications: notificationsReducer,
     },
     preloadedState,

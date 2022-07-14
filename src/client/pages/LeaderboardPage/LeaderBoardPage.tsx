@@ -27,19 +27,23 @@ export function LeaderboardPage() {
       <Modal.Content>
         <div className="main-menu leaderboard-wrapper">
           <table className="leaderboard-table">
-            <tr>
-              <th>Место</th>
-              <th>Имя</th>
-              <th>Счет</th>
-            </tr>
-            {data.map((player: Player, index: number) =>
-              <tr key={player.login}>
-                <td>{index + 1}</td>
-                <td>{`${player.firstName} ${player.secondName}`}</td>
-                <td>{player.score}</td>
+            <thead>
+              <tr>
+                <th>Место</th>
+                <th>Имя</th>
+                <th>Счет</th>
               </tr>
-              )
-            }
+            </thead>
+            <tbody>
+              {data.map((player: Player, index: number) =>
+                <tr key={player.login}>
+                  <td>{index + 1}</td>
+                  <td>{`${player.firstName} ${player.secondName}`}</td>
+                  <td>{player.score}</td>
+                </tr>
+                )
+              }
+            </tbody>
           </table>
         </div>
       </Modal.Content>

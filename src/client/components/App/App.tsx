@@ -1,4 +1,4 @@
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { GamePage } from "components/GamePage/GamePage";
 import { PATHS } from "Routes/paths";
 import { PrivateOutlet } from "Routes/PrivateOutlet";
@@ -11,6 +11,7 @@ import { ProfilePage } from "pages/ProfilePage";
 import { LeaderboardPage } from "pages/LeaderboardPage/LeaderBoardPage";
 import { NotificationList } from "components/NotificationList/NotificationList";
 import { SignUpPage } from "pages/SignUpPage/SignUpPage";
+import { ListForumPage } from "pages/ListForumPage/ListForumPage";
 import "./App.css";
 import "../../styles/index.css";
 
@@ -19,7 +20,7 @@ export function App() {
     <>
       <Routes>
         <Route path={PATHS.START} element={<StartPage />} />
-        <Route path={PATHS.FORUM} element={<Outlet />} />
+        <Route path={PATHS.FORUM} element={<ListForumPage />} />
         <Route path={PATHS.GAME} element={<GamePage />} />
         <Route path={PATHS.LEADERBOARD} element={<LeaderboardPage />} />
         <Route path={PATHS.SIGN_IN} element={<LoginPage />} />
