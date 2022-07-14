@@ -1,14 +1,14 @@
-import { CenterPageLayout } from 'components/Layouts/CenterPageLayout/CenterPageLayout';
-import Modal from 'components/Modal/Modal';
-import {useAppSelector} from 'hooks/use-app-selector';
-import {getTopics, selectTopics} from 'store/forum';
-import {RootState} from 'store/types';
-import {useAppDispatch} from 'hooks/use-app-dispatch';
-import {useEffect} from 'react';
+import {useEffect} from "react";
+import Modal from "components/Modal/Modal";
+import {useAppSelector} from "hooks/use-app-selector";
+import {getTopics, selectTopics} from "store/forum";
+import {RootState} from "store/types";
+import {useAppDispatch} from "hooks/use-app-dispatch";
+import { CenterPageLayout } from "components/Layouts/CenterPageLayout/CenterPageLayout";
 import "./ListForumPage.css"
-import {PATHS} from '../../Routes/paths';
-import CustomLink from '../../components/CustomLink/CustomLink';
-import { TopicItem } from './TopicItem';
+import {PATHS} from "../../Routes/paths";
+import CustomLink from "../../components/CustomLink/CustomLink";
+import { TopicItem } from "./TopicItem";
 
 export function ListForumPage() {
   const topic = useAppSelector(selectTopics);
@@ -30,7 +30,7 @@ export function ListForumPage() {
     if (topic && topic.topics && topic.topics.length > 0) {
       content = topic.topics.map(itemTopic => <TopicItem topic={itemTopic} />);
     } else {
-      content = <p>123</p>;
+      content = <p>Нет тем для обсуждения</p>;
     }
   } else if (topicLoadingStatus === "failed") {
     content = <div>{error}</div>;

@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
 import { ForumState } from "store/forum/types";
+import { RootState } from "../types";
+
 import { forumApi } from "../../api/forum/forum-api";
-import { RootState } from '../types';
 
 const initialState: ForumState = {
   topics: null,

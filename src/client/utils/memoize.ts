@@ -1,5 +1,5 @@
 function generateKey(args: any[]) {
-  return args.map(arg => `${typeof(arg)}<${String(arg)}>`).join(',');
+  return args.map(arg => `${typeof(arg)}<${String(arg)}>`).join(",");
 }
 
 export function memoize(fn: Function) {

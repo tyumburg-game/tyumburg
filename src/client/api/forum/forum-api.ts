@@ -1,5 +1,5 @@
-import {BaseAPI} from '../base-api';
-import {TopicForum} from './forum-api.types';
+import {BaseAPI} from "../base-api";
+import {TopicForum} from "./forum-api.types";
 
 class ForumAPI extends BaseAPI {
   constructor() {

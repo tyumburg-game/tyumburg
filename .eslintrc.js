@@ -33,6 +33,7 @@ module.exports = {
     "react/button-has-type": "off",
     "react/jsx-no-bind": "off",
     "react/jsx-no-useless-fragment": "off",
+    "quotes": ["error", "double"],
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
